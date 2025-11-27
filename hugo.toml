@@ -1,6 +1,6 @@
 # --- 请完整复制下面的所有内容 ---
 
-baseURL = "http://example.org/" # 临时URL，以后部署时再改
+baseURL = "https://cixia-zhao.github.io/digital-garden/" # 临时URL，以后部署时再改
 languageCode = "zh-cn"
 title = "我的数字花园"
 theme = "PaperMod" # 确保这一行是正确的
