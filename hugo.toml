@@ -1,0 +1,35 @@
+# --- 请完整复制下面的所有内容 ---
+
+baseURL = "http://example.org/" # 临时URL，以后部署时再改
+languageCode = "zh-cn"
+title = "我的数字花园"
+theme = "PaperMod" # 确保这一行是正确的
+
+# 启用搜索和文章目录
+outputs = { home = ["HTML", "RSS", "JSON"] }
+
+# 主题参数配置
+[params]
+  defaultTheme = "auto" # 默认主题模式 (auto, light, dark)
+  ShowReadingTime = true # 显示阅读时间
+  ShowShareButtons = true # 显示分享按钮
+  ShowPostNavLinks = true # 显示上一篇/下一篇文章导航
+  ShowBreadCrumbs = true # 显示面包屑导航
+
+# 导航菜单配置
+[menu]
+  [[menu.main]]
+    identifier = "archives"
+    name = "归档"
+    url = "/archives/"
+    weight = 10
+  [[menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/search/"
+    weight = 20
+  [[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 30
