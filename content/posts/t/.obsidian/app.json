@@ -1,5 +1,6 @@
 {
   "newFileLocation": "folder",
   "newFileFolderPath": "context/posts",
-  "attachmentFolderPath": "./"
+  "attachmentFolderPath": "./",
+  "promptDelete": false
 }
