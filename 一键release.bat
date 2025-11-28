@@ -1,19 +1,21 @@
 @echo off
 chcp 65001 > nul
 
-REM --- 这是一个一键提交和推送笔记到GitHub的脚本 ---
-
 echo.
 echo =========================================
-echo      笔记自动发布脚本
+echo      笔记发布脚本 [防忘记提醒版]
 echo =========================================
 echo.
 
-REM 提示用户输入提交信息
-set /p commit_msg="请输入本次更新内容 (直接回车则使用默认信息): "
+set /p commit_msg="请输入本次更新内容 (如果已提交, 直接关闭本窗口): "
 
-REM 如果用户没有输入，则使用默认信息
-if "%commit_msg%"=="" set commit_msg="docs: update notes"
+REM 如果用户只是按了回-车但没输入内容, 则退出
+if "%commit_msg%"=="" (
+    echo.
+    echo -- 未输入内容, 操作已取消 --
+    timeout /t 3
+    exit
+)
 
 echo.
 echo -----------------------------------------
@@ -28,7 +30,6 @@ git push
 echo -----------------------------------------
 echo.
 
-echo.
-echo  ^>_^<  所有操作已完成！你的网站正在后台更新...
+echo  ^>_^<  操作完成！
 echo.
 pause
