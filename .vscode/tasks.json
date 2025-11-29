@@ -3,25 +3,15 @@
     "tasks": [
         {
             "label": "Run Publish Script Interactively",
-            "type": "shell", // 使用 "shell" 类型更符合我们的意图
-            
-            // --- 核心修改在这里 ---
+            "type": "shell",
             "command": "start",
-
             "args": [
-                // "start" 命令的第一个参数会被当成新窗口的标题，
-                // 我们给一个空字符串 "" 或者一个有意义的标题都可以
-                "\"Git Publish\"", 
-                
-                // 这是要真正执行的命令
+                "\"Git Publish\"",
                 "\"${workspaceFolder}/run_publish_interactively.bat\""
             ],
-            // ------------------------
-
             "problemMatcher": [],
             "presentation": {
-                // 既然它会弹窗，我们更不需要 VS Code 的终端面板出现了
-                "reveal": "never" 
+                "reveal": "never"
             }
         }
     ]
