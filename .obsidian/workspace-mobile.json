@@ -112,15 +112,57 @@
               "type": "markdown",
               "state": {
                 "file": "content/posts/英语翻译笔记.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "英语翻译笔记"
+            }
+          },
+          {
+            "id": "3bf3618f351b4fec",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/posts/大物.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "大物"
+            }
+          },
+          {
+            "id": "80ed0bfe944251ef",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/posts/英语翻译笔记.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "英语翻译笔记"
             }
+          },
+          {
+            "id": "ffb8280aa4bcf828",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/posts/英语阅读词汇.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "英语阅读词汇"
+            }
           }
         ],
-        "currentTab": 7
+        "currentTab": 10
       }
     ],
     "direction": "vertical"
@@ -267,12 +309,20 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "3210bd513adab3d8",
+  "active": "ffb8280aa4bcf828",
   "lastOpenFiles": [
+    "content/posts/模板插入测试.md",
+    "content/posts/电工电子技术.md",
+    "static/images/Screenshot_2025-12-08-15-17-12-18_a935a6faaffa07c582f2c3acde62ae6b.jpg",
     "content/posts/英语翻译笔记.md",
-    "content/posts/大物.md",
-    "content/posts/线性代数.md",
+    "未命名 1",
     "content/posts/英语阅读词汇.md",
+    "content/posts/大物22.md",
+    "content/posts/大物.md",
+    "未命名",
+    "大物2",
+    "content/posts/Ai提示词.md",
+    "content/posts/线性代数.md",
     "content/posts/tes.md",
     "content/posts/my-first-note.md",
     "一键release.bat",
@@ -281,12 +331,10 @@
     "static/images",
     "static",
     "test/未命名.md",
-    "content/posts/模板插入测试.md",
     "test",
     "未命名 2",
     "templates/Hugo 模板.md",
     "content/posts/安卓测试.md",
-    "未命名 1",
     "templates",
     "test.md"
   ]
