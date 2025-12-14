@@ -153,12 +153,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/posts/英语阅读词汇.md",
+                "file": "content/posts/英语翻译笔记.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "英语阅读词汇"
+              "title": "英语翻译笔记"
             }
           }
         ],
@@ -253,7 +253,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "content/posts/大物.md",
+            "file": "content/posts/英语翻译笔记.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -311,18 +311,20 @@
   },
   "active": "ffb8280aa4bcf828",
   "lastOpenFiles": [
+    "content/posts/英语阅读词汇.md",
+    "static/images/IMG_20251212_170631.jpg",
+    "static/images/Screenshot_2025-12-12-17-05-52-62_149003a2d400f6adb210d7e357a3a646.jpg",
+    "content/posts/英语翻译笔记.md",
+    "content/posts/大物.md",
+    "content/posts/线性代数.md",
     "content/posts/模板插入测试.md",
     "content/posts/电工电子技术.md",
     "static/images/Screenshot_2025-12-08-15-17-12-18_a935a6faaffa07c582f2c3acde62ae6b.jpg",
-    "content/posts/英语翻译笔记.md",
     "未命名 1",
-    "content/posts/英语阅读词汇.md",
     "content/posts/大物22.md",
-    "content/posts/大物.md",
     "未命名",
     "大物2",
     "content/posts/Ai提示词.md",
-    "content/posts/线性代数.md",
     "content/posts/tes.md",
     "content/posts/my-first-note.md",
     "一键release.bat",
