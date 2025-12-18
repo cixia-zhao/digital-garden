@@ -1,43 +1,38 @@
-# 工作流的名称
 name: Deploy Quartz to GitHub Pages
 
-# 触发条件：当 v4 分支有新的 push 时触发
 on:
   push:
     branches:
       - v4
 
-# 权限设置，允许工作流向 gh-pages 分支写入内容
 permissions:
   contents: write
 
-# 任务列表
 jobs:
   build-and-deploy:
-    # 运行环境：使用最新的 Ubuntu 系统
     runs-on: ubuntu-latest
 
-    # 步骤
     steps:
-      # 步骤 1: 拉取你的 v4 分支的最新代码
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 步骤 2: 安装 Node.js 环境，这是运行 npm 命令所必需的
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
 
-      # 步骤 3: 安装项目依赖 (比如 gh-pages)
       - name: Install dependencies
         run: npm install
-        
-      # 步骤 4: 执行部署命令
-      - name: Deploy
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          npm run deploy
+
+      - name: Build Quartz
+        run: npx quartz build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
