@@ -6,6 +6,18 @@
       <description>Last 10 notes on Quartz 4</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>理论力学学习笔记</title>
+    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/</link>
+    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/</guid>
+    <description><![CDATA[ 能过就行. ]]></description>
+    <pubDate>Thu, 18 Dec 2025 15:19:30 GMT</pubDate>
+  </item><item>
+    <title>大物 磁</title>
+    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E5%A4%A7%E7%89%A9-%E7%A3%81</link>
+    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E5%A4%A7%E7%89%A9-%E7%A3%81</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Thu, 18 Dec 2025 13:47:40 GMT</pubDate>
+  </item><item>
     <title>英语学习笔记</title>
     <link>https://quartz.jzhao.xyz/English/</link>
     <guid>https://quartz.jzhao.xyz/English/</guid>
@@ -52,18 +64,6 @@
     <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF</link>
     <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF</guid>
     <description><![CDATA[ 第一章 判断负载 关联参考方向下（正极流入），p为正，则吸收功率，为负载，p为负则产生功率，为电源。 注意题目问的功率，有没有产生这2字，则正负颠倒。 . ]]></description>
-    <pubDate>Wed, 17 Dec 2025 14:36:33 GMT</pubDate>
-  </item><item>
-    <title>数学学习笔记</title>
-    <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/</link>
-    <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/</guid>
-    <description><![CDATA[ 这里是关于 数学学习笔记的总览…. ]]></description>
-    <pubDate>Wed, 17 Dec 2025 14:36:33 GMT</pubDate>
-  </item><item>
-    <title>线性代数</title>
-    <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0</link>
-    <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0</guid>
-    <description><![CDATA[ 考点 小题 第一章 行列式性质 （拆分性质） 第二章 两矩阵乘积计算 （求逆 和行列式运算性质）已知矩阵求伴随矩阵 第三章 利用 线性相关性求参数（组成3阶行列式令为0） 第四章 齐次与非齐次解的结构 （解的性质） 第五章 特征值特征向量的性质 第六章 一个矩阵合同与对角矩阵求正惯性指数（如果简单题：主对角线元素正数个数 如果题复杂题先求A特征值 数A特征值的正数个数） 计算 第一章2个4阶行列式（纯数字） 大题 第二章 矩阵方程 第三章 给出一个向量组 求一个向量组的秩并求最大线性无关组 第四章 非齐次线性方程组的通解 第五章 实对称矩阵的正交相似对角化（），最后一个证明题（特征值与特征向量... ]]></description>
     <pubDate>Wed, 17 Dec 2025 14:36:33 GMT</pubDate>
   </item>
     </channel>
