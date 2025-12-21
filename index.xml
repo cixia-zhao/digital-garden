@@ -6,16 +6,16 @@
       <description>Last 10 notes on Quartz 4</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>静力学</title>
-    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E9%9D%99%E5%8A%9B%E5%AD%A6</link>
-    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E9%9D%99%E5%8A%9B%E5%AD%A6</guid>
-    <description><![CDATA[ 第一章 均布载荷力大小等于 ql，l为载荷长度 力矩乘为 ql × 力矩（在l中点）. ]]></description>
-    <pubDate>Sun, 21 Dec 2025 12:07:54 GMT</pubDate>
-  </item><item>
     <title>电工电子技术</title>
     <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF</link>
     <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF</guid>
     <description><![CDATA[ 第一章 判断负载 关联参考方向下（正极流入），p为正，则吸收功率，为负载，p为负则产生功率，为电源。 注意题目问的功率，有没有产生这2字，则正负颠倒。 第二章 叠加定理 电源分别单独作用再相加，其他部分失去作用 电流源不作用等于断路（没有电流） 。 电压源不作用等于短路（没有电压）。 电源等效变换 方向：电压源等效为电流源后，方向是原来正极流出，不是关联参考方向。 戴维宁定理 -求所求支路开路后电压U 求除源等效电阻r 原支路接回并串电阻r ，求未知量 最大功率传递定理 当负载R等于戴维宁等效电阻r时，负载R有最大功率Pm等于 U平方/4R 第三章 暂态分析 电容 电感 电容 C 单位F 电感... ]]></description>
+    <pubDate>Sun, 21 Dec 2025 12:20:30 GMT</pubDate>
+  </item><item>
+    <title>静力学</title>
+    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E9%9D%99%E5%8A%9B%E5%AD%A6</link>
+    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E9%9D%99%E5%8A%9B%E5%AD%A6</guid>
+    <description><![CDATA[ 第一章 均布载荷力大小等于 ql，l为载荷长度 力矩乘为 ql × 力矩（在l中点）. ]]></description>
     <pubDate>Sun, 21 Dec 2025 12:07:54 GMT</pubDate>
   </item><item>
     <title>磁</title>
