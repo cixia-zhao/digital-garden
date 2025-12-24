@@ -6,16 +6,40 @@
       <description>Last 10 notes on Quartz 4</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>运动学</title>
+    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E8%BF%90%E5%8A%A8%E5%AD%A6</link>
+    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E8%BF%90%E5%8A%A8%E5%AD%A6</guid>
+    <description><![CDATA[ 第六章 公式 主要是几何关系 有表达式直接求导 若没有，问速度的情况，则找半径（通常一段是O）,然后找角度，求s，接下来一路求导， 问角速度情况，则找角度，求导得角速度。 加速度注意有两，导出来的是切向。 第八章 例题 例题 补充公式 an(径向加速度)等于ω平方×R a涛（切向加速度） 等于 ε×R 第十一章 动量定理 动量矩定理 . ]]></description>
+    <pubDate>Wed, 24 Dec 2025 14:18:16 GMT</pubDate>
+  </item><item>
+    <title>电工电子技术学习笔记</title>
+    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/</link>
+    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/</guid>
+    <description><![CDATA[ 加油！. ]]></description>
+    <pubDate>Wed, 24 Dec 2025 14:18:16 GMT</pubDate>
+  </item><item>
+    <title>电工电子技术上册</title>
+    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E4%B8%8A%E5%86%8C</link>
+    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E4%B8%8A%E5%86%8C</guid>
+    <description><![CDATA[ 第一章 判断负载 关联参考方向下（正极流入），p为正，则吸收功率，为负载，p为负则产生功率，为电源。 注意题目问的功率，有没有产生这2字，则正负颠倒。 第二章 叠加定理 电源分别单独作用再相加，其他部分失去作用 电流源不作用等于断路（没有电流） 。 电压源不作用等于短路（没有电压）。 电源等效变换 方向：电压源等效为电流源后，方向是原来正极流出，不是关联参考方向。 戴维宁定理 -求所求支路开路后电压U 求除源等效电阻r 原支路接回并串电阻r ，求未知量 最大功率传递定理 当负载R等于戴维宁等效电阻r时，负载R有最大功率Pm等于 U平方/4R 第三章 暂态分析 电容 电感 电容 C 单位F 电感... ]]></description>
+    <pubDate>Wed, 24 Dec 2025 14:18:16 GMT</pubDate>
+  </item><item>
+    <title>电工电子技术下</title>
+    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E4%B8%8B</link>
+    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E4%B8%8B</guid>
+    <description><![CDATA[ 第八章 正偏导通，等效为导线。 反偏截止，等效为开路 例 比较两边若阳-阴大于0.7，则导通，电压为阳电压。若不，则截止，电压为阴。如果多个导通，只导通大的多的 第九章 晶体管 记忆： N(negative)消极E向下 P(positive)积极E向上 公式 判断 放大电路 直流转换（除电容开路） 公式 第十章 微变等效电路 公式 I_EQ等于 I_B+I_C 集成放大器运用 虚断 虚短 虚断 第十一章 逻辑代数 与 或 非 表达式 常用 . ]]></description>
+    <pubDate>Wed, 24 Dec 2025 14:18:16 GMT</pubDate>
+  </item><item>
+    <title>高等数学</title>
+    <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6</link>
+    <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6</guid>
+    <description><![CDATA[ 极限存在准则 &amp; 两个重要极限 同济高等数学上册第七版 核心知识笔记 一、极限存在准则 准则 I（夹逼准则） · 数列形式： 若数列 {y_n}, {x_n}, {z_n} 满足： y_n \le x_n \le z_n（从某项起）， \lim_{n \to \infty} y_n = \lim_{n \to \infty} z_n = a， 则 \lim_{n \to \infty} x_n = a。 · 函数形式： 若函数 f(x), g(x), h(x) 在 x_0 某去心邻域内满足： g(x) \le f(x) \le h(x)， \lim_{x \to x_0} g(x) =... ]]></description>
+    <pubDate>Wed, 24 Dec 2025 14:18:16 GMT</pubDate>
+  </item><item>
     <title>平面运动</title>
     <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E5%B9%B3%E9%9D%A2%E8%BF%90%E5%8A%A8</link>
     <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E5%B9%B3%E9%9D%A2%E8%BF%90%E5%8A%A8</guid>
     <description><![CDATA[ 第九章 技巧 一段固定，则另一段运动一定是定轴转动。 瞬心法 注意角速度为连线角速度。 技巧 看见定轴转动，直接延长轴线找瞬心 速度投影定理 基点法 取基点然后平移基点速度到所求点，另一边写垂直两点连线速度（是定轴转动） 技巧 一般如果有法向加速度，到求的时候，是可以直接角速度平方乘半径求的 一般能求速度，意味着加速度也已知（多×一回角速度） . ]]></description>
-    <pubDate>Tue, 23 Dec 2025 16:05:28 GMT</pubDate>
-  </item><item>
-    <title>运动学</title>
-    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E8%BF%90%E5%8A%A8%E5%AD%A6</link>
-    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E8%BF%90%E5%8A%A8%E5%AD%A6</guid>
-    <description><![CDATA[ 第六章 公式 主要是几何关系 有表达式直接求导 若没有，问速度的情况，则找半径（通常一段是O）,然后找角度，求s，接下来一路求导， 问角速度情况，则找角度，求导得角速度。 加速度注意有两，导出来的是切向。 第八章 例题 例题 补充公式 an(径向加速度)等于ω平方×R a涛（切向加速度） 等于 ε×R . ]]></description>
     <pubDate>Tue, 23 Dec 2025 16:05:28 GMT</pubDate>
   </item><item>
     <title>书摘</title>
@@ -30,12 +54,6 @@
     <description><![CDATA[ 习题九 前3 好的，我们开始。本次先讲解前3道关于磁场基本概念的选择题。 核心概念、公式与解题要点 磁场的本质与来源 · 物质性：磁场是客观存在的物质，携带能量与动量。 · 唯一来源：运动的电荷（即电流）。 · 宏观表现：通电导线（电荷定向移动）产生磁场。 · 微观解释：永久磁铁的磁性来源于原子内部电子的轨道运动与自旋（安培分子电流假说）。 · 相互作用媒介：所有磁相互作用（磁体间、电流间）均通过磁场传递。过程为：源（电流A）→ 激发磁场 → 磁场对另一客体（电流B）施加力。 · 电与磁的基本关系： · 静止电荷 → 激发静电场。 · 运动电荷（电流）→ 激发磁场。 · （后续内容）变化磁场 ... ]]></description>
     <pubDate>Tue, 23 Dec 2025 09:10:17 GMT</pubDate>
   </item><item>
-    <title>电工电子技术</title>
-    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF</link>
-    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF</guid>
-    <description><![CDATA[ 第一章 判断负载 关联参考方向下（正极流入），p为正，则吸收功率，为负载，p为负则产生功率，为电源。 注意题目问的功率，有没有产生这2字，则正负颠倒。 第二章 叠加定理 电源分别单独作用再相加，其他部分失去作用 电流源不作用等于断路（没有电流） 。 电压源不作用等于短路（没有电压）。 电源等效变换 方向：电压源等效为电流源后，方向是原来正极流出，不是关联参考方向。 戴维宁定理 -求所求支路开路后电压U 求除源等效电阻r 原支路接回并串电阻r ，求未知量 最大功率传递定理 当负载R等于戴维宁等效电阻r时，负载R有最大功率Pm等于 U平方/4R 第三章 暂态分析 电容 电感 电容 C 单位F 电感... ]]></description>
-    <pubDate>Tue, 23 Dec 2025 09:10:17 GMT</pubDate>
-  </item><item>
     <title>介绍</title>
     <link>https://quartz.jzhao.xyz/posts/%E4%BB%8B%E7%BB%8D</link>
     <guid>https://quartz.jzhao.xyz/posts/%E4%BB%8B%E7%BB%8D</guid>
@@ -47,24 +65,6 @@
     <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E9%9D%99%E5%8A%9B%E5%AD%A6</guid>
     <description><![CDATA[ 第一章 均布载荷力大小等于 ql，l为载荷长度 力矩乘为 ql × 力矩（在l中点） 第三章 三角拱 先研究半支座（取矩），再研究整体（三方程） 例 组合梁 先研究外杆 （取矩），再研究整体（三方程） 例 第五章 节点法 假定受拉 全二力杆，研究所有只由杆子相交的节点（两方程） 截面法 一次三杆 截取部分变成外力，不考虑内力（被包含的节点） 第六章 . ]]></description>
     <pubDate>Mon, 22 Dec 2025 09:56:30 GMT</pubDate>
-  </item><item>
-    <title>大学物理笔记</title>
-    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86/</link>
-    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86/</guid>
-    <description><![CDATA[ 能过就行…. ]]></description>
-    <pubDate>Thu, 18 Dec 2025 15:39:41 GMT</pubDate>
-  </item><item>
-    <title>理论力学学习笔记</title>
-    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/</link>
-    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/</guid>
-    <description><![CDATA[ 能过就行. ]]></description>
-    <pubDate>Thu, 18 Dec 2025 15:19:30 GMT</pubDate>
-  </item><item>
-    <title>英语学习笔记</title>
-    <link>https://quartz.jzhao.xyz/English/</link>
-    <guid>https://quartz.jzhao.xyz/English/</guid>
-    <description><![CDATA[ 这里是关于 英语学习笔记的总览…. ]]></description>
-    <pubDate>Wed, 17 Dec 2025 14:36:33 GMT</pubDate>
   </item>
     </channel>
   </rss>
