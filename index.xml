@@ -9,8 +9,8 @@
     <title>高等数学</title>
     <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6</link>
     <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6</guid>
-    <description><![CDATA[ 第七章 定积分在几何学上应用 参数方程求面积 极坐标求面积 旋转体求体积 求弧长 原理 START Basic 问题：：求由曲线 y=f(x)，x 轴，以及直线 x=a, x=b 围成的平面图形，绕 x 轴旋转一周所形成的旋转体的体积公式是什么？ 答案：[V = \pi \int_{a}^{b} [f(x)]^2 ,dx] END 第七章 微分方程 注意 变上限积分求导方法 . ]]></description>
-    <pubDate>Sun, 28 Dec 2025 15:02:49 GMT</pubDate>
+    <description><![CDATA[ 第七章 定积分在几何学上应用 参数方程求面积 极坐标求面积 旋转体求体积 求弧长 原理 START Basic 问题：：求由曲线 y=f(x)，x 轴，以及直线 x=a, x=b 围成的平面图形，绕 x 轴旋转一周所形成的旋转体的体积公式是什么？ 答案：[V = \pi \int_{a}^{b} [f(x)]^2 ,dx] END . ]]></description>
+    <pubDate>Sun, 28 Dec 2025 15:04:31 GMT</pubDate>
   </item><item>
     <title>thoughts</title>
     <link>https://quartz.jzhao.xyz/posts/thoughts</link>
