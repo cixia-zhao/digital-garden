@@ -6,65 +6,65 @@
       <description>Last 10 notes on Quartz 4</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>高等数学</title>
-    <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6</link>
-    <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6</guid>
-    <description><![CDATA[ 分部积分法 分部积分法是微积分中一项基本且重要的积分技巧，它能将一个不易直接求解的积分问题，转化为另一个相对更容易求解的积分与一个代数项的组合。这个方法本质上是函数乘积求导法则的逆运算。 其核心公式表达如下： \int u \, dv = uv - \int v \, du 在使用此公式时，关键在于恰当地选择哪个部分作为 u（通常是容易求导的函数），哪个部分作为 dv（通常是容易积分的函数）。 反对幂指三，选u顺序 原理与推导： 该公式的推导过程非常直观，直接源于函数乘积的求导法则： 设有两个可微函数 u(x) 和 v(x)，它们的乘积的导数是：(uv)&#039; = u&#039;v + ... ]]></description>
-    <pubDate>Tue, 30 Dec 2025 00:24:57 GMT</pubDate>
+    <title>vim快捷键</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/vim%E5%BF%AB%E6%8D%B7%E9%94%AE</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/vim%E5%BF%AB%E6%8D%B7%E9%94%AE</guid>
+    <description><![CDATA[ Vim 的哲学：像搭乐高一样组合命令 在 Normal 模式下，Vim 的操作遵循一个简单的“语法”：[动作] + [范围/对象]。 动作 (Action): 比如 d (delete), y (yank/copy), c (change)。 范围/对象 (Motion): 比如 w (word), s (sentence), p (paragraph)，或者你光标移动到的任何地方。 一旦你理解了这个“语法”，你就能组合出无穷的命令，而不需要死记硬背。 为你定制的“日常编码”核心命令集 我们将这些命令分为几个核心场景，请在写代码时有意识地去使用它们，很快就能形成肌肉记忆。 场景一：移动与导航 ... ]]></description>
+    <pubDate>Mon, 19 Jan 2026 05:11:06 GMT</pubDate>
   </item><item>
-    <title>thoughts</title>
-    <link>https://quartz.jzhao.xyz/posts/thoughts</link>
-    <guid>https://quartz.jzhao.xyz/posts/thoughts</guid>
-    <description><![CDATA[ 水墨屏 anki 随身小尺寸 针对注意力抢夺 一种终端设备 播放学习视频 得以屏蔽广告，一些吸引人算法 2025-12-27 18:41. ]]></description>
-    <pubDate>Sun, 28 Dec 2025 13:23:51 GMT</pubDate>
+    <title>介绍</title>
+    <link>https://quartz.jzhao.xyz/posts/%E4%BB%8B%E7%BB%8D</link>
+    <guid>https://quartz.jzhao.xyz/posts/%E4%BB%8B%E7%BB%8D</guid>
+    <description><![CDATA[ 我的个人知识引擎：一套跨平台、全自动化的数字花园系统 大家好，今天我想向大家展示我为自己量身打造的一套个人知识管理与发布系统。它的核心目标是：让我的知识在所有设备（电脑、手机）上无缝同步，并能通过一个简单的命令，一键发布成一个公开、美观且功能强大的个人网站。 在线访问我的数字花园： https://你的GitHub用户名.github.io/digital-garden 一、它是什么？—— 一个活的、可交互的“第二大脑” 这不仅仅是一个传统的博客，我更愿意称它为“数字花园”。这里的知识不是孤立的文章，而是一个动态生长、相互连接的网络。 核心功能一览： 交互式关系图谱： 像星图一样，直观展示所有... ]]></description>
+    <pubDate>Mon, 19 Jan 2026 04:58:18 GMT</pubDate>
   </item><item>
-    <title>专注核芯</title>
-    <link>https://quartz.jzhao.xyz/%E7%94%B5%E5%AD%90/%E4%B8%93%E6%B3%A8%E6%A0%B8%E8%8A%AF</link>
-    <guid>https://quartz.jzhao.xyz/%E7%94%B5%E5%AD%90/%E4%B8%93%E6%B3%A8%E6%A0%B8%E8%8A%AF</guid>
-    <description><![CDATA[ 最终采购清单： 核心大脑 (MCU): 品名： ESP32-S3 开发板 要点： 建议购买已焊接好排针的版本，方便直接插入面包板。 灵魂之窗 (Screen): 品名： 3.7英寸 SPI接口 墨水屏/电子纸 模块 要点： 务必确认是 SPI接口。通常会附赠一条排线，用于连接。 . ]]></description>
-    <pubDate>Sun, 28 Dec 2025 13:23:51 GMT</pubDate>
-  </item><item>
-    <title>运动学</title>
-    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E8%BF%90%E5%8A%A8%E5%AD%A6</link>
-    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E8%BF%90%E5%8A%A8%E5%AD%A6</guid>
-    <description><![CDATA[ 第六章 公式 主要是几何关系 有表达式直接求导 若没有，问速度的情况，则找半径（通常一段是O）,然后找角度，求s，接下来一路求导， 问角速度情况，则找角度，求导得角速度。 加速度注意有两，导出来的是切向。 第八章 例题 例题 补充公式 an(径向加速度)等于ω平方×R a涛（切向加速度） 等于 ε×R 第十一章 动量定理 动量矩定理 第十三章 动能定理 . ]]></description>
-    <pubDate>Fri, 26 Dec 2025 15:38:55 GMT</pubDate>
-  </item><item>
-    <title>电工电子技术上册</title>
-    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E4%B8%8A%E5%86%8C</link>
-    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E4%B8%8A%E5%86%8C</guid>
-    <description><![CDATA[ 第一章 判断负载 关联参考方向下（正极流入），p为正，则吸收功率，为负载，p为负则产生功率，为电源。 注意题目问的功率，有没有产生这2字，则正负颠倒。 第二章 叠加定理 电源分别单独作用再相加，其他部分失去作用 电流源不作用等于断路（没有电流） 。 电压源不作用等于短路（没有电压）。 电源等效变换 方向：电压源等效为电流源后，方向是原来正极流出，不是关联参考方向。 节点电压法 弥尔曼定理 正极对a的为正，否则负。流入为正 。 不要和电流源的串联电阻。 戴维宁定理 -求所求支路开路后电压U 求除源等效电阻r 原支路接回并串电阻r ，求未知量 最大功率传递定理 当负载R等于戴维宁等效电阻r时，负载... ]]></description>
-    <pubDate>Fri, 26 Dec 2025 15:38:55 GMT</pubDate>
-  </item><item>
-    <title>电工电子技术下</title>
-    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E4%B8%8B</link>
-    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E4%B8%8B</guid>
-    <description><![CDATA[ 第八章 正偏导通，等效为导线。 反偏截止，等效为开路 例 比较两边若阳-阴大于0.7，则导通，电压为阳电压。若不，则截止，电压为阴。如果多个导通，只导通大的多的 第九章 晶体管 记忆： N(negative)消极E向下 P(positive)积极E向上 公式 判断 放大电路 直流转换（除电容开路） 公式 第十章 微变等效电路 公式 I_E等于 I_B+I_C 集成放大器运用 虚断 虚短 虚断 例题 第十一章 逻辑代数 与 或 非 表达式 常用 . ]]></description>
-    <pubDate>Fri, 26 Dec 2025 15:38:55 GMT</pubDate>
-  </item><item>
-    <title>电工电子技术学习笔记</title>
-    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/</link>
-    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%94%B5%E5%B7%A5%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/</guid>
-    <description><![CDATA[ 加油！. ]]></description>
-    <pubDate>Wed, 24 Dec 2025 14:18:16 GMT</pubDate>
-  </item><item>
-    <title>平面运动</title>
-    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E5%B9%B3%E9%9D%A2%E8%BF%90%E5%8A%A8</link>
-    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E5%B9%B3%E9%9D%A2%E8%BF%90%E5%8A%A8</guid>
-    <description><![CDATA[ 第九章 技巧 一段固定，则另一段运动一定是定轴转动。 瞬心法 注意角速度为连线角速度。 技巧 看见定轴转动，直接延长轴线找瞬心 速度投影定理 基点法 取基点然后平移基点速度到所求点，另一边写垂直两点连线速度（是定轴转动） 技巧 一般如果有法向加速度，到求的时候，是可以直接角速度平方乘半径求的 一般能求速度，意味着加速度也已知（多×一回角速度） . ]]></description>
-    <pubDate>Tue, 23 Dec 2025 16:05:28 GMT</pubDate>
-  </item><item>
-    <title>书摘</title>
-    <link>https://quartz.jzhao.xyz/%E4%B9%A6%E6%91%98/%E4%B9%A6%E6%91%98</link>
-    <guid>https://quartz.jzhao.xyz/%E4%B9%A6%E6%91%98/%E4%B9%A6%E6%91%98</guid>
-    <description><![CDATA[  ]]></description>
-    <pubDate>Tue, 23 Dec 2025 09:10:17 GMT</pubDate>
+    <title>Vim 配置</title>
+    <link>https://quartz.jzhao.xyz/posts/Vim-%E9%85%8D%E7%BD%AE</link>
+    <guid>https://quartz.jzhao.xyz/posts/Vim-%E9%85%8D%E7%BD%AE</guid>
+    <description><![CDATA[ 最终总结：基于 Git 的跨设备 Neovim 配置同步工作流 核心理念 将 Neovim 的配置文件 (~/.config/nvim) 视为一个独立的软件项目。利用 Git 对其进行版本控制，并将 GitHub 作为中央“云端硬盘”。任何设备都通过 git push（上传）和 git pull/clone（下载）与这个云端中心同步，从而实现配置的完全统一。 阶段一：源设备（手机）- “打包 &amp; 封存” 目标：将本地的 ~/.config/nvim 目录初始化为一个 Git 仓库，并将其推送到 GitHub。 【第一步：初始化本地仓库】 进入配置目录，删除可能存在的旧的 .git 文件... ]]></description>
+    <pubDate>Mon, 19 Jan 2026 04:29:15 GMT</pubDate>
   </item><item>
     <title>磁</title>
     <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86/%E7%A3%81</link>
     <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86/%E7%A3%81</guid>
     <description><![CDATA[ 习题九 前3 好的，我们开始。本次先讲解前3道关于磁场基本概念的选择题。 核心概念、公式与解题要点 磁场的本质与来源 · 物质性：磁场是客观存在的物质，携带能量与动量。 · 唯一来源：运动的电荷（即电流）。 · 宏观表现：通电导线（电荷定向移动）产生磁场。 · 微观解释：永久磁铁的磁性来源于原子内部电子的轨道运动与自旋（安培分子电流假说）。 · 相互作用媒介：所有磁相互作用（磁体间、电流间）均通过磁场传递。过程为：源（电流A）→ 激发磁场 → 磁场对另一客体（电流B）施加力。 · 电与磁的基本关系： · 静止电荷 → 激发静电场。 · 运动电荷（电流）→ 激发磁场。 · （后续内容）变化磁场 ... ]]></description>
-    <pubDate>Tue, 23 Dec 2025 09:10:17 GMT</pubDate>
+    <pubDate>Mon, 19 Jan 2026 04:29:15 GMT</pubDate>
+  </item><item>
+    <title>马原</title>
+    <link>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E9%A9%AC%E5%8E%9F</link>
+    <guid>https://quartz.jzhao.xyz/%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E9%A9%AC%E5%8E%9F</guid>
+    <description><![CDATA[ 第一章 导论 马克思主义哲学，马克思主义政治经济学和科学社会主义是其三个基本组成部分。 马克思主义具有鲜明的科学性，人民性，实践性，发展性。 科学性：马克思主义是对自然，社会和人类思维发展本质和规律的正确反映。 人民性：人民至上是马克思主义的政治立场。 实践性：马克思主义是从实践中来到实践中去，在实践中接受检验并随实践而不断发展的学说。 发展性：马克思主义是不断发展的学说，具有与时俱进的理论品质。 马克思主义的当代价值 观察当代世界变化的认识工具 指引当代中国发展的行动指南 引领人类社会进步的科学真理 第一章 思维和存在的关系问题： 存在和思维，物质和意识，谁为本源的问题 存在和思维，物质和意... ]]></description>
+    <pubDate>Mon, 19 Jan 2026 04:29:15 GMT</pubDate>
+  </item><item>
+    <title>高等数学</title>
+    <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6</link>
+    <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6</guid>
+    <description><![CDATA[ 极限 求极限先代入判断类型，如果0-注意开方出来是负的。 碰见In 就换，抓大放小（趋近于无穷），抓小放大（趋近于0） 碰见分子分母都有变量 常见等价无穷小 重要例题 第一类间断点极限都存在（相等为可去，不等为跳跃） 只要有一个不存在就是第二类间断点（无穷震荡） 导数 基本公式 对数求导法则 看见根式 e 或者In就用 例 莱布尼茨公式 莱布尼茨公式是微积分中一个重要的高阶导数计算公式，它将函数乘积的求导法则推广到了任意 n 阶导数的情况。该公式揭示了两个函数乘积的高阶导数与这两个函数各自的高阶导数之间的关系，其形式与二项式定理高度相似。 设函数 u=u(x) 和 v=v(x) 均 n 阶可导... ]]></description>
+    <pubDate>Mon, 19 Jan 2026 04:29:15 GMT</pubDate>
+  </item><item>
+    <title>Ascll码</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/Ascll%E7%A0%81</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/Ascll%E7%A0%81</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) a为97 1为49 ✍️ 标准语法 (Syntax) 打印数字： printf(&quot;%d&quot;,su - 48) 打印字母. ]]></description>
+    <pubDate>Sun, 18 Jan 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>printf和scanf</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/printf-%E6%A0%BC%E5%BC%8F</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/printf-%E6%A0%BC%E5%BC%8F</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) ✍️ 标准语法 (Syntax) 域宽 : %后面加x.y 则输出总宽度x(包括小数点)保留y位小数，舍入规则：四舍6入 5成双（若5，前一位偶数则舍，奇数则进1位）。 如果输出宽度不够，则前面补空格，够则不补，（前面加-可在后面补）再往前面输入指定字符则补指定字符。 如%05d. ]]></description>
+    <pubDate>Sun, 18 Jan 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>逻辑短路</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E9%80%BB%E8%BE%91%E7%9F%AD%E8%B7%AF</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E9%80%BB%E8%BE%91%E7%9F%AD%E8%B7%AF</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) &amp;&amp;和｜｜ 当 A &amp;&amp; B中，A没有成立，B就不会运行了。 当 A ｜｜B中，A成立，B就不会运行了。 ✍️ 标准语法 (Syntax) . ]]></description>
+    <pubDate>Sun, 18 Jan 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>数据类型</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) c++常用数据类型大小 ✍️ 标准语法 (Syntax) . ]]></description>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 GMT</pubDate>
   </item>
     </channel>
   </rss>
