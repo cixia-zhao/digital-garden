@@ -27,6 +27,16 @@ strlen计数不包括/0
 strcmp (a,b) a大于b,返回1，a小于b返回负一，相等则返回0。
 strcpy（a,b)，b的内容完完全全把a变成b的内容，即使a比b长。
 strcat (a,b)把b接到a后面
+使用string 数据类型需要头文件 string
+c++ spring类型大小判断 直接if()判断
+
+
+字符串数据类型的变量名.replace(下标-作为起始位置, 长度，替换的内容，后面同前)
+![[IMG_20260122_202721.jpg]]
+字符串数据类型的变量名.erase(字符串下标-作为起始位置，长度)
+
+字符数组 转换为 string
+![[Screenshot_2026-01-22-21-49-23-60_149003a2d400f6adb210d7e357a3a646.jpg]]
 
 ### ✍️ 标准语法 (Syntax)
 ```cpp
