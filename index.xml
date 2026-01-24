@@ -6,6 +6,18 @@
       <description>Last 10 notes on Quartz 4</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>默认参数</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) ✍️ 标准语法 (Syntax) . ]]></description>
+    <pubDate>Sat, 24 Jan 2026 18:06:00 GMT</pubDate>
+  </item><item>
+    <title>for each</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/for-each</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/for-each</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
+    <pubDate>Sat, 24 Jan 2026 14:52:44 GMT</pubDate>
+  </item><item>
     <title>static</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/static</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/static</guid>
@@ -23,12 +35,6 @@
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%87%BD%E6%95%B0</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 实参：使用函数时输入的值或者变量。 形参：定义函数时，定义的变量 （接收来源于外部的实参值，并且开辟一块临时空间或者被叫做临时变量，把实参存储起来。） ✍️ 标准语法 (Syntax) #若是函数定义在main里面，就要先声明函数. ]]></description>
     <pubDate>Fri, 23 Jan 2026 18:56:00 GMT</pubDate>
-  </item><item>
-    <title>for each</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/for-each</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/for-each</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Fri, 23 Jan 2026 15:55:44 GMT</pubDate>
   </item><item>
     <title>大学其他课程学习笔记</title>
     <link>https://quartz.jzhao.xyz/%E5%A4%A7%E5%AD%A6%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/</link>
@@ -58,12 +64,6 @@
     <link>https://quartz.jzhao.xyz/%E5%A4%A7%E5%AD%A6%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E5%B9%B3%E9%9D%A2%E8%BF%90%E5%8A%A8</link>
     <guid>https://quartz.jzhao.xyz/%E5%A4%A7%E5%AD%A6%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E5%B9%B3%E9%9D%A2%E8%BF%90%E5%8A%A8</guid>
     <description><![CDATA[ 第九章 技巧 一段固定，则另一段运动一定是定轴转动。 瞬心法 注意角速度为连线角速度。 技巧 看见定轴转动，直接延长轴线找瞬心 速度投影定理 基点法 取基点然后平移基点速度到所求点，另一边写垂直两点连线速度（是定轴转动） 技巧 一般如果有法向加速度，到求的时候，是可以直接角速度平方乘半径求的 一般能求速度，意味着加速度也已知（多×一回角速度） . ]]></description>
-    <pubDate>Fri, 23 Jan 2026 15:55:10 GMT</pubDate>
-  </item><item>
-    <title>运动学</title>
-    <link>https://quartz.jzhao.xyz/%E5%A4%A7%E5%AD%A6%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E8%BF%90%E5%8A%A8%E5%AD%A6</link>
-    <guid>https://quartz.jzhao.xyz/%E5%A4%A7%E5%AD%A6%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E8%BF%90%E5%8A%A8%E5%AD%A6</guid>
-    <description><![CDATA[ 第六章 公式 主要是几何关系 有表达式直接求导 若没有，问速度的情况，则找半径（通常一段是O）,然后找角度，求s，接下来一路求导， 问角速度情况，则找角度，求导得角速度。 加速度注意有两，导出来的是切向。 第八章 例题 例题 补充公式 an(径向加速度)等于ω平方×R a涛（切向加速度） 等于 ε×R 第十一章 动量定理 动量矩定理 第十三章 动能定理 . ]]></description>
     <pubDate>Fri, 23 Jan 2026 15:55:10 GMT</pubDate>
   </item>
     </channel>
