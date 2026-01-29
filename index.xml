@@ -6,6 +6,24 @@
       <description>Last 10 notes on Quartz 4</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>for each</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/for-each</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/for-each</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
+    <pubDate>Thu, 29 Jan 2026 14:58:24 GMT</pubDate>
+  </item><item>
+    <title>C++函数通过返回指针来返回数组</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/C++%E5%87%BD%E6%95%B0%E9%80%9A%E8%BF%87%E8%BF%94%E5%9B%9E%E6%8C%87%E9%92%88%E6%9D%A5%E8%BF%94%E5%9B%9E%E6%95%B0%E7%BB%84</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/C++%E5%87%BD%E6%95%B0%E9%80%9A%E8%BF%87%E8%BF%94%E5%9B%9E%E6%8C%87%E9%92%88%E6%9D%A5%E8%BF%94%E5%9B%9E%E6%95%B0%E7%BB%84</guid>
+    <description><![CDATA[ 笔记属性 title: C++函数通过返回指针来返回数组 date: 2026-1-28 tags: C++, 指针, 堆, 栈, 动态内存分配 related: 指针, 堆与栈的区别, 动态内存分配 🧠 核心概念/问题 C++的函数本身不能直接把一个数组作为返回值。那么，如果我需要一个函数创建并返回一个数组，应该如何实现？ 💡 我的思考与解决方案 核心是利用堆内存和指针。函数内部的普通变量（在栈上）会在函数结束后被销毁，所以不能返回它们的地址。但通过new关键字在堆上创建的内存，其生命周期与函数无关，直到我们手动delete它才会释放。函数只需要返回指向这块堆内存的指针（地址）即可。 这... ]]></description>
+    <pubDate>Thu, 29 Jan 2026 14:57:23 GMT</pubDate>
+  </item><item>
+    <title>模板和泛型</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%9D%BF%E5%92%8C%E6%B3%9B%E5%9E%8B</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%9D%BF%E5%92%8C%E6%B3%9B%E5%9E%8B</guid>
+    <description><![CDATA[ 笔记属性 title: C++模板类的实例化与this指针 date: 2026-1-29 tags: C++, 模板, template, 泛型编程, this指针, 指针, new related: C++类与对象, C++指针与内存管理 🧠 核心概念/问题 如何理解一个模板类（template&lt;class C&gt; class Person）在main函数中被实例化的语句 Person&lt;int&gt; *p = new Person&lt;int&gt;(210);？ 在类的构造函数中，this指针的作用是什么？为什么需要写成 this-&gt;data = data;？... ]]></description>
+    <pubDate>Thu, 29 Jan 2026 14:57:23 GMT</pubDate>
+  </item><item>
     <title>指针</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%8C%87%E9%92%88</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%8C%87%E9%92%88</guid>
@@ -17,12 +35,6 @@
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E7%BB%93%E6%9E%84%E4%BD%93</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 结构体和类非常相似，区别在于，它只能写属性，绝对不能写函数，可以写构造函数，但是是违规的 ✍️ 标准语法 (Syntax) . ]]></description>
     <pubDate>Tue, 27 Jan 2026 17:52:00 GMT</pubDate>
-  </item><item>
-    <title>for each</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/for-each</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/for-each</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Tue, 27 Jan 2026 14:01:30 GMT</pubDate>
   </item><item>
     <title>未命</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9C%AA%E5%91%BD</link>
@@ -53,18 +65,6 @@
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) ✍️ 标准语法 (Syntax) . ]]></description>
     <pubDate>Sat, 24 Jan 2026 18:06:00 GMT</pubDate>
-  </item><item>
-    <title>static</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/static</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/static</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) 它的作用是修饰在前面，将一个变量的生命周期变长。（只要你去调用它，那么他就永远不会销毁，直到程序结束） 注意：这个变量名只能有一个，因为它一直存在，如果重名可能会报错 补充： static和类是同时诞生的，它修饰的东西属于类本身。 对它修饰的东西进行赋值很困难，只能在全局对它进行定义 Static修饰的函数只能调用Static的属性和方法。 Static修饰的方法是可以被对象所调用 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Fri, 23 Jan 2026 21:16:00 GMT</pubDate>
-  </item><item>
-    <title>传值和传址</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E4%BC%A0%E5%80%BC%E5%92%8C%E4%BC%A0%E5%9D%80</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E4%BC%A0%E5%80%BC%E5%92%8C%E4%BC%A0%E5%9D%80</guid>
-    <description><![CDATA[ 🧠 核心概念/问题 (Concept / Problem) 无法理解为什么交换函数直接传失败了，而加法就可以？ 💡 我的思考与解决方案 (My Thoughts &amp; Solution) · 传值：我给你一本小说的复印本，你在上面做了笔记。我手里的原版小说不受影响。 · 传引用：我给你我家地址的钥匙，你直接来我家在原版小说上做笔记。 错误尝试 (如果适用) 一开始不知道实际上 直接传相当于 int a = x,只是把x值赋给a。所以根本改变不了。 正确路径 / 关键代码 void swap(int &amp;a, int &amp;b) { // a是x的别名，b是y的别名 int ... ]]></description>
-    <pubDate>Fri, 23 Jan 2026 19:25:00 GMT</pubDate>
   </item>
     </channel>
   </rss>
