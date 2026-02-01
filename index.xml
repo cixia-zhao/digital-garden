@@ -6,22 +6,40 @@
       <description>Last 10 notes on Quartz 4</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>iterator</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/STL-iterator</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/STL-iterator</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) 定义：就是一个内存地址，用来找容器里面元素的。 （指针变量数组） ✍️ 标准语法 (Syntax) 注意 要在vector定义完后 定义 iterator 其他: .front（ ）第一个元素 .back（ ）最后一个元素 .clear （）清除所有 unique:需要头文件 algorithm.h . ]]></description>
+    <pubDate>Sun, 01 Feb 2026 16:48:00 GMT</pubDate>
+  </item><item>
     <title>for each</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/for-each</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/for-each</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Thu, 29 Jan 2026 14:58:24 GMT</pubDate>
+    <pubDate>Sun, 01 Feb 2026 11:59:03 GMT</pubDate>
+  </item><item>
+    <title>模板实例化</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%9D%BF%E5%AE%9E%E4%BE%8B%E5%8C%96</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%9D%BF%E5%AE%9E%E4%BE%8B%E5%8C%96</guid>
+    <description><![CDATA[ 笔记属性 title: C++模板类的实例化与this指针 date: 2026-1-29 tags: C++, 模板, template, 泛型编程, this指针, 指针, new related: C++类与对象, C++指针与内存管理 🧠 核心概念/问题 如何理解一个模板类（template&lt;class C&gt; class Person）在main函数中被实例化的语句 Person&lt;int&gt; *p = new Person&lt;int&gt;(210);？ 在类的构造函数中，this指针的作用是什么？为什么需要写成 this-&gt;data = data;？... ]]></description>
+    <pubDate>Sun, 01 Feb 2026 11:58:27 GMT</pubDate>
+  </item><item>
+    <title>STL-vector</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/STL-vector</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/STL-vector</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) vector(矢量表):一个可以扩容的数组 定义： 方法： v.push_back() 插入元素 v.size() 计算v大小 v.pop_back() 弹出最后一个元素 v.resize() 重新定义vector大小 ✍️ 标准语法 (Syntax) 基于 for each 的另一种写法： . ]]></description>
+    <pubDate>Fri, 30 Jan 2026 18:14:00 GMT</pubDate>
+  </item><item>
+    <title>泛型</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%B3%9B%E5%9E%8B</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%B3%9B%E5%9E%8B</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) ✍️ 标准语法 (Syntax) . ]]></description>
+    <pubDate>Thu, 29 Jan 2026 23:08:00 GMT</pubDate>
   </item><item>
     <title>C++函数通过返回指针来返回数组</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/C++%E5%87%BD%E6%95%B0%E9%80%9A%E8%BF%87%E8%BF%94%E5%9B%9E%E6%8C%87%E9%92%88%E6%9D%A5%E8%BF%94%E5%9B%9E%E6%95%B0%E7%BB%84</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/C++%E5%87%BD%E6%95%B0%E9%80%9A%E8%BF%87%E8%BF%94%E5%9B%9E%E6%8C%87%E9%92%88%E6%9D%A5%E8%BF%94%E5%9B%9E%E6%95%B0%E7%BB%84</guid>
     <description><![CDATA[ 笔记属性 title: C++函数通过返回指针来返回数组 date: 2026-1-28 tags: C++, 指针, 堆, 栈, 动态内存分配 related: 指针, 堆与栈的区别, 动态内存分配 🧠 核心概念/问题 C++的函数本身不能直接把一个数组作为返回值。那么，如果我需要一个函数创建并返回一个数组，应该如何实现？ 💡 我的思考与解决方案 核心是利用堆内存和指针。函数内部的普通变量（在栈上）会在函数结束后被销毁，所以不能返回它们的地址。但通过new关键字在堆上创建的内存，其生命周期与函数无关，直到我们手动delete它才会释放。函数只需要返回指向这块堆内存的指针（地址）即可。 这... ]]></description>
-    <pubDate>Thu, 29 Jan 2026 14:57:23 GMT</pubDate>
-  </item><item>
-    <title>模板和泛型</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%9D%BF%E5%92%8C%E6%B3%9B%E5%9E%8B</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%9D%BF%E5%92%8C%E6%B3%9B%E5%9E%8B</guid>
-    <description><![CDATA[ 笔记属性 title: C++模板类的实例化与this指针 date: 2026-1-29 tags: C++, 模板, template, 泛型编程, this指针, 指针, new related: C++类与对象, C++指针与内存管理 🧠 核心概念/问题 如何理解一个模板类（template&lt;class C&gt; class Person）在main函数中被实例化的语句 Person&lt;int&gt; *p = new Person&lt;int&gt;(210);？ 在类的构造函数中，this指针的作用是什么？为什么需要写成 this-&gt;data = data;？... ]]></description>
     <pubDate>Thu, 29 Jan 2026 14:57:23 GMT</pubDate>
   </item><item>
     <title>指针</title>
@@ -47,24 +65,6 @@
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/C++-%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%EF%BC%9A%E6%A0%88(Person-p1)-vs.-%E5%A0%86(new-Person)-%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E6%8B%AC%E5%8F%B7%E9%99%B7%E9%98%B1</guid>
     <description><![CDATA[ title: C++ 对象创建：栈(Person p1) vs. ]]></description>
     <pubDate>Mon, 26 Jan 2026 15:07:06 GMT</pubDate>
-  </item><item>
-    <title>Class 类</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/Class-%E7%B1%BB</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/Class-%E7%B1%BB</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) 类： 属性（Private：无法直接调用，Public 可以直接调用） 方法 在属性里面的函数 补充 ：类的类型是一种引用类型。 里面实际存在一个无参构造函数： 怎么调用无参构造函数 就是在使用new的时候,把类的变量名 后面跟两个括号。 对象：是在一个类里面具有但是同样的特性的 多个个体， ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Sun, 25 Jan 2026 22:11:00 GMT</pubDate>
-  </item><item>
-    <title>递归</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E9%80%92%E5%BD%92</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E9%80%92%E5%BD%92</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) 递归 分为递（压栈）和归（跳栈） 出口 （函数 递 结束的条件） 压栈：创建f() 跳栈：执行f()后面的内容，返回并逐步向上 先不断压栈 满足出口后跳栈。 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Sun, 25 Jan 2026 17:12:00 GMT</pubDate>
-  </item><item>
-    <title>默认参数</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Sat, 24 Jan 2026 18:06:00 GMT</pubDate>
   </item>
     </channel>
   </rss>
