@@ -1,0 +1,25 @@
+---
+title:
+tags:
+related: []
+date: 2026-01-30T18:14:00
+---
+
+### 🎯 核心功能 (Purpose)
+> vector(矢量表):一个可以扩容的数组
+> 定义：
+![[Screenshot_2026-01-30-18-21-24-66_149003a2d400f6adb210d7e357a3a646.jpg]]
+
+> 方法：
+> 1. v.push_back() 插入元素
+> 2. v.size() 计算v大小
+> 3. v.pop_back() 弹出最后一个元素
+> 4. v.resize() 重新定义vector大小
+> 
+
+### ✍️ 标准语法 (Syntax)
+
+![[Screenshot_2026-01-30-18-19-41-46_149003a2d400f6adb210d7e357a3a646.jpg]]
+
+基于 for each 的另一种写法：
+![[Screenshot_2026-01-30-18-22-58-97_149003a2d400f6adb210d7e357a3a646.jpg]]
