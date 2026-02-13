@@ -6,6 +6,30 @@
       <description>Last 10 notes on Quartz 4</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>希尔排序</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) 定义： 例子： ✍️ 标准语法 (Syntax) . ]]></description>
+    <pubDate>Fri, 13 Feb 2026 16:12:00 GMT</pubDate>
+  </item><item>
+    <title>插入排序</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) ✍️ 标准语法 (Syntax) . ]]></description>
+    <pubDate>Fri, 13 Feb 2026 15:49:00 GMT</pubDate>
+  </item><item>
+    <title>for each</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
+    <pubDate>Fri, 13 Feb 2026 09:37:42 GMT</pubDate>
+  </item><item>
+    <title>【待定】请在这里写下标题</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84</guid>
+    <description><![CDATA[ 🧠 核心概念/问题 (Concept / Problem) 在这里用一句话描述你正在记录的东西。它是什么？遇到了什么问题？ 💡 我的思考与解决方案 (My Thoughts &amp; Solution) 这是笔记的核心。自由发挥，可以是一段代码、一张截图、一个推导过程，或者几句口语化的理解，怎么直白怎么来。 错误尝试 (如果适用) 我一开始是怎么想的？为什么行不通？（记录错误更有价值） 正确路径 / 关键代码 📖 关联与引用 双向链接到另一个概念 参考来源：视频链接 🎯 给未来自己的话（一句话总结） 如果未来你忘了这个知识点，最需要提醒自己的一句话是什么？ . ]]></description>
+    <pubDate>Wed, 11 Feb 2026 14:48:00 GMT</pubDate>
+  </item><item>
     <title>冒泡排序</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F</guid>
@@ -17,12 +41,6 @@
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 定义 ✍️ 标准语法 (Syntax) void select_sort(int *a, int n) { // 外层循环：每次从未排序部分选择一个最小的数 for (int i = 0; i &lt; n - 1; i++) { // 假设当前位置i的元素就是未排序部分的最小值 int min_index = i; // 内层循环：从未排序部分（i+1 到 n-1）中找到真正的最小值及其索引 for (int j = i + 1; j &lt; n; j++) { // 如果发现一个更小的元素 if (a[min_index] &gt; a[j]) { /... ]]></description>
     <pubDate>Tue, 10 Feb 2026 14:29:00 GMT</pubDate>
-  </item><item>
-    <title>for each</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Tue, 10 Feb 2026 08:40:38 GMT</pubDate>
   </item><item>
     <title>vim快捷键</title>
     <link>https://quartz.jzhao.xyz/posts/vim%E5%BF%AB%E6%8D%B7%E9%94%AE</link>
@@ -47,24 +65,6 @@
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E6%A8%A1%E6%9D%BF%E5%AE%9E%E4%BE%8B%E5%8C%96</guid>
     <description><![CDATA[ 笔记属性 title: C++模板类的实例化与this指针 date: 2026-1-29 tags: C++, 模板, template, 泛型编程, this指针, 指针, new related: C++类与对象, C++指针与内存管理 🧠 核心概念/问题 如何理解一个模板类（template&lt;class C&gt; class Person）在main函数中被实例化的语句 Person&lt;int&gt; *p = new Person&lt;int&gt;(210);？ 在类的构造函数中，this指针的作用是什么？为什么需要写成 this-&gt;data = data;？... ]]></description>
     <pubDate>Sun, 08 Feb 2026 16:28:52 GMT</pubDate>
-  </item><item>
-    <title>自定义数组长度二维</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E4%BA%8C%E7%BB%B4</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E4%BA%8C%E7%BB%B4</guid>
-    <description><![CDATA[ title: C++中用二级指针(int**)动态创建二维数组的理解 date: 2026-1-21 tags: C++, 指针, 二维数组, 动态内存分配, new related: 指针, 动态内存, 数组 🧠 核心概念/问题 为什么在C++中用 new 动态创建 m*n 的二维数组，需要用 int** 类型的指针，并且要分两步（先 new int*[m]，再循环 new int[n]）来完成？ 💡 我的思考与解决方案 核心在于理解这种方法创建的并非是内存中完全连续的二维数组，而是一个“指针的数组”，其中每个指针再分别指向每一行的数据。这好比盖一栋“拼装式”的酒店。 第一步: int*... ]]></description>
-    <pubDate>Sun, 08 Feb 2026 16:28:52 GMT</pubDate>
-  </item><item>
-    <title>algorithm</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/algorithm</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/algorithm</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) sort: 若想改变顺序，则可利用sort的第三个参数，再通过回调函数（函数作为参数传参），来实现 。 _ _cd 最大公因数： long long __gcd(long long a, long long b) { return b ? __gcd(b, a % b) : a; } long long GCD(long long a, long long b) { while (b ^= a ^= b ^= a %= b); return a; } 绝对值： reverse: 反转 全排列 next_permutation : ✍️ 标准语法 (Synta... ]]></description>
-    <pubDate>Sat, 07 Feb 2026 16:16:00 GMT</pubDate>
-  </item><item>
-    <title>queue</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%98%9F%E5%88%97</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%98%9F%E5%88%97</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) 先进先出 常用方法： 优先队列：按照从大到小顺序入队。 应用： 最后cout输出。 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Mon, 02 Feb 2026 18:11:00 GMT</pubDate>
   </item>
     </channel>
   </rss>
