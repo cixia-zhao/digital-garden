@@ -6,6 +6,36 @@
       <description>Last 10 notes on Quartz 4</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>大整数加法</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%A4%A7%E6%95%B4%E6%95%B0%E5%8A%A0%E6%B3%95</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%A4%A7%E6%95%B4%E6%95%B0%E5%8A%A0%E6%B3%95</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) 一句话说明它的用途或定义。 ✍️ 标准语法 (Syntax) #include &lt;iostream&gt; #include &lt;bits/stdc++.h&gt; using namespace std; int main(){ string a,b; cin &gt;&gt; a &gt;&gt; b; vector &lt;int&gt; A,B; for(int i = a.size()-1;i &gt;= 0;i--) // 倒序输入，为了对齐 // { A.push_back(a[i] - &#039;0&#039;); // stri... ]]></description>
+    <pubDate>Sun, 15 Feb 2026 00:12:00 GMT</pubDate>
+  </item><item>
+    <title>for each</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
+    <pubDate>Sat, 14 Feb 2026 16:42:48 GMT</pubDate>
+  </item><item>
+    <title>未命名</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9C%AA%E5%91%BD%E5%90%8D</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9C%AA%E5%91%BD%E5%90%8D</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) 一句话说明它的用途或定义。 ✍️ 标准语法 (Syntax) . ]]></description>
+    <pubDate>Sat, 14 Feb 2026 16:42:00 GMT</pubDate>
+  </item><item>
+    <title>取数</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E5%8F%96%E6%95%B0</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E5%8F%96%E6%95%B0</guid>
+    <description><![CDATA[ 取 🎯 核心功能 (Purpose) 一句话说明它的用途或定义。 ✍️ 标准语法 (Syntax) . ]]></description>
+    <pubDate>Sat, 14 Feb 2026 14:44:00 GMT</pubDate>
+  </item><item>
+    <title>计数排序</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) 一句话说明它的用途或定义。 ✍️ 标准语法 (Syntax) 优化 . ]]></description>
+    <pubDate>Sat, 14 Feb 2026 11:12:00 GMT</pubDate>
+  </item><item>
     <title>希尔排序</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F</guid>
@@ -18,16 +48,10 @@
     <description><![CDATA[ 🎯 核心功能 (Purpose) ✍️ 标准语法 (Syntax) . ]]></description>
     <pubDate>Fri, 13 Feb 2026 15:49:00 GMT</pubDate>
   </item><item>
-    <title>for each</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Fri, 13 Feb 2026 09:37:42 GMT</pubDate>
-  </item><item>
     <title>【待定】请在这里写下标题</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84</guid>
-    <description><![CDATA[ 🧠 核心概念/问题 (Concept / Problem) 在这里用一句话描述你正在记录的东西。它是什么？遇到了什么问题？ 💡 我的思考与解决方案 (My Thoughts &amp; Solution) 这是笔记的核心。自由发挥，可以是一段代码、一张截图、一个推导过程，或者几句口语化的理解，怎么直白怎么来。 错误尝试 (如果适用) 我一开始是怎么想的？为什么行不通？（记录错误更有价值） 正确路径 / 关键代码 📖 关联与引用 双向链接到另一个概念 参考来源：视频链接 🎯 给未来自己的话（一句话总结） 如果未来你忘了这个知识点，最需要提醒自己的一句话是什么？ . ]]></description>
+    <description><![CDATA[ 🧠 核心概念/问题 (Concept / Problem) 在这里用一句话描述你正在记录的东西。它是什么？遇到了什么问题？ 💡 我的思考与解决方案 (My Thoughts &amp; Solution) 这是笔记的核心。自由发挥，可以是一段代码、一张截图、一个推导过程，或者几句口语化的理解，怎么直白怎么来。 错误尝试 (如果适用) 我一开始是怎么想的？为什么行不通？（记录错误更有价值） 正确路径 / 关键代码 📖 关联与引用 双向链接到另一个概念 参考来源：视频链接 🎯 给未来自己的话（一句话总结） 如果未来你忘了这个知识点，最需要提醒自己的一句话是什么？ 好的。这段代码通过类(cl... ]]></description>
     <pubDate>Wed, 11 Feb 2026 14:48:00 GMT</pubDate>
   </item><item>
     <title>冒泡排序</title>
@@ -41,30 +65,6 @@
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 定义 ✍️ 标准语法 (Syntax) void select_sort(int *a, int n) { // 外层循环：每次从未排序部分选择一个最小的数 for (int i = 0; i &lt; n - 1; i++) { // 假设当前位置i的元素就是未排序部分的最小值 int min_index = i; // 内层循环：从未排序部分（i+1 到 n-1）中找到真正的最小值及其索引 for (int j = i + 1; j &lt; n; j++) { // 如果发现一个更小的元素 if (a[min_index] &gt; a[j]) { /... ]]></description>
     <pubDate>Tue, 10 Feb 2026 14:29:00 GMT</pubDate>
-  </item><item>
-    <title>vim快捷键</title>
-    <link>https://quartz.jzhao.xyz/posts/vim%E5%BF%AB%E6%8D%B7%E9%94%AE</link>
-    <guid>https://quartz.jzhao.xyz/posts/vim%E5%BF%AB%E6%8D%B7%E9%94%AE</guid>
-    <description><![CDATA[ Vim 的哲学：像搭乐高一样组合命令 在 Normal 模式下，Vim 的操作遵循一个简单的“语法”：[动作] + [范围/对象]。 动作 (Action): 比如 d (delete), y (yank/copy), c (change)。 范围/对象 (Motion): 比如 w (word), s (sentence), p (paragraph)，或者你光标移动到的任何地方。 一旦你理解了这个“语法”，你就能组合出无穷的命令，而不需要死记硬背。 为你定制的“日常编码”核心命令集 我们将这些命令分为几个核心场景，请在写代码时有意识地去使用它们，很快就能形成肌肉记忆。 场景一：移动与导航 ... ]]></description>
-    <pubDate>Tue, 10 Feb 2026 08:40:04 GMT</pubDate>
-  </item><item>
-    <title>C++ 对象创建：栈(Person p1) vs. 堆(new Person) 的区别与括号陷阱</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/C++-%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%EF%BC%9A%E6%A0%88(Person-p1)-vs.-%E5%A0%86(new-Person)-%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E6%8B%AC%E5%8F%B7%E9%99%B7%E9%98%B1</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/C++-%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%EF%BC%9A%E6%A0%88(Person-p1)-vs.-%E5%A0%86(new-Person)-%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E6%8B%AC%E5%8F%B7%E9%99%B7%E9%98%B1</guid>
-    <description><![CDATA[ title: C++ 对象创建：栈(Person p1) vs. ]]></description>
-    <pubDate>Sun, 08 Feb 2026 16:28:52 GMT</pubDate>
-  </item><item>
-    <title>C++函数通过返回指针来返回数组</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/C++%E5%87%BD%E6%95%B0%E9%80%9A%E8%BF%87%E8%BF%94%E5%9B%9E%E6%8C%87%E9%92%88%E6%9D%A5%E8%BF%94%E5%9B%9E%E6%95%B0%E7%BB%84</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/C++%E5%87%BD%E6%95%B0%E9%80%9A%E8%BF%87%E8%BF%94%E5%9B%9E%E6%8C%87%E9%92%88%E6%9D%A5%E8%BF%94%E5%9B%9E%E6%95%B0%E7%BB%84</guid>
-    <description><![CDATA[ 笔记属性 title: C++函数通过返回指针来返回数组 date: 2026-1-28 tags: C++, 指针, 堆, 栈, 动态内存分配 related: 指针, 堆与栈的区别, 动态内存分配 🧠 核心概念/问题 C++的函数本身不能直接把一个数组作为返回值。那么，如果我需要一个函数创建并返回一个数组，应该如何实现？ 💡 我的思考与解决方案 核心是利用堆内存和指针。函数内部的普通变量（在栈上）会在函数结束后被销毁，所以不能返回它们的地址。但通过new关键字在堆上创建的内存，其生命周期与函数无关，直到我们手动delete它才会释放。函数只需要返回指向这块堆内存的指针（地址）即可。 这... ]]></description>
-    <pubDate>Sun, 08 Feb 2026 16:28:52 GMT</pubDate>
-  </item><item>
-    <title>模板实例化</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E6%A8%A1%E6%9D%BF%E5%AE%9E%E4%BE%8B%E5%8C%96</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E6%A8%A1%E6%9D%BF%E5%AE%9E%E4%BE%8B%E5%8C%96</guid>
-    <description><![CDATA[ 笔记属性 title: C++模板类的实例化与this指针 date: 2026-1-29 tags: C++, 模板, template, 泛型编程, this指针, 指针, new related: C++类与对象, C++指针与内存管理 🧠 核心概念/问题 如何理解一个模板类（template&lt;class C&gt; class Person）在main函数中被实例化的语句 Person&lt;int&gt; *p = new Person&lt;int&gt;(210);？ 在类的构造函数中，this指针的作用是什么？为什么需要写成 this-&gt;data = data;？... ]]></description>
-    <pubDate>Sun, 08 Feb 2026 16:28:52 GMT</pubDate>
   </item>
     </channel>
   </rss>
