@@ -207,4 +207,4 @@ Vim 把“复制”称为 "Yank" (拉取)。
 | **环绕** | `ysiw"` / `cs"'` | **Y**ank **S**urround **I**nner **W**ord with `"` / **C**hange **S**urround `"` to `'` | (需要 `vim-surround` 插件，但强烈推荐) |
 | **查找替换** | `:%s/foo/bar/gc` | **S**ubstitute `foo` with `bar` **G**lobally with **C**onfirmation | 全局查找 `foo`，替换为 `bar`，每次替换前询问 |
 
-这些技巧的组合使用将带来质的飞跃。例如，你可以录制一个宏，其中包含了文本对象操作和寄存器操作，然后对整个文件批量执行。这就是 Vim 从“编辑器”变为“编程语言”的开始。祝你使用愉快！
+
