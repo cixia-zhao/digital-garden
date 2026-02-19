@@ -6,17 +6,35 @@
       <description>Last 10 notes on Quartz 4</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>for each</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
+    <pubDate>Thu, 19 Feb 2026 10:56:57 GMT</pubDate>
+  </item><item>
+    <title>大整数减法</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%A4%A7%E6%95%B4%E6%95%B0%E5%87%8F%E6%B3%95</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%A4%A7%E6%95%B4%E6%95%B0%E5%87%8F%E6%B3%95</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) 注意点： 借位的处理 借位 则初始数要- t 前置0的消除 负数的处理 伪代码 // 辅助函数判断a,b大小 //位数一样， //逐位判断是否一样 一样就继续；不一样返回比较位值的大小 //不一样，直接返回比较值的位数大小 //定义字符串a,b //输入 //定义对应数组AB，便于操作 //倒序分别将字符串推入数组（记得转换类型） //定义flag为false 表示是否需要负号； //判断AB大小，如果A小，交换A，B，表示需要负号 True //定义借位 t int //定义数组C用来存放差 //遍历 A,B中较长一个的长度 //定义差 初始值-t //(... ]]></description>
+    <pubDate>Thu, 19 Feb 2026 10:56:15 GMT</pubDate>
+  </item><item>
+    <title>thoughts</title>
+    <link>https://quartz.jzhao.xyz/posts/thoughts</link>
+    <guid>https://quartz.jzhao.xyz/posts/thoughts</guid>
+    <description><![CDATA[ 水墨屏 anki 随身小尺寸 针对注意力抢夺 一种终端设备 播放学习视频 得以屏蔽广告，一些吸引人算法 2025-12-27 18:41 智能冰箱菜管理系统 通过手机订单，确认收货时间数据来确定进入时间，提醒快过期 可自定义时期 2026-02-15 18:24. ]]></description>
+    <pubDate>Thu, 19 Feb 2026 10:56:15 GMT</pubDate>
+  </item><item>
+    <title>vim快捷键</title>
+    <link>https://quartz.jzhao.xyz/posts/vim%E5%BF%AB%E6%8D%B7%E9%94%AE</link>
+    <guid>https://quartz.jzhao.xyz/posts/vim%E5%BF%AB%E6%8D%B7%E9%94%AE</guid>
+    <description><![CDATA[ Vim 的哲学：像搭乐高一样组合命令 在 Normal 模式下，Vim 的操作遵循一个简单的“语法”：[动作] + [范围/对象]。 动作 (Action): 比如 d (delete), y (yank/copy), c (change)。 范围/对象 (Motion): 比如 w (word), s (sentence), p (paragraph)，或者你光标移动到的任何地方。 一旦你理解了这个“语法”，你就能组合出无穷的命令，而不需要死记硬背。 为你定制的“日常编码”核心命令集 我们将这些命令分为几个核心场景，请在写代码时有意识地去使用它们，很快就能形成肌肉记忆。 场景一：移动与导航 ... ]]></description>
+    <pubDate>Thu, 19 Feb 2026 10:56:15 GMT</pubDate>
+  </item><item>
     <title>大整数加法</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%A4%A7%E6%95%B4%E6%95%B0%E5%8A%A0%E6%B3%95</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%A4%A7%E6%95%B4%E6%95%B0%E5%8A%A0%E6%B3%95</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 一句话说明它的用途或定义。 ✍️ 标准语法 (Syntax) #include &lt;iostream&gt; #include &lt;bits/stdc++.h&gt; using namespace std; int main(){ string a,b; cin &gt;&gt; a &gt;&gt; b; vector &lt;int&gt; A,B; for(int i = a.size()-1;i &gt;= 0;i--) // 倒序输入，为了对齐 // { A.push_back(a[i] - &#039;0&#039;); // stri... ]]></description>
     <pubDate>Sun, 15 Feb 2026 00:12:00 GMT</pubDate>
-  </item><item>
-    <title>for each</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Sat, 14 Feb 2026 16:42:48 GMT</pubDate>
   </item><item>
     <title>未命名</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9C%AA%E5%91%BD%E5%90%8D</link>
@@ -47,24 +65,6 @@
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) ✍️ 标准语法 (Syntax) . ]]></description>
     <pubDate>Fri, 13 Feb 2026 15:49:00 GMT</pubDate>
-  </item><item>
-    <title>【待定】请在这里写下标题</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84</guid>
-    <description><![CDATA[ 🧠 核心概念/问题 (Concept / Problem) 在这里用一句话描述你正在记录的东西。它是什么？遇到了什么问题？ 💡 我的思考与解决方案 (My Thoughts &amp; Solution) 这是笔记的核心。自由发挥，可以是一段代码、一张截图、一个推导过程，或者几句口语化的理解，怎么直白怎么来。 错误尝试 (如果适用) 我一开始是怎么想的？为什么行不通？（记录错误更有价值） 正确路径 / 关键代码 📖 关联与引用 双向链接到另一个概念 参考来源：视频链接 🎯 给未来自己的话（一句话总结） 如果未来你忘了这个知识点，最需要提醒自己的一句话是什么？ 好的。这段代码通过类(cl... ]]></description>
-    <pubDate>Wed, 11 Feb 2026 14:48:00 GMT</pubDate>
-  </item><item>
-    <title>冒泡排序</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Tue, 10 Feb 2026 16:38:00 GMT</pubDate>
-  </item><item>
-    <title>选择排序</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) 定义 ✍️ 标准语法 (Syntax) void select_sort(int *a, int n) { // 外层循环：每次从未排序部分选择一个最小的数 for (int i = 0; i &lt; n - 1; i++) { // 假设当前位置i的元素就是未排序部分的最小值 int min_index = i; // 内层循环：从未排序部分（i+1 到 n-1）中找到真正的最小值及其索引 for (int j = i + 1; j &lt; n; j++) { // 如果发现一个更小的元素 if (a[min_index] &gt; a[j]) { /... ]]></description>
-    <pubDate>Tue, 10 Feb 2026 14:29:00 GMT</pubDate>
   </item>
     </channel>
   </rss>
