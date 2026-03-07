@@ -10,61 +10,61 @@
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Tue, 03 Mar 2026 01:39:18 GMT</pubDate>
+    <pubDate>Sat, 07 Mar 2026 02:37:15 GMT</pubDate>
   </item><item>
-    <title>未命名</title>
-    <link>https://quartz.jzhao.xyz/Linux%E8%BF%90%E7%BB%B4/%E6%9C%AA%E5%91%BD%E5%90%8D</link>
-    <guid>https://quartz.jzhao.xyz/Linux%E8%BF%90%E7%BB%B4/%E6%9C%AA%E5%91%BD%E5%90%8D</guid>
-    <description><![CDATA[ 操作系统，英文名称Operating System，简称OS，是计算机系统中必不可少的基础系统软件，它是应用程序运行以及用户操作必备的基础环境支撑，是计算机系统的核心。 操作系统的作用是管理和控制计算机系统中的硬件和软件资源，例如，它负责直接管理计算机系统的各种硬件资源，如对CPU、内存、磁盘等的管理，同时对系统资源供需的优先顺序进行管理。操作系统还可以控制设备的输入、输出以及操作网络与管理文件系统等事务。同时，它也负责对计算机系统中各类软件资源进行管理，例如，各类应用软件的安装、运行环境的设置等。. ]]></description>
-    <pubDate>Tue, 03 Mar 2026 01:38:19 GMT</pubDate>
+    <title>C++算法学习笔记</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/</guid>
+    <description><![CDATA[ 这里是关于 算法学习笔记的总览… 注意事项 关闭同步流。 超过2e9 应该开long long,因为超过了 int 的范围。. ]]></description>
+    <pubDate>Sat, 07 Mar 2026 02:36:25 GMT</pubDate>
   </item><item>
-    <title>计算机基础</title>
-    <link>https://quartz.jzhao.xyz/Linux%E8%BF%90%E7%BB%B4/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80</link>
-    <guid>https://quartz.jzhao.xyz/Linux%E8%BF%90%E7%BB%B4/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80</guid>
-    <description><![CDATA[ 计算机数值表示 机器数和真值 计算机中使用的是二进制，因此只有0和1这两种值。一个数在计算机中的表示形式，称为机器数。机器数所对应的原来的数值称为真值。 用机器数的最高位代表符号（若为0，则代表正数；若为1，则代表负数），其数值位为真值数的绝对值。 在数的表示中，机器数与真值的区别是：真值带符号如-0011100，机器数不带数符，最高位为符号位，如10011100，其中最高位1代表符号位。 机器数也有不同的表示方法，常用的机器数共有3种：原码、补码和反码。在计算机中，符号位和数值位都是用0和1来表示的，在对机器数进行处理时，必须考虑对符号位的处理，也就是对符号和数值的编码方法。常见的编码方法有... ]]></description>
-    <pubDate>Tue, 03 Mar 2026 01:38:19 GMT</pubDate>
+    <title>全排列</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E5%85%A8%E6%8E%92%E5%88%97</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E5%85%A8%E6%8E%92%E5%88%97</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) next_permutation() prev_permutation() ✍️ 代码 . ]]></description>
+    <pubDate>Sat, 07 Mar 2026 02:36:25 GMT</pubDate>
   </item><item>
-    <title>sort</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/sort</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/sort</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) 参数： lambda 表达式： Lambda三种核心捕获方式 捕获方式核心行为一句话总结[]无捕获：不访问外部变量，像一个纯函数。一个与外界隔离的“临时函数”。[=]值捕获：复制外部变量，默认只读。拿到一份外部数据的“只读快照”。[&amp;]引用捕获：使用外部变量的别名，可读可写。获得一个能直接操作外部世界的“遥控器”。 进阶：混合捕获 你还可以混合使用，精确控制每一个变量的捕获方式： [&amp;, x]：默认以引用捕获所有变量，但变量x除外，它以值方式捕获。 “把所有遥控器都给我，但x这个东西你给我复印一份。” [=, &amp;y]：默认以值捕获所有... ]]></description>
-    <pubDate>Tue, 03 Mar 2026 01:38:19 GMT</pubDate>
+    <title>其他库函数</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E5%85%B6%E4%BB%96%E5%BA%93%E5%87%BD%E6%95%B0</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E5%85%B6%E4%BB%96%E5%BA%93%E5%87%BD%E6%95%B0</guid>
+    <description><![CDATA[ 🎯 memset() swap() reverse() unique() ✍️ 标准代码 . ]]></description>
+    <pubDate>Sat, 07 Mar 2026 02:36:25 GMT</pubDate>
   </item><item>
     <title>二分查找</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 整数二分 模版： ✍️答案二分 跳石头 #include &lt;iostream&gt; #include &lt;bits/stdc++.h&gt; using namespace std; int L,N,M; const int n =5e4+9; int a[n]; bool check(int mid) { int re = 0,la = 0; for(int i = 1;i &lt;= N;i++) { if(a[i] - a[la] &lt; mid) re++;//太短了，不合法，就不跳过去，增加移除的石头 else la = i; //合... ]]></description>
-    <pubDate>Tue, 03 Mar 2026 01:38:19 GMT</pubDate>
+    <pubDate>Sat, 07 Mar 2026 02:36:25 GMT</pubDate>
   </item><item>
     <title>大小写转换</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%A4%A7%E5%B0%8F%E5%86%99%E8%BD%AC%E6%8D%A2</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%A4%A7%E5%B0%8F%E5%86%99%E8%BD%AC%E6%8D%A2</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Tue, 03 Mar 2026 01:38:19 GMT</pubDate>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) 代码： . ]]></description>
+    <pubDate>Sat, 07 Mar 2026 02:36:25 GMT</pubDate>
   </item><item>
-    <title>大整数乘法</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%A4%A7%E6%95%B4%E6%95%B0%E4%B9%98%E6%B3%95</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%A4%A7%E6%95%B4%E6%95%B0%E4%B9%98%E6%B3%95</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) 伪代码 // 定义数组C 很大（为了让每位初始为0） // 遍历B的每一位 //定义借位 t //j先拿出来 //遍历A的每一位 //定义数num 等于 借位+积 // ret = 个位 // t = 十位 // 标准模板 // C[i+j] 为 ret 的累加 // 处理进位；C【i+j+1】 为 前一位十位的累加 // C【i+j】 当前位保留个位 //处理最后一位的进位；当前位加上借位 //倒序遍历输出并且 筛选（为了去除前置0），范围不会超过两乘数的和； //定义过滤标志flag=ture:假设最后一个（倒过来就是在前面）数一定为0 //如果满足位数... ]]></description>
-    <pubDate>Tue, 03 Mar 2026 01:38:19 GMT</pubDate>
+    <title>枚举</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE</guid>
+    <description><![CDATA[ 🎯 ✍️ 例题 //找2019特别数 #include &lt;bits/stdc++.h&gt; using namespace std; bool f(int x) { while(x) { int y = x % 10; if (y == 2 || y == 0 || y == 1 || y == 9) return true; x /= 10; } return false; } int ans; int main() { int n;cin &gt;&gt; n; for(int i = 1; i &lt;= n; ++i) { if(f(i)) ans += i; } cout ... ]]></description>
+    <pubDate>Sat, 07 Mar 2026 02:36:25 GMT</pubDate>
   </item><item>
-    <title>大整数除法</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%A4%A7%E6%95%B4%E6%95%B0%E9%99%A4%E6%B3%95</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%A4%A7%E6%95%B4%E6%95%B0%E9%99%A4%E6%B3%95</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) //定义vector商和余数q r = 被除数A （长除法余数是从被除数一步一步减下来的） // ////除不开： //如果 函数返回 A不大于于B //输出0和 //余数（遍历输出被除数A） //vector c （竖式计算时，正在处理的那一部分数字） //倒序（本来不用倒序，但是由于习惯性倒序输入，所以不得不倒回来）遍历 r （为了从r一位一位取数） //利用.insert 把上一步取的数插入到正在处理的值c最前面，形成新的被除数 //int 这一位的商 t = 0 （每次新一位的商，故初始值为0） //循环试商，当 当前处理的c 比 除数B 大 // ... ]]></description>
-    <pubDate>Tue, 03 Mar 2026 01:38:19 GMT</pubDate>
+    <title>模拟算法</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</guid>
+    <description><![CDATA[ 🎯 ✍️ 标准代码 . ]]></description>
+    <pubDate>Sat, 07 Mar 2026 02:36:25 GMT</pubDate>
   </item><item>
-    <title>快慢指针</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) 快慢指针可以使得时间复杂度，从 O (n²)变成 O(n)。 ✍️ 标准语法 (Syntax) int j = 0; // 为了逻辑更清晰，我们换一种更常见的快慢指针写法 // i 是快指针，j 是慢指针 for (int i = 1; i &lt; n; ++i) { if (arr[i] != arr[j]) { // 如果当前元素和新数组的最后一个元素不同 j++; // 慢指针移动 arr[j] = arr[i]; // 将新元素写入 } } // 最终去重后的数组长度是 j + 1. ]]></description>
-    <pubDate>Tue, 03 Mar 2026 01:38:19 GMT</pubDate>
+    <title>计算方法</title>
+    <link>https://quartz.jzhao.xyz/%E5%A4%A7%E5%AD%A6%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95</link>
+    <guid>https://quartz.jzhao.xyz/%E5%A4%A7%E5%AD%A6%E5%85%B6%E4%BB%96%E8%AF%BE%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Sat, 07 Mar 2026 02:36:25 GMT</pubDate>
   </item><item>
-    <title>最值查找</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9C%80%E5%80%BC%E6%9F%A5%E6%89%BE</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9C%80%E5%80%BC%E6%9F%A5%E6%89%BE</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) min_element 和 max_element 小技巧：保留小数 fixed 和 setprecision(2) 组合在一起，就是强制要求 cout 以小数形式输出，并且小数点后必须精确保留两位。 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Tue, 03 Mar 2026 01:38:19 GMT</pubDate>
+    <title>概率论与数理统计</title>
+    <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1</link>
+    <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1</guid>
+    <description><![CDATA[ 第一章 第一节 第二节 补充 事件之间关系 德摩根律 ：断线变号 第三节 频率与概率 奇+偶- 不相容 → 无交集 例题 古典概型 超几何 分布 抽签公平. ]]></description>
+    <pubDate>Sat, 07 Mar 2026 02:36:25 GMT</pubDate>
   </item>
     </channel>
   </rss>
