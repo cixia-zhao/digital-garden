@@ -19,5 +19,3 @@ date: 2026-02-01T16:48:00
 .back（ ）最后一个元素
 .clear （）清除所有
 ![[Screenshot_2026-02-01-19-39-13-27_149003a2d400f6adb210d7e357a3a646.jpg]]
-unique:需要头文件 algorithm.h
-![[Screenshot_2026-02-01-19-40-07-92_149003a2d400f6adb210d7e357a3a646.jpg]]
