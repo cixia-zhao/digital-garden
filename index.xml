@@ -10,18 +10,18 @@
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Tue, 10 Mar 2026 11:32:20 GMT</pubDate>
-  </item><item>
-    <title>离散化</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E7%A6%BB%E6%95%A3%E5%8C%96</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E7%A6%BB%E6%95%A3%E5%8C%96</guid>
-    <description><![CDATA[ 🎯 概念 ✍️ 模板代码 题目： #include&lt;bits/stdc++.h&gt; using namespace std; const int N = 1e5+9; int a[N]; vector&lt;int&gt; L; int main() { int n;cin &gt;&gt; n; for(int i = 1;i &lt;= n;++i) cin &gt;&gt; a[i]; sort(a+1,a+1+n); for(int i = 1;i &lt;= n;++i) L.push_back(a[i]); L.erase(unique(L.begin(),L.end(... ]]></description>
-    <pubDate>Tue, 10 Mar 2026 11:31:44 GMT</pubDate>
+    <pubDate>Tue, 10 Mar 2026 13:19:08 GMT</pubDate>
   </item><item>
     <title>贪心算法</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95</guid>
     <description><![CDATA[ 🎯 概念 ✍️ 例题代码 题目： #include &lt;bits/stdc++.h&gt; using namespace std; const int N = 1e5+9; int a[N]; int main() { int n;cin &gt;&gt; n; for(int i = 1;i &lt;= n;++i) cin &gt;&gt; a[i]; sort(a+1,a+1+n); int ans = a[2] - a[1]; for(int i = 1;i &lt; n;++i) ans = min(ans,a[i+1]-a[i]); //访问到i+1了，记得不取等。 cou... ]]></description>
+    <pubDate>Tue, 10 Mar 2026 13:18:24 GMT</pubDate>
+  </item><item>
+    <title>离散化</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E7%A6%BB%E6%95%A3%E5%8C%96</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E7%A6%BB%E6%95%A3%E5%8C%96</guid>
+    <description><![CDATA[ 🎯 概念 ✍️ 模板代码 题目： #include&lt;bits/stdc++.h&gt; using namespace std; const int N = 1e5+9; int a[N]; vector&lt;int&gt; L; int main() { int n;cin &gt;&gt; n; for(int i = 1;i &lt;= n;++i) cin &gt;&gt; a[i]; sort(a+1,a+1+n); for(int i = 1;i &lt;= n;++i) L.push_back(a[i]); L.erase(unique(L.begin(),L.end(... ]]></description>
     <pubDate>Tue, 10 Mar 2026 11:31:44 GMT</pubDate>
   </item><item>
     <title>差分数组</title>
