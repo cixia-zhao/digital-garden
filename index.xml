@@ -10,19 +10,31 @@
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Wed, 11 Mar 2026 09:53:18 GMT</pubDate>
+    <pubDate>Thu, 12 Mar 2026 10:40:39 GMT</pubDate>
+  </item><item>
+    <title>DFS</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</guid>
+    <description><![CDATA[ 🎯 概念 ✍️ 例题代码 题目： 题目： . ]]></description>
+    <pubDate>Thu, 12 Mar 2026 10:39:59 GMT</pubDate>
+  </item><item>
+    <title>概率论与数理统计</title>
+    <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1</link>
+    <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1</guid>
+    <description><![CDATA[ 第一章 第一节 第二节 补充 事件之间关系 德摩根律 ：断线变号 第三节 频率与概率 奇+偶- 不相容 → 无交集 例题 古典概型 整除问题 几何概型 超几何分布 抽签公平 区分 第五节 条件概率 条件概率 例题： 注意： 乘法定理 不放回且放回a个 全概率公式 样本空间划分： . ]]></description>
+    <pubDate>Thu, 12 Mar 2026 10:39:59 GMT</pubDate>
+  </item><item>
+    <title>专注核芯</title>
+    <link>https://quartz.jzhao.xyz/%E7%94%B5%E5%AD%90/%E4%B8%93%E6%B3%A8%E6%A0%B8%E8%8A%AF</link>
+    <guid>https://quartz.jzhao.xyz/%E7%94%B5%E5%AD%90/%E4%B8%93%E6%B3%A8%E6%A0%B8%E8%8A%AF</guid>
+    <description><![CDATA[ 最终采购清单： 核心大脑 (MCU): 品名： ESP32-S3 开发板 要点： 建议购买已焊接好排针的版本，方便直接插入面包板。 灵魂之窗 (Screen): 品名： 3.7英寸 SPI接口 墨水屏/电子纸 模块 要点： 务必确认是 SPI接口。通常会附赠一条排线，用于连接。 价格应该低廉 软件：数据库英语词。. ]]></description>
+    <pubDate>Thu, 12 Mar 2026 10:39:59 GMT</pubDate>
   </item><item>
     <title>双指针</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8F%8C%E6%8C%87%E9%92%88</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8F%8C%E6%8C%87%E9%92%88</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 对撞指针 快慢指针 快慢指针可以使得时间复杂度，从 O (n²)变成 O(n)。 ✍️ 代码 对撞指针例题： #include &lt;bits/stdc++.h&gt; using namespace std; const int N = 1e6+9; char s[N]; int main() { ios::sync_with_stdio(0),cin.tie(0),cout.tie(0); cin &gt;&gt; s+1; int n = strlen(s+1); int l = 1,r = n; bool ans = true; while(l&l... ]]></description>
     <pubDate>Wed, 11 Mar 2026 09:52:49 GMT</pubDate>
-  </item><item>
-    <title>DFS</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</guid>
-    <description><![CDATA[ 🎯 概念 ✍️ 例题代码 题目： 题目： . ]]></description>
-    <pubDate>Wed, 11 Mar 2026 07:59:03 GMT</pubDate>
   </item><item>
     <title>二分查找</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE</link>
@@ -48,23 +60,11 @@
     <description><![CDATA[ 🎯 ✍️ 标准代码 题目：区间更新 #include &lt;iostream&gt; using namespace std; const int N = 1e5+9; int a[N],d[N]; int main() { int m,n; while(cin &gt;&gt; n &gt;&gt; m) { for(int i = 1;i &lt;= n; ++i) cin &gt;&gt;a[i]; for(int i = 1;i &lt;= n; ++i) d[i] = a[i] - a[i - 1]; while(m--) { int l,r,v; cin &gt;&gt; l ... ]]></description>
     <pubDate>Tue, 10 Mar 2026 09:27:41 GMT</pubDate>
   </item><item>
-    <title>概率论与数理统计</title>
-    <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1</link>
-    <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1</guid>
-    <description><![CDATA[ 第一章 第一节 第二节 补充 事件之间关系 德摩根律 ：断线变号 第三节 频率与概率 奇+偶- 不相容 → 无交集 例题 古典概型 整除问题 几何概型 超几何分布 抽签公平 区分 第五节 条件概率 条件概率 . ]]></description>
-    <pubDate>Tue, 10 Mar 2026 09:27:41 GMT</pubDate>
-  </item><item>
     <title>前缀和</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%89%8D%E7%BC%80%E5%92%8C</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%89%8D%E7%BC%80%E5%92%8C</guid>
     <description><![CDATA[ 🎯 ✍️ 标准代码 区间k次方 #include &lt;bits/stdc++.h&gt; using namespace std; using ll = long long; const ll p = 1e9 + 7; const ll N = 1e5 + 9; ll a[6][N],prefix[6][N]; int main() { ios::sync_with_stdio(0),cin.tie(0),cout.tie(0); int n,m;cin &gt;&gt; n &gt;&gt; m; for(int i = 1;i &lt;= n;++i) cin &gt;&gt; a[... ]]></description>
     <pubDate>Mon, 09 Mar 2026 11:36:25 GMT</pubDate>
-  </item><item>
-    <title>高等数学下</title>
-    <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B8%8B</link>
-    <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B8%8B</guid>
-    <description><![CDATA[ 第八章 向量及其线性运算 概念 平行有正向和反向 线性计算 （几何法） 一定要是逆时针三个轴； 线性计算 （代数法） 向量的模 方向角 投影 模 方向角与方向余弦 两种思路求方向余弦 例 在第一卦限 都是锐角 cos &gt; 0; 投影 数量积 向量积 混合积 数量积 ：结果为数量 向量积 ： 结果为向量 混合积 平面及其方程 例题 点法式求平面方程 绝对重点 通过某轴 则前面系数为0，同时D为0；平行某轴 则前面系数为0，最后留一个未知数约掉； 一般式例题 截距式 空间直线及其方程 一般式 点向式 参数式 两点式 例题 直线 可以直接求出方向向量，以及一个定点，平面可以一眼看出法向量。 距... ]]></description>
-    <pubDate>Mon, 09 Mar 2026 10:03:12 GMT</pubDate>
   </item>
     </channel>
   </rss>
