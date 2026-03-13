@@ -48,10 +48,56 @@ data: 2026-03-11T15:14:00
 ### ✍️ 例题代码
 题目：
 
->
+>![[Pasted image 20260313191146.png]]
 
 ```cpp
+#include <bits/stdc++.h>
+using namespace std;
+const int N = 160;
+int a[N],q[N];
+int n,k,res;
+bool is_prime(int x)
+{
+	if(x < 2) return false;
+	for(int i = 2;i <= x / i;++i)
+	{
+		if(x % i == 0) return false;
+	}
+	
+	return true;
+}
+void dfs(int x,int sta)
+{
+	if(x > k)
+	{
+	  int sum = 0;
+		for(int i = 1;i<=k;++i)
+		{
+			sum += a[i];
+		}
+		
+		if(is_prime(sum)) res++;
+		
+		return ;
+	}
+	
+	
+	for(int i = sta;i <= n+x-k;++i)
+	{
+		a[x] = q[i];
+		dfs(x+1,i+1);
+	}
+	
+}
 
+int main()
+{
+	cin >> n >> k;
+	for(int i = 1;i<=n; ++i) cin >> q[i];
+	dfs(1,1);
+	cout << res <<'\n';
+	return 0;
+ } 
 ```
 
 题目：
