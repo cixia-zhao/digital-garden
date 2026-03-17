@@ -10,7 +10,13 @@
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Mon, 16 Mar 2026 14:49:59 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2026 09:23:50 GMT</pubDate>
+  </item><item>
+    <title>概率论与数理统计</title>
+    <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1</link>
+    <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1</guid>
+    <description><![CDATA[ 第一章 第一节 第二节 补充 事件之间关系 德摩根律 ：断线变号 第三节 频率与概率 奇+偶- 不相容 → 无交集 例题 古典概型 整除问题 几何概型 超几何分布 抽签公平 区分 第五节 条件概率 条件概率 例题： 注意： 乘法定理 不放回且放回a个 全概率公式 样本空间划分： 公式及证明 例题 逆概公式 也叫贝叶斯： 独立性 例题： 如果已经知道 等于条件概率 小并母集，等于本身 互斥事件则可以直接概率+ . ]]></description>
+    <pubDate>Tue, 17 Mar 2026 09:23:08 GMT</pubDate>
   </item><item>
     <title>DFS</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</link>
@@ -23,12 +29,6 @@
     <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6-%E4%B8%8B</guid>
     <description><![CDATA[ 第八章 向量及其线性运算 概念 平行有正向和反向 线性计算 （几何法） 一定要是逆时针三个轴； 线性计算 （代数法） 向量的模 方向角 投影 模 方向角与方向余弦 两种思路求方向余弦 例 在第一卦限 都是锐角 cos &gt; 0; 投影 数量积 向量积 混合积 数量积 ：结果为数量 向量积 ： 结果为向量 混合积 平面及其方程 例题 点法式求平面方程 绝对重点 通过某轴 则前面系数为0，同时D为0；平行某轴 则前面系数为0，最后留一个未知数约掉； 一般式例题 截距式 空间直线及其方程 一般式 点向式 参数式 两点式 例题 直线 可以直接求出方向向量，以及一个定点，平面可以一眼看出法向量。 距... ]]></description>
     <pubDate>Mon, 16 Mar 2026 08:46:53 GMT</pubDate>
-  </item><item>
-    <title>概率论与数理统计</title>
-    <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1</link>
-    <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1</guid>
-    <description><![CDATA[ 第一章 第一节 第二节 补充 事件之间关系 德摩根律 ：断线变号 第三节 频率与概率 奇+偶- 不相容 → 无交集 例题 古典概型 整除问题 几何概型 超几何分布 抽签公平 区分 第五节 条件概率 条件概率 例题： 注意： 乘法定理 不放回且放回a个 全概率公式 样本空间划分： 公式及证明 例题 逆概公式 . ]]></description>
-    <pubDate>Sun, 15 Mar 2026 04:56:03 GMT</pubDate>
   </item><item>
     <title>专注核芯</title>
     <link>https://quartz.jzhao.xyz/%E7%94%B5%E5%AD%90/%E4%B8%93%E6%B3%A8%E6%A0%B8%E8%8A%AF</link>
