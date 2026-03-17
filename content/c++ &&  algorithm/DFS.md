@@ -1145,3 +1145,126 @@ int main()
 	return 0;
 }
 ```
+
+# P1019 [NOIP 2000 提高组] 单词接龙（疑似错题）
+
+## 题目背景
+
+注意：本题为上古 NOIP 原题，不保证存在靠谱的做法能通过该数据范围下的所有数据。本题的难度仅代表设计算法可以通过本题原始数据的难度。
+
+本题为搜索题，本题不接受 hack 数据。[关于此类题目的详细内容](https://www.luogu.com.cn/paste/pf94n89x)
+
+NOIP2000 提高组 T3
+
+## 题目描述
+
+单词接龙是一个与我们经常玩的成语接龙相类似的游戏，现在我们已知一组单词，且给定一个开头的字母，要求出以这个字母开头的最长的“龙”（每个单词都最多在“龙”中出现两次），在两个单词相连时，其重合部分合为一部分，例如 `beast` 和 `astonish`，如果接成一条龙则变为 `beastonish`，另外相邻的两部分不能存在包含关系，例如 `at` 和 `atide` 间不能相连。
+
+## 输入格式
+
+输入的第一行为一个单独的整数 $n$ 表示单词数，以下 $n$ 行每行有一个单词，输入的最后一行为一个单个字符，表示“龙”开头的字母。你可以假定以此字母开头的“龙”一定存在。
+
+## 输出格式
+
+只需输出以此字母开头的最长的“龙”的长度。
+
+## 输入输出样例 #1
+
+### 输入 #1
+
+```
+5
+at
+touch
+cheat
+choose
+tact
+a
+
+```
+
+### 输出 #1
+
+```
+23
+
+```
+
+## 说明/提示
+
+样例解释：连成的“龙”为 `atoucheatactactouchoose`。
+
+$n \le 20$。
+
+利用全排序思路，多次依次判断接龙 记录最大长度为状态量；
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+const int N = 29;
+string w[N];
+char init_ch;//题目说了单字符，并且用string，就不能和w[N][0]单字符 比较； 
+int us[N]; //有记录功能的状态数组，一般搭配if保险； 
+int n,ans;
+int get_len(string a,string b) 
+{
+	int m = min(a.size(),b.size()); 
+	for(int k = 1;k < m;++k)
+	{
+		if(a.substr(a.size() - k) == b.substr(0,k)) return k;
+		
+		
+	}
+	return 0;
+	
+}
+
+
+void dfs(string lst_w,int len) //注意类型 lst_w是一个字符；用string； 
+{
+	ans = max(len,ans);
+	
+	for(int i =1;i <= n;++i)
+	{
+		if(us[i] < 2) //记录数组保险门； 
+		{
+			int k = get_len(lst_w,w[i]); //题目条件 
+			if(k > 0)
+			{
+				us[i]++;
+				dfs(w[i],w[i].size() + len - k); //参数传入w[i]，通过for循环更新，可再次重复，并且回头，反正us可以放重复，不加一确保这个数下次还选； 
+				us[i]--;
+			}
+		}
+		
+		
+	}
+	
+}
+
+int main()
+{
+	cin >> n; 
+	for(int i = 1;i <= n;++i)
+	{
+		cin >> w[i];
+	}
+	
+	cin >> init_ch;
+	for(int i = 1;i <= n;++i) // 遍历全部单词第一位找开头  
+	{
+		if(w[i][0] == init_ch)
+		{
+			us[i]++;	
+			dfs(w[i],w[i].size());//字符数组用size需要[i] 
+			us[i]--;
+		} //string 加数组，可以达到多组个单词输入，第二个[]代表单词的第某字母； 
+	}
+	
+	cout << ans <<'\n';
+	
+	return 0;
+ } 
+```
+
+w
