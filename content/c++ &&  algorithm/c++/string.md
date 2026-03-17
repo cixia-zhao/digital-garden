@@ -2,7 +2,8 @@
 title: string
 tags:
   - 语法
-related: []
+related:
+  - substr
 date: 2026-01-21
 ---
 
@@ -39,6 +40,31 @@ strcpy（a,b)，b的内容完完全全把a变成b的内容，即使a比b长。
 strcat (a,b)把b接到a后面
 使用string 数据类型需要头文件 string
 c++ spring类型大小判断 直接if()判断
+
+substr 函数有两种常用形式：
+
+· substr(pos)：从位置 pos 开始，截取到字符串末尾。
+· substr(pos, count)：从位置 pos 开始，截取 count 个字符。
+
+判断两字符串接龙重合长度（读第一个就返回版）：
+```cpp
+// 鉴定专家：看看单词 a 的尾巴，和单词 b 的头，能不能接上？
+// 如果能，返回【最短】的重合长度；如果不能，返回 0。
+int get_overlap(string a, string b) {
+    int min_len = min(a.length(), b.length());
+    // 重合部分必须小于两个单词的自身长度（题目规定不能存在包含关系）
+    for (int k = 1; k < min_len; k++) { 
+        // a.substr(起始位置) 截取 a 的尾巴
+        // b.substr(0, k) 截取 b 的头
+        if (a.substr(a.length() - k) == b.substr(0, k)) {
+            return k; // 从小到大找，找到的第一个就是最短的！直接返回！
+        }
+    }
+    return 0; // 找不到重合部分，接不上
+}
+
+```
+
 
 
 字符串数据类型的变量名.replace(下标-作为起始位置, 长度，替换的内容，后面同前)
