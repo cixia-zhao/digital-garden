@@ -42,6 +42,7 @@ revision time 1: 2026-03-14T23:18:00
 🎯 给未来自己的话
 > 当你以后面对任何复杂的 DFS 题目（走迷宫、八皇后、图的遍历）脑子发晕时，请立刻停止想象，在纸上画一个“坑”，问自己：这个坑的出口在哪？这个坑能填几个萝卜？填完拔出来时需要把萝卜洗干净放回原处吗？
 
+## 注意事项：多组输入 请全部全局变量，同时图则要 road.clear();
 ## 模板 ：
 
 void dfs(状态参数) {
@@ -275,14 +276,16 @@ int main()
 
 
 
-## 扩展模版：迷宫问题
+## 扩展模版：
+### 迷宫问题(放狗前每次的清除cnt局部变量)
 
 ```cpp
 // 方向数组
 int dx[4] = {-1, 0, 1, 0}; // 对应：上、右、下、左
 int dy[4] = { 0, 1, 0,-1};
 bool st[N][N]; // 查库存：二维地图的状态
-
+int msize = 0;
+int bkt[N*N];//桶 里面装连通块，桶数为 拥有同意数量连通块的 数量；
 void dfs(int x, int y) {
     // === 1. 剪枝（安检门三连发） ===
     if (x < 1 || x > H || y < 1 || y > W) return; // 安检1：掉出地图边界了吗？ // 长是一维 对应 x 
@@ -308,11 +311,216 @@ void dfs(int x, int y) {
     // 场景 B【找所有可行路径】：必须还原！ st[x][y] = false; 把这块砖洗干净，给平行宇宙的其他路线让路。
 }
 
+int main()
+{
+	ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+	if(cin >> n >>m)
+	{
+		for(int i = 1;i <= n;++i)
+		{
+			for(int j = 1;j <= m;++j)
+			{
+				cin >> M[i][j];
+			}	
+		} //输入地图
+		for(int i = 1;i <= n;++i)
+		{
+			for(int j = 1;j <= m;++j)
+			{
+				if(M[i][j] == '*' && !st[i][j])//找连通块起点
+				{
+					msize = 0;//计算多块中某一块连通块数量要清空记录，如果不， 到了另一块连通块就会重复累加， 
+					dfs(i,j);
+					bkt[msize]++; //同数量连通块的种类数量
+					
+				} 
+			}	
+		}
+		int ans = 0;
+		for(int i = 1;i < N*N;++i) // i 为sz 
+		{
+			if(bkt[i] > 0)
+			{
+				ans ++;
+				maxsize = max(maxsize,i * bkt[i]);//求最大值打擂台 ，求同数量连通块 同种累加最大
+			}
+			
+			
+		}
+		cout << ans << ' ' << maxsize <<'\n';
+		
+	}
+
 ```
 
-gege
+### 图遍历（放狗前清除掉cnt局部，同时状态也要还原）
+```cpp
+#include <iostream>
+#include <vector>
+#include <cstring> // memset 专属头文件
+using namespace std;
+
+const int N = 100005; // 城市数量上限
+
+// 📖 核心武器：记事本（邻接表）
+// road[u] 里面存着从 u 城市出发，能直接开任意门到达的所有城市编号
+vector<int> road[N]; 
+
+// 🛡️ 查库存数组：去过的城市绝对不再去（图论里极容易出现死循环绕圈，这个必带！）
+bool vis[N]; 
+
+// 🐕 DFS 狗：专门在这个任意门网络里穿梭
+// 参数 u: 当前狗跑到了哪个城市
+void dfs(int u) {
+    // 【打钢印】：落地第一时间，宣布占领该城市！
+    vis[u] = true;
+
+    // 🌟 在这里写你要干的业务逻辑（比如找最大编号、累加人数、计数等）
+    // 例如：max_val = max(max_val, u);
+
+    // 【核心分支：翻开记事本，找路！】
+    // 导师教你一个 C++ 极简写法（范围 for 循环），大白话就是：
+    // “把 road[u] 这个本子里的名单挨个念出来，每次念到的名字叫 v”
+    for (int v : road[u]) { 
+        
+        // 【安检门】：苛刻的保安查库存
+        if (!vis[v]) {
+            // 如果这个城市还没去过，打开任意门，传送！
+            // 注意：圈地/求连通块问题，绝不擦钢印（不回溯还原）！
+            dfs(v);
+        }
+    }
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
+    int n, m; // n 个城市，m 条路
+    if (cin >> n >> m) {
+        // 【修路阶段：给记事本登记】
+        for (int i = 1; i <= m; i++) {
+            int u, v;
+            cin >> u >> v;
+            
+            // 记下：从 u 可以传送去 v
+            road[u].push_back(v); 
+            
+            // 💣 隐藏雷点：如果题目说是“双向道路 / 无向图”
+            // 你必须加上下面这句，让 v 也能传送回 u！
+            // road[v].push_back(u); 
+        }
+
+        // 【主函数放狗阶段】
+        // 根据题目要求决定怎么放狗。
+        // 如果是要查从所有点出发的情况，就清空历史记录，挨个放狗：
+        for (int i = 1; i <= n; i++) {
+            memset(vis, 0, sizeof(vis)); // 放狗前肚子清空
+            // 变量清零重置...
+            
+            dfs(i); // 从第 i 号城市出发！
+            
+            // 结算并打印 i 号城市跑出来的结果...
+        }
+    }
+    return 0;
+}
+```
 
 
+### 数独填数(排列型)
+数独 DFS 的本质，就是前期用数组记录目标，后期套用全排列模板暴力试错(注意特别检验合法不)。
+```cpp
+#include <iostream>
+#include <cstdlib> // exit(0) 强制下班必备
+using namespace std;
+
+const int K = 2; // K 是小包厢的边长。如果题目是 2x2 宫格，K=2；如果是 9x9 经典数独，K=3！
+const int MAX_SIZE = K * K; // 整个棋盘的边长
+
+int grid[20][20]; // 物理棋盘
+
+// 坑位名单（降维打击的核心）
+int px[100], py[100]; 
+int pit_cnt = 0; // 记录总共有几个坑
+
+// 🛡️ 专门查验在 (x, y) 放入数字 val 合不合法
+bool check(int x, int y, int val) {
+    // 1. 查十字线（同行、同列）
+    for (int i = 1; i <= MAX_SIZE; i++) {
+        if (grid[x][i] == val) return false; 
+        if (grid[i][y] == val) return false; 
+    }
+
+    // 2. 查小包厢：精准定位左上角
+    int startX = ((x - 1) / K) * K;
+    int startY = ((y - 1) / K) * K;
+    
+    for (int i = 0; i < K; i++) {
+        for (int j = 0; j < K; j++) {
+            if (grid[startX + i][startY + j] == val) {
+                return false; // 拦截！
+            }
+        }
+    }
+    return true; // 放行！
+}
+
+// 🐕 DFS 狗：专门根据名单填坑
+// 参数 step: 当前在填名单上的第几个坑
+void dfs(int step) {
+    // 【成功出口】
+    if (step > pit_cnt) {
+        // 打印整个修补好的二维棋盘
+        for (int i = 1; i <= MAX_SIZE; i++) {
+            for (int j = 1; j <= MAX_SIZE; j++) {
+                cout << grid[i][j] << " ";
+            }
+            cout << '\n';
+        }
+        exit(0); // 只要一个答案？拿到直接下班！
+    }
+
+    // 拿出名单，看看当前要填的坑在真实棋盘的哪个坐标
+    int x = px[step];
+    int y = py[step];
+
+    // 【核心分支：每种萝卜都试一遍】
+    for (int i = 1; i <= MAX_SIZE; i++) {
+        
+        // 【安检门 2：苛刻的保安查验】
+        if (!check(x, y, i)) continue; // 冲突了，直接扔掉这个萝卜试下一个
+
+        // 【打钢印】：坑里填入萝卜
+        grid[x][y] = i;
+
+        // 【传参 dfs】：踏向下一个坑
+        dfs(step + 1);
+
+        // 【擦钢印 / 毁尸灭迹】：排列型必须还原现场！
+        grid[x][y] = 0; 
+    }
+}
+
+int main() {
+    // 读入数据阶段，提前“收集坑位” 就是把你最怕的“二维棋盘满屏幕乱找”，强行【降维打击】成了你闭着眼睛都能写的“一维单排填坑（排列型）
+    for (int i = 1; i <= MAX_SIZE; i++) {
+        for (int j = 1; j <= MAX_SIZE; j++) {
+            cin >> grid[i][j];
+            if (grid[i][j] == 0) {
+                pit_cnt++;
+                px[pit_cnt] = i;
+                py[pit_cnt] = j;
+            }
+        }
+    }
+
+    // 放狗！从名单上的第 1 个坑开始填！
+    dfs(1);
+
+    return 0;
+}
+```
 ## 题目：选数（组合）
 
 >![[Pasted image 20260313191146.png]]
@@ -2205,3 +2413,373 @@ int main()
 		return 0;
 }
 ```
+
+# P6566 [NOI Online #3 入门组] 观星
+
+## 题目描述
+
+Jimmy 和 Symbol 约好一起看星星，浩瀚的星空可视为一个长为 $N$、宽为 $M$ 的矩阵，矩阵中共有 $N\times M$ 个位置，一个位置可以用坐标 $(i,j)$（$1\le i\le N$，$1\le j\le M$）来表示。每个位置上可能是空的，也可能有一个星星。
+
+对于一个位置 $(i,j)$，与其相邻的位置有左边、左上、上面、右上、右边、右下、下面、左下 8 个位置。相邻位置上的星星被视为同一个星座，这种关系有传递性，例如若 $(1,1),(1,2),(1,3)$ 三个
+位置上都有星星，那么这三个星星视为同一个星座。包含的星星数量相同的星座被视为一个星系（一个星系中的星座不一定相邻），星系的大小为星系中包含的所有星星数量。
+
+由于 Symbol 太喜欢星系了，他就想考一考 Jimmy，让 Jimmy 求出星空中有多少个星系，他还想知道，最大的星系有多大。
+
+## 输入格式
+
+第一行两个整数 $N,M$ 表示矩阵的长宽。
+
+接下来 $N$ 行每行 $M$ 个字符，每个字符只可能是`.`或`*`。这 $N$ 行中第 $i$ 行的第 $j$ 个字符是`*`表示位置 $(i,j)$ 上有一个星星，否则表示它是空的。
+
+## 输出格式
+
+仅一行两个整数，用空格分隔开，分别表示星系的数量与最大星系的大小。
+
+## 输入输出样例 #1
+
+### 输入 #1
+
+```
+5 7
+*......
+..**..*
+.*...*.
+...*...
+....*..
+```
+
+### 输出 #1
+
+```
+3 4
+```
+
+## 输入输出样例 #2
+
+### 输入 #2
+
+```
+10 10
+**..**.**.
+***....*..
+*...**.**.
+...*..*...
+..........
+**...**.*.
+..*.*....*
+..........
+***..*.*..
+.***..*...
+```
+
+### 输出 #2
+
+```
+4 12
+```
+
+## 说明/提示
+
+对于 $20\%$ 的数据，$N,M\le 20$，最大星系大小不超过 200。
+
+对于 $50\%$ 的数据，$N,M\le 400$。
+
+对于 $70\%$ 的数据，$N,M\le 1100$。
+
+对于 $100\%$ 的数据，$2\le N,M\le 1500$，最大星系大小不超过 100000。
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+int n,m,maxsize;
+const int N = 1509;//注意观察数据 
+
+char M[N][N];
+bool st[N][N];
+int dx[9] = {0,0,1,0,-1,-1,1,1,-1};
+int dy[9] = {0,1,0,-1,0,1,1,-1,-1};
+int msize = 0;
+int bkt[N*N];//桶 里面装连通块，桶数为 拥有同意数量连通块的 数量； 
+void dfs(int x,int y)
+{
+	if(x < 1 || x > n || y < 1 || y > m) return ;// 长是一维 对应 x 
+	if (st[x][y]) return ;
+	if(M[x][y] == '.') return ; //不连通的块 
+	st[x][y] = true;
+	msize++;
+	for(int i = 1;i <= 8;++i)
+	{
+		dfs(x+dx[i],y+dy[i]);
+	}
+	
+	
+}
+
+int main()
+{
+	ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+	if(cin >> n >>m)
+	{
+		for(int i = 1;i <= n;++i)
+		{
+			for(int j = 1;j <= m;++j)
+			{
+				cin >> M[i][j];
+			}	
+		}
+		for(int i = 1;i <= n;++i)
+		{
+			for(int j = 1;j <= m;++j)
+			{
+				if(M[i][j] == '*' && !st[i][j])
+				{
+					msize = 0;//计算多块中某一块连通块数量要清空记录，如果不， 到了另一块连通块就会重复累加， 
+					dfs(i,j);
+					bkt[msize]++; 
+					
+				} 
+			}	
+		}
+		int ans = 0;
+		for(int i = 1;i < N*N;++i) // i 为sz 
+		{
+			if(bkt[i] > 0)
+			{
+				ans ++;
+				maxsize = max(maxsize,i * bkt[i]);//求最大值打擂台 
+			}
+			
+			
+		}
+		cout << ans << ' ' << maxsize <<'\n';
+		
+	}
+
+
+ return 0;	
+} 
+```
+# B4482 [语言月赛 202601] 数字游戏 II
+
+## 题目背景
+
+**请注意：checker 对于输出格式的检查较为严格，请不要输出行末空格。**
+
+## 题目描述
+
+千秋正在玩一种数字游戏，这种数字游戏需要在一个 $4\times 4$ 的网格内填数，每个方格内填入一个 $1\sim 4$ 范围内的整数。
+
+游戏胜利当且仅当下面的条件被全部满足：
+
+- 将网格划分为 $4$ 个 $2\times 2$ 的子网格，每个子网格中不存在重复的数
+- 网格的每行不存在重复的数
+- 网格的每列不存在重复的数
+
+子网格的划分如图所示。
+
+![](https://cdn.luogu.com.cn/upload/image_hosting/1pouqkju.png)
+
+千秋已经填好了其中的若干个数，请你完成剩余的数，使得游戏胜利。可能存在多种符合要求的填法，你只需要给出其中一种即可。
+
+## 输入格式
+
+输入四行，每行四个数，表示网格已经填入的数。
+
+未填入的位置用 $0$ 表示。
+
+保证已经填入的位置均符合游戏胜利的要求。
+
+## 输出格式
+
+输出 4 行，每行 4 个整数。表示完成后的游戏局面。
+
+## 输入输出样例 #1
+
+### 输入 #1
+
+```
+3 0 4 1
+4 1 2 0
+1 0 3 2
+2 3 1 0
+```
+
+### 输出 #1
+
+```
+3 2 4 1
+4 1 2 3
+1 4 3 2
+2 3 1 4
+```
+
+## 说明/提示
+
+用 $n$ 表示未填的格子数目。
+
+对于 $5\%$ 的测试数据，$n=1$。
+
+对于另外 $25\%$ 的测试数据，$n=4$ 且恰好有一行未填。
+
+对于另外 $30\%$ 的测试数据，$n=7$ 且恰好有一行一列未填。
+
+对于 $100\%$ 的测试数据，$1 \le n \le 16$，已经填好的数不违反游戏胜利的要求，保证存在符合游戏胜利的解。
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+const int K = 2;
+const int N = K * K + 9;
+
+int M[N][N];
+int px[N*N],py[N*N];
+int p_cnt;
+bool check(int x,int y,int v)
+{
+	for(int i = 1;i <= K*K;++i)
+	{
+		if(M[i][y] == v) return false;
+		if(M[x][i] == v) return false;
+	}
+	int sta_x = ((x-1) / K ) * K;
+	int sta_y = ((y-1) / K ) * K;
+	for(int i = 1;i<=K;++i)
+	{
+		for(int j = 1; j<=K;++j)
+		{
+			if(M[sta_x+i][sta_y+j] == v) return false;
+		}
+	}
+	return true;
+}
+void dfs(int step)
+{
+	if(step > p_cnt)
+	{
+		for(int i = 1;i<=K*K;++i)
+		{
+			for(int j = 1; j<=K*K;++j)
+			{
+				cout << M[i][j] <<" \n"[j==K*K];
+			}
+			
+		}
+		
+		exit(0);
+	}
+	
+	int x = px[step];
+	int y = py[step];
+	for(int i = 1; i <= K*K;++i)
+	{
+		if(!check(x,y,i)) continue;
+		M[x][y] = i;
+		dfs(step + 1);
+		M[x][y] = 0;
+	}
+	
+}
+
+int main()
+{
+	for(int i = 1;i<=K*K;++i)
+	{
+		for(int j = 1; j<=K*K;++j)//注意数独边长是K*K 
+		{
+			cin >> M[i][j];
+			if(M[i][j] == 0)
+			{
+				p_cnt++;
+				px[p_cnt] = i;
+				py[p_cnt] = j;
+				
+			}
+		}
+	}
+	dfs(1); 
+	return 0;
+ } 
+```
+
+# B3862 图的遍历（简单版）
+
+## 题目描述
+
+给出 $N$ 个点，$M$ 条边的有向图，对于每个点 $v$，求 $A(v)$ 表示从点 $v$ 出发，能到达的编号最大的点。
+
+## 输入格式
+
+第 $1$ 行 $2$ 个整数 $N,M$，表示点数和边数。
+
+接下来 $M$ 行，每行 $2$ 个整数 $U_i,V_i$，表示边 $(U_i,V_i)$。点用 $1,2,\dots,N$ 编号。
+
+## 输出格式
+
+一行 $N$ 个整数 $A(1),A(2),\dots,A(N)$。
+
+## 输入输出样例 #1
+
+### 输入 #1
+
+```
+4 3
+1 2
+2 4
+4 3
+```
+
+### 输出 #1
+
+```
+4 4 3 4
+```
+
+## 说明/提示
+
+- 对于 $100\%$ 的数据，$1 \leq N,M \leq 10^3$。
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+int n,m,maxV;
+const int N = 1e3+9;
+vector<int> road[N];
+bool st[N];
+
+void dfs(int u)
+{
+	st[u] = true;
+	
+	maxV = max(maxV,u);
+	
+	for(auto &v : road[u]) //v = road[u][i]
+	{
+		if(!st[v]) dfs(v);
+		
+	}
+}
+
+int main()
+{
+	ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+	if(cin >> n >> m)
+	{
+		for(int i = 1;i <= m;++i)
+		{
+			int u,v;
+			cin >> u >> v;
+			
+			road[u].push_back(v);
+		}
+		for(int i = 1;i <= n;++i)
+		{
+			memset(st,0,sizeof(st));
+			maxV = 0;
+			dfs(i);
+			cout << maxV <<" \n"[i==n];
+		}
+		
+	}
+ return 0;	
+} 
+```
+
