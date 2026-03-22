@@ -286,10 +286,11 @@ int dy[4] = { 0, 1, 0,-1};
 bool st[N][N]; // 查库存：二维地图的状态
 int msize = 0;
 int bkt[N*N];//桶 里面装连通块，桶数为 拥有同意数量连通块的 数量；
+//ty[][] 分类
 void dfs(int x, int y) {
     // === 1. 剪枝（安检门三连发） ===
     if (x < 1 || x > H || y < 1 || y > W) return; // 安检1：掉出地图边界了吗？ // 长是一维 对应 x 
-    if (grid[x][y] == '#') return;                // 安检2：撞墙/踩雷了吗？
+    //if (grid[x][y] == '#') return;  //根据题目来              // 安检2：撞墙/踩雷了吗？
     if (st[x][y] == true) return;                 // 安检3：以前走过这里吗？（防死循环）
 
     // === 2. 出口与记录 ===
@@ -297,7 +298,7 @@ void dfs(int x, int y) {
     // if (x == end_x && y == end_y) { 记录答案; return; }
     
     st[x][y] = true; // 只要活过了安检门，立刻挂牌子：这块砖我霸占了！
-    ans++;           // 收集战利品（视具体题目要求而定）
+    //ans++;           // 收集战利品（视具体题目要求而定）
 
     // === 3. 核心分支（多叉树裂变） ===
     for (int i = 0; i < 4; i++) {
@@ -2783,3 +2784,157 @@ int main()
 } 
 ```
 
+# P4961 小埋与扫雷
+
+## 题目背景
+
+小埋总是在家中打游戏，一天，她突然想玩Windows自带的扫雷，在一旁的哥哥看见了，想起了自己小时候信息课在机房玩扫雷的日子，便兴致勃勃地开始教小埋扫雷。然而，小埋还是不明白 $\mathrm{3bv}$（Bechtel's Board Benchmark Value，每局将所有非雷的方块点开所需最少左键点击数，参见[扫雷网的教程](http://saolei.net/BBS/Title.asp?Id=227) ）怎么算，于是她找到了你。
+
+![](https://i.loli.net/2018/10/04/5bb5bd6aefb70.jpg)
+
+## 题目描述
+
+小埋会告诉你一盘扫雷，用一个 $n\times m$ 的矩阵表示，$1$ 是雷 ，$0$ 不是雷，请你告诉她这盘扫雷的 $\mathrm{3bv}$ 。 
+
+周围八格没有“雷”且自身不是“雷”的方格称为“空格”，周围八格有“雷”且自身不是“雷”的方格称为“数字”，由“空格”组成的八连通块称为一个“空”。$\mathrm{3bv}=\ $周围八格没有“空格”的“数字”个数$+$“空"的个数。
+
+如果看不懂上面的计算方式，可以看题目背景中给出的教程，或者看下面的样例解释。
+
+注：[八连通](https://baike.baidu.com/item/%E5%85%AB%E8%BF%9E%E9%80%9A)
+
+## 输入格式
+
+第一行有两个整数 $n$ 和 $m$，代表这盘扫雷是一个 $n \times m$ 的矩阵。
+
+后面的 $n$ 行每行有 $m$ 个整数，表示这个矩阵，每个数字为 $0$ 或 $1$，$1$ 代表是雷，$0$ 代表不是雷。
+
+## 输出格式
+
+一个整数，代表这盘扫雷的 $\mathrm{3bv}$ 。
+
+## 输入输出样例 #1
+
+### 输入 #1
+
+```
+8 8
+0 0 0 1 1 0 0 0 
+1 0 0 1 0 0 0 1 
+1 0 0 1 0 0 0 0 
+0 0 0 0 0 0 0 0 
+0 0 0 0 0 1 0 0 
+0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 
+```
+
+### 输出 #1
+
+```
+13
+```
+
+## 说明/提示
+
+$1\le n,\ m\le 1000$
+
+## 样例解释
+
+![](https://i.loli.net/2018/10/04/5bb5bc4644183.jpg)
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+const int N = 1e3+9; 
+int dx[9] = {0,0,1,0,-1,-1,1,1,-1};
+int dy[9] = {0,1,0,-1,0,1,1,-1,-1};
+int sz,n,m,ans;
+int st[N][N];
+int M[N][N];
+int ty[N][N];//标记分类
+
+void dfs(int x,int y)
+{
+	if(x < 1 || x > n || y < 1 || y > m) return ;
+	if(st[x][y]) return ;
+	if(ty[x][y] != 1) return ;//根据题目来，只有空 dfs()了
+	st[x][y] = true;
+	
+	for(int i = 1; i <= 8;++i)
+	{
+		dfs(x+dx[i],y+dy[i]);
+	}
+}
+
+int main()
+{
+	ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+	if(cin >> n >> m)
+	{
+		for(int i = 1;i <= n;++i)
+		{
+			for(int j = 1;j <= m;++j)
+			{
+				cin >> M[i][j];
+				
+			}
+		}
+		
+		for(int i = 1;i <= n;++i)
+		{
+			for(int j = 1;j <= m;++j)
+			{
+				if(M[i][j] == 1)  ty[i][j] = -1;
+				else 
+				{
+					bool hs_m = false;//最终状态结算 
+					for(int k = 1; k <= 8;++k) // 八个方向扫描 所以必须等地图全输完 
+					{
+						int nx = i+dx[k];
+						int ny = j+dy[k];
+						if(nx < 1 || nx > n || ny < 1 || ny > m) continue;
+						if(M[nx][ny] == 1) hs_m = true;// 只要发现有，就结算， 哪怕一个雷，就算空； 
+					}							//不能直接判断，因为要扫完八方向才能判断 
+					if(hs_m) ty[i][j] = 2;		//若直接决定，则是一方向一覆盖，结果由最后一个方向决定； 
+					else ty[i][j] = 1;
+				}
+			}
+		}
+		
+		for(int i = 1;i <= n;++i)
+		{
+			for(int j = 1;j <= m;++j)
+			{
+				if(ty[i][j] == 1 && !st[i][j])
+				{
+					dfs(i,j);
+					ans++;
+				}
+			}
+		}
+		for(int i = 1;i <= n;++i)
+		{
+			for(int j = 1;j <= m;++j)
+			{
+				if(ty[i][j] == 2)
+				{	bool hs_b = false; 
+					for(int k = 1; k <= 8;++k)
+					{
+						int nx = i+dx[k];
+						int ny = j+dy[k];
+						if(nx < 1 || nx > n || ny < 1 || ny > m) continue;
+						if(ty[nx][ny] == 1)  hs_b = true;
+						
+						
+					}
+					if(!hs_b) ans++;
+				}
+			}
+		}
+		
+	} cout << ans <<'\n';
+	
+	
+	return 0;
+ } 
+```
