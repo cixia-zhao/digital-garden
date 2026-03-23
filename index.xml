@@ -10,18 +10,18 @@
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Mon, 23 Mar 2026 05:26:30 GMT</pubDate>
+    <pubDate>Mon, 23 Mar 2026 11:22:23 GMT</pubDate>
+  </item><item>
+    <title>模拟算法</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</guid>
+    <description><![CDATA[ 补前导0 printf(“%02d”) 2 代表总宽度2位，0代表不足2位前面补0（不足的时候）； 🎯 日期模版 #include &lt;iostream&gt; #include &lt;iomanip&gt; // [新增头文件] 格式化输出神器（补零专用） using namespace std; // ================= 日期万能模块开始 ================= // 【零件1：天数库存】平年每个月的天数，下标直接对应月份（0号位废弃不用） int month_days[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, ... ]]></description>
+    <pubDate>Mon, 23 Mar 2026 11:21:47 GMT</pubDate>
   </item><item>
     <title>统计出现频率</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E7%BB%9F%E8%AE%A1%E5%87%BA%E7%8E%B0%E9%A2%91%E7%8E%87</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E7%BB%9F%E8%AE%A1%E5%87%BA%E7%8E%B0%E9%A2%91%E7%8E%87</guid>
     <description><![CDATA[ 一句话揭露本质：cnt[x]++ 就是算法界用【空间换时间】的最强阳谋！它逼着你把脑子里“去人群里挨个找人”的穷举思维，强制升级成了“让数据自己按号入座”的上帝视角！ 数据本身当成数组下标”**这种极其反直觉的操作。平时我们用数组，下标 0, 1, 2 只是座位的编号，里面装的才是数据；但在频率统计里，数据就是座位号，里面装的是人数！ 🧠 顶级心法：什么是“信箱记账法”？ 想象一下，操场上有 10 万个学生，学号从 1 到 10 万。现在你想知道：学号为 888 的学生有几个？ 小白的本能（O(N^2) 嵌套循环）： 跑到操场上，抓住第一个学生问：“你是 888 吗？”跑到第二个问：“你是 ... ]]></description>
-    <pubDate>Mon, 23 Mar 2026 05:25:50 GMT</pubDate>
-  </item><item>
-    <title>模拟算法</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</guid>
-    <description><![CDATA[ 补前导0 printf(“%02d”) 2 代表总宽度2位，0代表不足2位前面补0（不足的时候）； 🎯 日期模版 #include &lt;iostream&gt; using namespace std; // ================= 日期万能模块开始 ================= // 【零件1：天数库存】平年每个月的天数，下标直接对应月份（0号位废弃不用） int month_days[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}; // 【零件2：基础安检门】判断闰年，注意括号包裹优先级！ boo... ]]></description>
     <pubDate>Mon, 23 Mar 2026 05:25:50 GMT</pubDate>
   </item><item>
     <title>双指针</title>
