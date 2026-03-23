@@ -45,6 +45,9 @@ substr 函数有两种常用形式：
 
 · substr(pos)：从位置 pos 开始，截取到字符串末尾。
 · substr(pos, count)：从位置 pos 开始，截取 count 个字符。
+std::string s = "abcdefg";
+s.erase(2, 3);      // 从索引2开始移除3个字符 → "abfg"
+
 
 判断两字符串接龙重合长度（读第一个就返回版）：
 ```cpp
