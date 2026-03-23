@@ -141,7 +141,9 @@ strcat (a,b)把b接到a后面
 c++ spring类型大小判断 直接if()判断</p>
 <p>substr 函数有两种常用形式：</p>
 <p>· substr(pos)：从位置 pos 开始，截取到字符串末尾。
-· substr(pos, count)：从位置 pos 开始，截取 count 个字符。</p>
+· substr(pos, count)：从位置 pos 开始，截取 count 个字符。
+std::string s = “abcdefg”;
+s.erase(2, 3);      // 从索引2开始移除3个字符 → “abfg”</p>
 <p>判断两字符串接龙重合长度（读第一个就返回版）：</p>
 <figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="cpp" data-theme="github-light github-dark"><code data-language="cpp" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">// 鉴定专家：看看单词 a 的尾巴，和单词 b 的头，能不能接上？</span></span>
 <span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">// 如果能，返回【最短】的重合长度；如果不能，返回 0。</span></span>
