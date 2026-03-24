@@ -1840,7 +1840,7 @@ Python 选手可以尝试使用 PyPy3 提交本题。
 int stcnt，为dfs状态参数
 预判剪枝：for里面
     // 只要这个萝卜被选了 y 次，不管它是不是 VIP，都已经不行
-    if (cnt[i] == y) continue;
+    if (cnt[i] == y-1) continue;
     如果此时 stcnt == x（VIP 名额已经发完了）直接拦截！
     if (cnt[i] == 1 && stcnt == x) continue;
     cnt[i]++
