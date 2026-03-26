@@ -10,18 +10,30 @@
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Thu, 26 Mar 2026 11:05:08 GMT</pubDate>
+    <pubDate>Thu, 26 Mar 2026 11:13:31 GMT</pubDate>
   </item><item>
-    <title>双指针</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8F%8C%E6%8C%87%E9%92%88</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8F%8C%E6%8C%87%E9%92%88</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) 对撞指针 快慢指针 快慢指针可以使得时间复杂度，从 O (n²)变成 O(n)。 状态增量维护 如果你把区间的左边界和右边界想象成两个指针，这种“固定左端点，右端点不断向右扩张”的做法，其实也是大名鼎鼎的**滑动窗口（Sliding Window）和双指针（Two Pointers）**算法的核心前置基础！ 它的核心哲学就一句话：“绝不抛弃已经算过的历史数据，把大问题化解为（小问题 + 新增变量）。” 💡 通用核心模板：枚举起点 + 增量扩展 无论题目是求和、计数、还是找特定的字符规律，只要是这种“连续区间”的问题，你都可以套用下面这个模板： int an... ]]></description>
-    <pubDate>Thu, 26 Mar 2026 11:04:24 GMT</pubDate>
+    <title>DFS</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</guid>
+    <description><![CDATA[ 在 DFS 里，没有循环，DFS 的每一次运行，就是一段独立的人生。 要达到“回到最头部重新开始”的效果，唯一的办法就是再次呼叫这个函数自身（传参进入下一层） 随后return ；销毁当前错误的自己； DFS 结构中，只要某个状态是**“不合法”、“需要跳过”、或者“已经达成目标”的，处理完（或者传给下一层后），立刻、马上接一个 return;！ 坚决不能让残废的状态继续往下走去弄脏后面的核心分支！ 🎯 概念 一句话揭露本质：DFS 不是一门需要你脑力全开去“想象”的魔法，而是一套只需要你像无情机器一样回答“灵魂三问”的工业流水线。 📊 四大经典 DFS 模型全景对比 题目模型dfs(x)... ]]></description>
+    <pubDate>Thu, 26 Mar 2026 11:13:00 GMT</pubDate>
+  </item><item>
+    <title>枚举</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE</guid>
+    <description><![CDATA[ 🎯 遇到算数字和之类的 一律 long long，必须注意边界 每个变量取值 等号，能不能一样 取0； 数位处理模板 for枚举优化： 最大优化：一个数若是分成几部分求和，那么单取某一部分绝对不会大于这个数；（四平方和），若多层嵌套可以持续加上几部分继续放缩； 起点优化：若有升序要求，多重嵌套的时候可以写上一个 数； 嵌套优化：多重嵌套 最后一个数可以通过公式，题目关系式表示，从而优化掉； 处理数字就像剥洋葱，% 10 切下最外面的一层皮，/ 10 把这层皮彻底扔掉，循环往复，直到洋葱被彻底剥光！ 🧅 第一阶段：基础内功 —— “剥洋葱”提取数位 🎯 适用场景： 任何需要把你原本是一整块... ]]></description>
+    <pubDate>Thu, 26 Mar 2026 11:13:00 GMT</pubDate>
   </item><item>
     <title>模拟算法</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</guid>
     <description><![CDATA[ 注意事项： 👁️ 第一步：倒着读题！（先看 Query / 输出格式） 你不知道目标在哪，当然会被它牵着鼻子走。 拿到题，第一眼先看最后一句问什么，以及【输出格式】。 就拿刚才那题来说，它问：“队列中有多少个元素具有可见性？”输出是“一个整数”。 你的大脑要立刻建立锚点：哦，原来不管你前面噼里啪啦一顿什么“主节点、副节点、同步”，最后只是让我数个数。既然只是求数量，那我很大可能根本不需要去存它到底添加了具体的什么内容（比如题里的 add 1、add 2，那个 1 和 2 就是彻头彻尾的干扰项）！ 👁️ 第二步：给名词“卸妆”（大白话翻译） 出题人最喜欢用的套路叫“实体替换”。你在草稿纸上，... ]]></description>
+    <pubDate>Thu, 26 Mar 2026 11:13:00 GMT</pubDate>
+  </item><item>
+    <title>双指针</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8F%8C%E6%8C%87%E9%92%88</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8F%8C%E6%8C%87%E9%92%88</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) 对撞指针 快慢指针 快慢指针可以使得时间复杂度，从 O (n²)变成 O(n)。 状态增量维护 如果你把区间的左边界和右边界想象成两个指针，这种“固定左端点，右端点不断向右扩张”的做法，其实也是大名鼎鼎的**滑动窗口（Sliding Window）和双指针（Two Pointers）**算法的核心前置基础！ 它的核心哲学就一句话：“绝不抛弃已经算过的历史数据，把大问题化解为（小问题 + 新增变量）。” 💡 通用核心模板：枚举起点 + 增量扩展 无论题目是求和、计数、还是找特定的字符规律，只要是这种“连续区间”的问题，你都可以套用下面这个模板： int an... ]]></description>
     <pubDate>Thu, 26 Mar 2026 11:04:24 GMT</pubDate>
   </item><item>
     <title>概率论与数理统计</title>
@@ -35,18 +47,6 @@
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9C%AA%E5%91%BD%E5%90%8D-1</guid>
     <description><![CDATA[  ]]></description>
     <pubDate>Wed, 25 Mar 2026 15:33:39 GMT</pubDate>
-  </item><item>
-    <title>枚举</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE</guid>
-    <description><![CDATA[ 🎯 遇到算数字和之类的 一律 long long，必须注意边界 每个变量取值 等号，能不能一样 取0； 数位处理模板 处理数字就像剥洋葱，% 10 切下最外面的一层皮，/ 10 把这层皮彻底扔掉，循环往复，直到洋葱被彻底剥光！ 🧅 第一阶段：基础内功 —— “剥洋葱”提取数位 🎯 适用场景： 任何需要把你原本是一整块的数字（如 2025）拆成一个个独立数字（5, 2, 0, 2）来判断的题目（比如算数位之和、找有没有幸运数字等）。 💡 核心动作： 看一眼洋葱皮（取个位）： int rem = x % 10; 扔掉洋葱皮（原数砍位）： x /= 10; 💻 基础 C++ 模板： // ... ]]></description>
-    <pubDate>Wed, 25 Mar 2026 15:33:39 GMT</pubDate>
-  </item><item>
-    <title>DFS</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</guid>
-    <description><![CDATA[ 🎯 概念 一句话揭露本质：DFS 不是一门需要你脑力全开去“想象”的魔法，而是一套只需要你像无情机器一样回答“灵魂三问”的工业流水线。 📊 四大经典 DFS 模型全景对比 题目模型dfs(x) 中 x 的视角眼前有几条路？（动作展开）状态数组与恢复现场出口条件1. ]]></description>
-    <pubDate>Tue, 24 Mar 2026 14:33:18 GMT</pubDate>
   </item><item>
     <title>STL-pair</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/STL-pair</link>
