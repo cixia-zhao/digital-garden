@@ -10,7 +10,13 @@
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Sat, 28 Mar 2026 15:46:51 GMT</pubDate>
+    <pubDate>Sat, 28 Mar 2026 15:47:23 GMT</pubDate>
+  </item><item>
+    <title>英语句子</title>
+    <link>https://quartz.jzhao.xyz/English/%E8%8B%B1%E8%AF%AD%E5%8F%A5%E5%AD%90</link>
+    <guid>https://quartz.jzhao.xyz/English/%E8%8B%B1%E8%AF%AD%E5%8F%A5%E5%AD%90</guid>
+    <description><![CDATA[ The decline in good manners is to be lamented. 好的风俗习惯江河日下，值得痛惜。. ]]></description>
+    <pubDate>Sat, 28 Mar 2026 15:46:44 GMT</pubDate>
   </item><item>
     <title>双指针</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8F%8C%E6%8C%87%E9%92%88</link>
@@ -59,12 +65,6 @@
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9C%AA%E5%91%BD%E5%90%8D-1</guid>
     <description><![CDATA[  ]]></description>
     <pubDate>Wed, 25 Mar 2026 15:33:39 GMT</pubDate>
-  </item><item>
-    <title>STL-pair</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/STL-pair</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/STL-pair</guid>
-    <description><![CDATA[  什么是 pair？（双黄蛋模型） pair 在英文里就是“一对、一双”的意思。 你可以把它当成一个只有左右两个口袋的小背包，或者一个双黄蛋。它最牛的地方在于：这两个口袋里可以装完全不同类型的数据！ 怎么声明 格式极其简单：pair&lt;左口袋类型, 右口袋类型&gt; 名字; pair&lt;int, int&gt; p1; // 左右都装整数（最常见，比如图纸上的坐标 x, y） pair&lt;int, string&gt; p2; // 左边装分数，右边装人名 pair&lt;double, char&gt; p3; // 左边装小数，右边装字母 怎么往里塞东西？（打包） 在现代 C... ]]></description>
-    <pubDate>Tue, 24 Mar 2026 14:33:18 GMT</pubDate>
   </item>
     </channel>
   </rss>
