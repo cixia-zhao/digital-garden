@@ -10,7 +10,13 @@
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Tue, 31 Mar 2026 05:02:19 GMT</pubDate>
+    <pubDate>Tue, 31 Mar 2026 09:15:26 GMT</pubDate>
+  </item><item>
+    <title>贪心算法</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95</guid>
+    <description><![CDATA[ 建账本（哈希桶）时，数组大小 [ ] 看的是“有几种东西”（一般做统计字符出现频率是 300），数组类型（int 或 long long）看的是“同一种东西最多有多少个”！所以一般题目数据范围决定的是数据类型，[]里面一般会说明个数； 看见求和 方案总数 无脑 全部longl long(包括数组) 用了 min一定 给接它的值赋一个很大的初值 生死攸关的 &amp; 符号（传值 vs 传引用） 你之所以在 DFS 里没用过 &amp;，是因为你习惯了直接“毁尸灭迹”修改全局数组，或者为了保持纯洁的局部状态去回溯。但只要你单独写了一个外包函数，就必须严守以下规矩： 【坚决不加 &amp;】：传复... ]]></description>
+    <pubDate>Tue, 31 Mar 2026 09:14:48 GMT</pubDate>
   </item><item>
     <title>kadane算法（连续区间极值）</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/kadane%E7%AE%97%E6%B3%95%EF%BC%88%E8%BF%9E%E7%BB%AD%E5%8C%BA%E9%97%B4%E6%9E%81%E5%80%BC%EF%BC%89</link>
@@ -23,12 +29,6 @@
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8F%8C%E6%8C%87%E9%92%88</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 对撞指针 快慢指针 快慢指针可以使得时间复杂度，从 O (n²)变成 O(n)。 📖 双指针与滑动窗口终极指南 一、 核心哲学：状态增量维护 如果你把区间的左边界和右边界想象成两个指针，这种“固定左端点，右端点不断向右扩张”的做法，就是双指针算法的前置基础。 它的核心哲学就一句话：“绝不抛弃已经算过的历史数据，把大问题化解为（老本 + 新增变量）。” 无论题目是求和、计数、还是找特定的字符规律，只要是这种“连续区间”的问题，都可以套用最朴素的增量扩展模板（将 O(N^3) 暴力降维到 O(N^2)）： int ans = 0; // 最终答案 // 1. ]]></description>
     <pubDate>Tue, 31 Mar 2026 04:41:45 GMT</pubDate>
-  </item><item>
-    <title>贪心算法</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95</guid>
-    <description><![CDATA[ 建账本（哈希桶）时，数组大小 [ ] 看的是“有几种东西”（一般做统计字符出现频率是 300），数组类型（int 或 long long）看的是“同一种东西最多有多少个”！所以一般题目数据范围决定的是数据类型，[]里面一般会说明个数； 看见求和 方案总数 无脑 全部longl long(包括数组) 用了 min一定 给接它的值赋一个很大的初值 生死攸关的 &amp; 符号（传值 vs 传引用） 你之所以在 DFS 里没用过 &amp;，是因为你习惯了直接“毁尸灭迹”修改全局数组，或者为了保持纯洁的局部状态去回溯。但只要你单独写了一个外包函数，就必须严守以下规矩： 【坚决不加 &amp;】：传复... ]]></description>
-    <pubDate>Tue, 31 Mar 2026 00:31:57 GMT</pubDate>
   </item><item>
     <title>DFS</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</link>
