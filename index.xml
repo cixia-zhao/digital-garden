@@ -10,13 +10,25 @@
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Mon, 30 Mar 2026 15:05:54 GMT</pubDate>
+    <pubDate>Tue, 31 Mar 2026 04:42:18 GMT</pubDate>
+  </item><item>
+    <title>kadane算法（连续区间极值）</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/kadane%E7%AE%97%E6%B3%95%EF%BC%88%E8%BF%9E%E7%BB%AD%E5%8C%BA%E9%97%B4%E6%9E%81%E5%80%BC%EF%BC%89</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/kadane%E7%AE%97%E6%B3%95%EF%BC%88%E8%BF%9E%E7%BB%AD%E5%8C%BA%E9%97%B4%E6%9E%81%E5%80%BC%EF%BC%89</guid>
+    <description><![CDATA[ 🧠 一、 甩包袱哲学（O(N) 的物理真相） 想象你在招募团队打怪升级，你的战斗力是连续累加的（current_sum）。当你走到第 i 个人（a[i]）面前时，只有两种物理选择： 选择 1：带上前面的兄弟（战斗力 = current_sum + a[i]）。 选择 2：踢掉前面的兄弟，自己单干（战斗力 = a[i]）。 什么时候必须单干？ 当你发现前面的兄弟加起来是个“负资产”（current_sum &lt; 0）时，带上他们只会拉低你当前的战斗力！与其被拖累，不如从 a[i] 开始另起炉灶！ 用一行代码概括整个宇宙的抉择： current_sum = max(a[i], current... ]]></description>
+    <pubDate>Tue, 31 Mar 2026 04:41:45 GMT</pubDate>
+  </item><item>
+    <title>双指针</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8F%8C%E6%8C%87%E9%92%88</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8F%8C%E6%8C%87%E9%92%88</guid>
+    <description><![CDATA[ 🎯 核心功能 (Purpose) 对撞指针 快慢指针 快慢指针可以使得时间复杂度，从 O (n²)变成 O(n)。 📖 双指针与滑动窗口终极指南 一、 核心哲学：状态增量维护 如果你把区间的左边界和右边界想象成两个指针，这种“固定左端点，右端点不断向右扩张”的做法，就是双指针算法的前置基础。 它的核心哲学就一句话：“绝不抛弃已经算过的历史数据，把大问题化解为（老本 + 新增变量）。” 无论题目是求和、计数、还是找特定的字符规律，只要是这种“连续区间”的问题，都可以套用最朴素的增量扩展模板（将 O(N^3) 暴力降维到 O(N^2)）： int ans = 0; // 最终答案 // 1. ]]></description>
+    <pubDate>Tue, 31 Mar 2026 04:41:45 GMT</pubDate>
   </item><item>
     <title>贪心算法</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95</guid>
     <description><![CDATA[ 建账本（哈希桶）时，数组大小 [ ] 看的是“有几种东西”（一般做统计字符出现频率是 300），数组类型（int 或 long long）看的是“同一种东西最多有多少个”！所以一般题目数据范围决定的是数据类型，[]里面一般会说明个数； 看见求和 方案总数 无脑 全部longl long(包括数组) 用了 min一定 给接它的值赋一个很大的初值 生死攸关的 &amp; 符号（传值 vs 传引用） 你之所以在 DFS 里没用过 &amp;，是因为你习惯了直接“毁尸灭迹”修改全局数组，或者为了保持纯洁的局部状态去回溯。但只要你单独写了一个外包函数，就必须严守以下规矩： 【坚决不加 &amp;】：传复... ]]></description>
-    <pubDate>Mon, 30 Mar 2026 15:04:56 GMT</pubDate>
+    <pubDate>Tue, 31 Mar 2026 00:31:57 GMT</pubDate>
   </item><item>
     <title>DFS</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</link>
@@ -36,12 +48,6 @@
     <description><![CDATA[ The decline in good manners is to be lamented. 好的风俗习惯江河日下，值得痛惜。. ]]></description>
     <pubDate>Sat, 28 Mar 2026 15:46:44 GMT</pubDate>
   </item><item>
-    <title>双指针</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8F%8C%E6%8C%87%E9%92%88</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%8F%8C%E6%8C%87%E9%92%88</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) 对撞指针 快慢指针 快慢指针可以使得时间复杂度，从 O (n²)变成 O(n)。 📖 双指针与滑动窗口终极指南 一、 核心哲学：状态增量维护 如果你把区间的左边界和右边界想象成两个指针，这种“固定左端点，右端点不断向右扩张”的做法，就是双指针算法的前置基础。 它的核心哲学就一句话：“绝不抛弃已经算过的历史数据，把大问题化解为（老本 + 新增变量）。” 无论题目是求和、计数、还是找特定的字符规律，只要是这种“连续区间”的问题，都可以套用最朴素的增量扩展模板（将 O(N^3) 暴力降维到 O(N^2)）： int ans = 0; // 最终答案 // 1. ]]></description>
-    <pubDate>Sat, 28 Mar 2026 15:46:08 GMT</pubDate>
-  </item><item>
     <title>前缀和</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%89%8D%E7%BC%80%E5%92%8C</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%89%8D%E7%BC%80%E5%92%8C</guid>
@@ -59,12 +65,6 @@
     <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1</guid>
     <description><![CDATA[ 第一章 第一节 第二节 补充 事件之间关系 德摩根律 ：断线变号 第三节 频率与概率 奇+偶- 不相容 → 无交集 例题 古典概型 整除问题 几何概型 超几何分布 抽签公平 区分 第五节 条件概率 条件概率 例题： 注意： 乘法定理 不放回且放回a个 全概率公式 样本空间划分： 公式及证明 例题 逆概公式 也叫贝叶斯： 独立性 例题： 如果已经知道 等于条件概率 小并母集，等于本身 互斥事件则可以直接概率+ 第二章 随机变量的分布函数 定义：满足 单调增 趋近于-无穷为0 +无穷为1 右连续 定义 例题 连续型随机变量及概率密度 连续型随机变量在某一点处概率为0，所以等号可写可不写。 常用连续... ]]></description>
     <pubDate>Thu, 26 Mar 2026 11:04:24 GMT</pubDate>
-  </item><item>
-    <title>未命名 1</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9C%AA%E5%91%BD%E5%90%8D-1</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9C%AA%E5%91%BD%E5%90%8D-1</guid>
-    <description><![CDATA[  ]]></description>
-    <pubDate>Wed, 25 Mar 2026 15:33:39 GMT</pubDate>
   </item>
     </channel>
   </rss>
