@@ -7,6 +7,7 @@ data: 2026-03-02T08:30:00
 
 ### 🎯 核心功能 (Purpose)
 参数：
+sort (v.begin(),v.end(),greater <>());
 
 ![[Screenshot_2026-03-02-08-32-26-83_769977972775e0c6b41aa3dfaf766445.jpg]]
 
