@@ -10,18 +10,24 @@
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Tue, 31 Mar 2026 15:59:13 GMT</pubDate>
+    <pubDate>Wed, 01 Apr 2026 05:34:27 GMT</pubDate>
+  </item><item>
+    <title>枚举算法</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95</guid>
+    <description><![CDATA[ 只要题目里的业务场景属于宁可溢出浪费，也绝不能少算，向上取整： 需要次数 = (总数 + 每次容量 - 1) / 每次容量 🎯 最大公约数 ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); } \gcd(a, b) = \gcd(a, a+b)，那同理也可以换成减法：\gcd(a, b) = \gcd(a, b-a)。 遇到算数字和之类的 一律 long long，必须注意边界 每个变量取值 等号，能不能一样 取0； 枚举找最大的时候，最后maxans放外面，输出，里面则定义一个过程量 ans，在枚举循环最后打擂台即可； 如果只有... ]]></description>
+    <pubDate>Wed, 01 Apr 2026 05:33:36 GMT</pubDate>
+  </item><item>
+    <title>贪心算法</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95</guid>
+    <description><![CDATA[ 建账本（哈希桶）时，数组大小 [ ] 看的是“有几种东西”（一般做统计字符出现频率是 300），数组类型（int 或 long long）看的是“同一种东西最多有多少个”！所以一般题目数据范围决定的是数据类型，[]里面一般会说明个数； 看见求和 方案总数 无脑 全部longl long(包括数组) 用了 min一定 给接它的值赋一个很大的初值 只要输入字符串（cin &gt;&gt; s） 就记得在前面加空格； (s = ” “+s) 生死攸关的 &amp; 符号（传值 vs 传引用） 你之所以在 DFS 里没用过 &amp;，是因为你习惯了直接“毁尸灭迹”修改全局数组，或者为了保持纯洁的局部... ]]></description>
+    <pubDate>Wed, 01 Apr 2026 05:33:36 GMT</pubDate>
   </item><item>
     <title>sort</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/sort</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/sort</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 参数： sort (v.begin(),v.end(),greater &lt;&gt;()); lambda 表达式： Lambda三种核心捕获方式 捕获方式核心行为一句话总结[]无捕获：不访问外部变量，像一个纯函数。一个与外界隔离的“临时函数”。[=]值捕获：复制外部变量，默认只读。拿到一份外部数据的“只读快照”。[&amp;]引用捕获：使用外部变量的别名，可读可写。获得一个能直接操作外部世界的“遥控器”。 进阶：混合捕获 你还可以混合使用，精确控制每一个变量的捕获方式： [&amp;, x]：默认以引用捕获所有变量，但变量x除外，它以值方式捕获。 “把... ]]></description>
-    <pubDate>Tue, 31 Mar 2026 15:57:45 GMT</pubDate>
-  </item><item>
-    <title>贪心算法</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95</guid>
-    <description><![CDATA[ 建账本（哈希桶）时，数组大小 [ ] 看的是“有几种东西”（一般做统计字符出现频率是 300），数组类型（int 或 long long）看的是“同一种东西最多有多少个”！所以一般题目数据范围决定的是数据类型，[]里面一般会说明个数； 看见求和 方案总数 无脑 全部longl long(包括数组) 用了 min一定 给接它的值赋一个很大的初值 生死攸关的 &amp; 符号（传值 vs 传引用） 你之所以在 DFS 里没用过 &amp;，是因为你习惯了直接“毁尸灭迹”修改全局数组，或者为了保持纯洁的局部状态去回溯。但只要你单独写了一个外包函数，就必须严守以下规矩： 【坚决不加 &amp;】：传复... ]]></description>
     <pubDate>Tue, 31 Mar 2026 15:57:45 GMT</pubDate>
   </item><item>
     <title>kadane算法（连续区间极值）</title>
@@ -58,12 +64,6 @@
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%89%8D%E7%BC%80%E5%92%8C</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%89%8D%E7%BC%80%E5%92%8C</guid>
     <description><![CDATA[ 🎯 ✍️ 标准代码 区间k次方 #include &lt;bits/stdc++.h&gt; using namespace std; using ll = long long; const ll p = 1e9 + 7; const ll N = 1e5 + 9; ll a[6][N],prefix[6][N]; int main() { ios::sync_with_stdio(0),cin.tie(0),cout.tie(0); int n,m;cin &gt;&gt; n &gt;&gt; m; for(int i = 1;i &lt;= n;++i) cin &gt;&gt; a[... ]]></description>
-    <pubDate>Sat, 28 Mar 2026 08:32:18 GMT</pubDate>
-  </item><item>
-    <title>枚举算法</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95</guid>
-    <description><![CDATA[ 🎯 最大公约数 ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); } \gcd(a, b) = \gcd(a, a+b)，那同理也可以换成减法：\gcd(a, b) = \gcd(a, b-a)。 遇到算数字和之类的 一律 long long，必须注意边界 每个变量取值 等号，能不能一样 取0； 枚举找最大的时候，最后maxans放外面，输出，里面则定义一个过程量 ans，在枚举循环最后打擂台即可； 枚举优化 &amp; 数位处理模板 一、 for 循环枚举终极优化指南 处理暴力搜索时，千万不要顺着题目的死脑筋去循环！ 最大优化（... ]]></description>
     <pubDate>Sat, 28 Mar 2026 08:32:18 GMT</pubDate>
   </item>
     </channel>
