@@ -530,6 +530,95 @@ int main() {
     return 0;
 }
 ```
+## 剪枝优化
+### 找到一个即可 就dfs做四个小修改 即可完成题目 / 剪枝优化
+
+
+```cpp
+bool dfs(int x) { // 1.类型
+    if (到终点且找到答案) {
+        // 打印答案...
+        return true; // 2. 多一个 true ;;告诉上级：我找到了，准备撤！            
+    }
+
+    for (各种分支) {
+        // 打钢印
+        
+        // 🌟 神级连锁撤退：如果底下的人返回了 true，我也立刻向上返回 true！
+        if (dfs(x + 1)) return true;  // 3.在原来dfs执行前面加 if return true;
+        
+        // 擦钢印
+    }
+    
+    return false; // 这条路死胡同，告诉上级不行 //4.多一个 return false;
+}
+```
+
+## 清零原则：
+### `ans` 到底在哪里清零？
+
+你提出的这个问题非常有深度！这其实取决于 **`ans` 在物理世界中扮演的究竟是什么角色**。
+
+我们把题目分成三大类，你看完这三个比喻，这辈子都不会再搞错：
+
+#### 🌍 第一类：多组独立游戏（`while(t--)`）
+
+- **物理意义**：上帝按下了宇宙重启键。每一局游戏都是全新的平行宇宙，互相没有任何关系。
+    
+- **清零位置**：**必须在 `while` 循环的刚开头清零！**
+    
+
+
+
+```C++
+while(t--) {
+    ans = 0;           // 宇宙重启！比分板归零！
+    memset(st, 0, ...); // 记忆消除！
+    // 读入 n，跑 dfs...
+}
+```
+
+#### 🏆 第二类：多起点，求“全局历史最高/总和”（打擂台）
+
+- **物理意义**：比如你笔记里写的《观星》（求最大星系大小） 或者求所有城市能到达的总数。`ans` 是一块**“世界吉尼斯纪录排行榜”**或者**“全国总账本”**。
+    
+- **清零位置**：**绝对不能在 `for` 循环里清零！只在 `main` 最外面初始化一次即可！**
+    
+
+
+
+```C++
+int global_max_ans = 0; // 全国排行榜
+for (int i = 1; i <= n; ++i) {
+    // 每一个新起点去探索
+    dfs(i); 
+    // 探索完后，去挑战全国排行榜
+    global_max_ans = max(global_max_ans, current_run_score); 
+}
+cout << global_max_ans;
+```
+
+#### ⏱️ 第三类：多起点，求“每个人自己的成绩”
+
+- **物理意义**：比如题目问“每个点出发，最多能走多远？” `ans` 是一块**“个人专属秒表”**。张三跑完测出 100 米，李四起跑前，秒表必须归零，否则李四的成绩就会加上张三的！
+    
+- **清零位置**：**必须在每次 `dfs` 起跑前，紧贴着 `dfs` 清零！**
+    
+
+
+
+```C++
+for (int i = 1; i <= n; ++i) {
+    ans = 0; // 发令枪响前，秒表归零！
+    memset(st, 0, ...); // 洗干净鞋底
+    dfs(i);
+    cout << "第 " << i << " 个人的成绩是：" << ans << '\n';
+}
+```
+
+**【终极口诀总结】**： 不要死记硬背！每次写 `ans = 0;` 之前，问自己一句：**“这个 `ans`，它是为上一局/上一个人服务的，还是为全人类服务的？”** 为全人类服务（求总和/求全局最值），就不清零；为单局/单人服务，开跑前必清零！
+
+## i  < n-k+x
 ## 题目：选数（组合）
 
 >![[Pasted image 20260313191146.png]]
@@ -3013,55 +3102,62 @@ NO
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
-struct Plane  //定义结构体，大括号 
+using ll = long long;
+const int N = 30;
+int n;
+int st[N];
+bool flag;
+struct plant
 {
 	int t,d,l;
-} p[15];
-int T,n,t,d,l;
-bool st[15];
-bool flag;
-void dfs(int x,int lst_time)
-{
-	if(x > n)
-	{
-		flag = true;
-		return ; 
-	}
-	
-	if(flag == true) return ;
-	
-	for(int i = 1;i <= n;++i)
-	{
-		if(!st[i] && p[i].d+p[i].t >= lst_time)
-		{
-			
-			st[i] = true;
-			int sta_time = max(p[i].t,lst_time);
-			dfs(x+1,sta_time+p[i].l);
-			st[i] = false;
-		}
-	}
-	
-	
-	
-}
+ } p[30];
+ 
+ bool dfs(int x,int last_t) // 1.
+ {
+ 	if(x > n)
+ 	{
+ 		
+ 		return true; // 2.
+	 }
+	 
+	 for(int i = 1;i <= n;++i)
+	 {
+	 	if(!st[i] && p[i].t+p[i].d >= last_t)
+	 	{
+	 		st[i] = true;
+	 		int sta_t = max(p[i].t,last_t);
+	 		
+	 		if(dfs(x+1,sta_t+p[i].l)) return true; // 3.
+	 		st[i] = false;
+		 }
+	 }
+	 
+	 return false; // 4.
+ }
+ 
 
 int main()
 {
 	ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-	cin >> T;
-	while(T--)
+	int t;
+	cin >> t;
+	while(t--)
 	{
 		flag = false;
 		memset(st,0,sizeof(st));
 		cin >> n;
 		for(int i = 1;i <= n;++i)
 		{
-			cin >> p[i].t >> p[i].d >> p[i].l; 
+			cin >> p[i].t >> p[i].d >> p[i].l;
 		}
-		dfs(1,0);
-		if(flag) cout << "YES\n";
+		
+		if(dfs(1,0))
+		{
+			cout << "YES\n";
+		}
 		else cout << "NO\n";
+		
+		
 		
 	}
 	
@@ -3069,6 +3165,8 @@ int main()
 	return 0;
 }
 ```
+[[DFS#剪枝优化]]  
+
 # P8641 [蓝桥杯 2016 国 C] 赢球票
 
 ## 题目描述
