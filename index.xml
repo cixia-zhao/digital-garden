@@ -10,18 +10,30 @@
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Mon, 06 Apr 2026 15:15:43 GMT</pubDate>
+    <pubDate>Tue, 07 Apr 2026 03:01:07 GMT</pubDate>
   </item><item>
-    <title>DFS</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</guid>
-    <description><![CDATA[ 看见求和 方案总数 无脑 全部longl long(包括数组) 在 DFS 里，没有循环，DFS 的每一次运行，就是一段独立的人生。 要达到“回到最头部重新开始”的效果，唯一的办法就是再次呼叫这个函数自身（传参进入下一层） 随后return ；销毁当前错误的自己； DFS 结构中，只要某个状态是**“不合法”、“需要跳过”、或者“已经达成目标”的，处理完（或者传给下一层后），立刻、马上接一个 return;！ 坚决不能让残废的状态继续往下走去弄脏后面的核心分支！ 🎯 概念 一句话揭露本质：DFS 不是一门需要你脑力全开去“想象”的魔法，而是一套只需要你像无情机器一样回答“灵魂三问”的工业流水... ]]></description>
-    <pubDate>Mon, 06 Apr 2026 15:13:44 GMT</pubDate>
+    <title>STL-erase</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/STL-erase</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/STL-erase</guid>
+    <description><![CDATA[ C++中，erase 函数用于从容器（如 vector, list, deque, map, set 等）中移除元素。下面是几种常见容器中使用 erase 的示例。 #include &lt;iostream&gt; #include &lt;vector&gt; int main() { std::vector&lt;int&gt; vec = {1, 2, 3, 4, 5}; // 删除单个元素，例如删除值为3的元素 auto it = std::find(vec.begin(), vec.end(), 3); if (it != vec.end()) { vec.erase(it); }... ]]></description>
+    <pubDate>Tue, 07 Apr 2026 03:00:35 GMT</pubDate>
   </item><item>
     <title>二分查找</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 整数二分 模版： int l = -1, r = n; // 永远指向两端外部！绝不出错！ while (l + 1 != r) { int mid = (l + r) / 2; if (满足右侧条件) { r = mid; } else { l = mid; } } // 最后根据题意(等号在哪)输出 l 还是 r 补充： 浮点二分模版： ✍️答案二分 跳石头 #include &lt;iostream&gt; #include &lt;bits/stdc++.h&gt; using namespace std; int L,N,M; const int ... ]]></description>
+    <pubDate>Tue, 07 Apr 2026 03:00:35 GMT</pubDate>
+  </item><item>
+    <title>差分数组</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84</guid>
+    <description><![CDATA[ 🎯 ✍️ 标准代码 题目：区间更新 #include &lt;iostream&gt; using namespace std; const int N = 1e5+9; int a[N],d[N]; int main() { int m,n; while(cin &gt;&gt; n &gt;&gt; m) { for(int i = 1;i &lt;= n; ++i) cin &gt;&gt;a[i]; for(int i = 1;i &lt;= n; ++i) d[i] = a[i] - a[i - 1]; while(m--) { int l,r,v; cin &gt;&gt; l ... ]]></description>
+    <pubDate>Tue, 07 Apr 2026 03:00:35 GMT</pubDate>
+  </item><item>
+    <title>DFS</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</guid>
+    <description><![CDATA[ 看见求和 方案总数 无脑 全部longl long(包括数组) 在 DFS 里，没有循环，DFS 的每一次运行，就是一段独立的人生。 要达到“回到最头部重新开始”的效果，唯一的办法就是再次呼叫这个函数自身（传参进入下一层） 随后return ；销毁当前错误的自己； DFS 结构中，只要某个状态是**“不合法”、“需要跳过”、或者“已经达成目标”的，处理完（或者传给下一层后），立刻、马上接一个 return;！ 坚决不能让残废的状态继续往下走去弄脏后面的核心分支！ 🎯 概念 一句话揭露本质：DFS 不是一门需要你脑力全开去“想象”的魔法，而是一套只需要你像无情机器一样回答“灵魂三问”的工业流水... ]]></description>
     <pubDate>Mon, 06 Apr 2026 15:13:44 GMT</pubDate>
   </item><item>
     <title>BFS</title>
@@ -53,18 +65,6 @@
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E5%89%8D%E5%90%8E%E7%BC%80%E5%92%8C</guid>
     <description><![CDATA[ 进阶kadane算法（连续区间极值） 空间换时间，预处理定天下 它就是提前算好的一张未来账单。有了它，就拥有了“预知未来”的 O(1) 极速查询能力！ 🎯 前缀和 ✍️ 标准代码 B3612 【深进1.例1】求区间和 题目描述 给定 n 个正整数组成的数列 a_1, a_2, \cdots, a_n 和 m 个区间 [l_i,r_i]，分别求这 m 个区间的区间和。 输入格式 第一行包含一个正整数 n，表示序列的长度。 第二行包含 n 个正整数 a_1,a_2, \cdots ,a_n。 第三行包含一个正整数 m，表示区间的数量。 接下来 m 行，每行包含两个正整数 l_i,r_i，满足 1... ]]></description>
     <pubDate>Wed, 01 Apr 2026 15:02:34 GMT</pubDate>
-  </item><item>
-    <title>枚举算法</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95</guid>
-    <description><![CDATA[ 只要题目里的业务场景属于宁可溢出浪费，也绝不能少算，向上取整： 需要次数 = (总数 + 每次容量 - 1) / 每次容量 🎯 最大公约数 ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); } \gcd(a, b) = \gcd(a, a+b)，那同理也可以换成减法：\gcd(a, b) = \gcd(a, b-a)。 遇到算数字和之类的 一律 long long，必须注意边界 每个变量取值 等号，能不能一样 取0； 枚举找最大的时候，最后maxans放外面，输出，里面则定义一个过程量 ans，在枚举循环最后打擂台即可； 如果只有... ]]></description>
-    <pubDate>Wed, 01 Apr 2026 15:02:34 GMT</pubDate>
-  </item><item>
-    <title>贪心算法</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95</guid>
-    <description><![CDATA[ 建账本（哈希桶）时，数组大小 [ ] 看的是“有几种东西”（一般做统计字符出现频率是 300），数组类型（int 或 long long）看的是“同一种东西最多有多少个”！所以一般题目数据范围决定的是数据类型，[]里面一般会说明个数； 看见求和 方案总数 无脑 全部longl long(包括数组) 用了 min一定 给接它的值赋一个很大的初值 只要输入字符串（cin &gt;&gt; s） 就记得在前面加空格； (s = ” “+s) 生死攸关的 &amp; 符号（传值 vs 传引用） 你之所以在 DFS 里没用过 &amp;，是因为你习惯了直接“毁尸灭迹”修改全局数组，或者为了保持纯洁的局部... ]]></description>
-    <pubDate>Wed, 01 Apr 2026 05:33:36 GMT</pubDate>
   </item>
     </channel>
   </rss>
