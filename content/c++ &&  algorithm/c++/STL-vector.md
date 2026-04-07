@@ -26,3 +26,12 @@ Revision Time: 2026-03-03T21:49:00
 ![[Screenshot_2026-01-30-18-22-58-97_149003a2d400f6adb210d7e357a3a646.jpg]]
 排序去重：
 ![[Screenshot_2026-03-03-21-49-43-51_769977972775e0c6b41aa3dfaf766445.jpg]]
+也可以 用unique 返回的地址减头指针 求出长度
+遍历的时候遍历到长度即可。
+
+普通数组：
+// a 是数组首地址（头指针）
+int len = unique(a, a + n) - a; 
+Vector：
+// v.begin() 是首地址迭代器（头指针）
+int len = unique(v.begin(), v.end()) - v.begin(); 
