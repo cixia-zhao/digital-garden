@@ -10,7 +10,19 @@
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Tue, 07 Apr 2026 05:32:10 GMT</pubDate>
+    <pubDate>Wed, 08 Apr 2026 09:51:22 GMT</pubDate>
+  </item><item>
+    <title>DFS</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</guid>
+    <description><![CDATA[ 看见求和 方案总数 无脑 全部longl long(包括数组) 在 DFS 里，没有循环，DFS 的每一次运行，就是一段独立的人生。 要达到“回到最头部重新开始”的效果，唯一的办法就是再次呼叫这个函数自身（传参进入下一层） 随后return ；销毁当前错误的自己； DFS 结构中，只要某个状态是**“不合法”、“需要跳过”、或者“已经达成目标”的，处理完（或者传给下一层后），立刻、马上接一个 return;！ 坚决不能让残废的状态继续往下走去弄脏后面的核心分支！ 🎯 概念 一句话揭露本质：DFS 不是一门需要你脑力全开去“想象”的魔法，而是一套只需要你像无情机器一样回答“灵魂三问”的工业流水... ]]></description>
+    <pubDate>Wed, 08 Apr 2026 09:50:07 GMT</pubDate>
+  </item><item>
+    <title>模拟算法</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</guid>
+    <description><![CDATA[ 注意事项：填空 一定 开 long long 看见求和 方案总数 无脑 全部long long(包括数组) 🎯 判断质数 bool is_prime(ll x) { if (x &lt; 2) return false; if (x == 2) return true; if (x % 2 == 0) return false; // 偶数直接秒杀 for (int i = 3; i * i &lt;= x; i += 2) { // 每次 +2，只查奇数 3, 5, 7.. ]]></description>
+    <pubDate>Wed, 08 Apr 2026 09:50:07 GMT</pubDate>
   </item><item>
     <title>二分查找</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE</link>
@@ -30,23 +42,11 @@
     <description><![CDATA[ 🎯 ✍️ 标准代码 题目：区间更新 #include &lt;iostream&gt; using namespace std; const int N = 1e5+9; int a[N],d[N]; int main() { int m,n; while(cin &gt;&gt; n &gt;&gt; m) { for(int i = 1;i &lt;= n; ++i) cin &gt;&gt;a[i]; for(int i = 1;i &lt;= n; ++i) d[i] = a[i] - a[i - 1]; while(m--) { int l,r,v; cin &gt;&gt; l ... ]]></description>
     <pubDate>Tue, 07 Apr 2026 03:00:35 GMT</pubDate>
   </item><item>
-    <title>DFS</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</guid>
-    <description><![CDATA[ 看见求和 方案总数 无脑 全部longl long(包括数组) 在 DFS 里，没有循环，DFS 的每一次运行，就是一段独立的人生。 要达到“回到最头部重新开始”的效果，唯一的办法就是再次呼叫这个函数自身（传参进入下一层） 随后return ；销毁当前错误的自己； DFS 结构中，只要某个状态是**“不合法”、“需要跳过”、或者“已经达成目标”的，处理完（或者传给下一层后），立刻、马上接一个 return;！ 坚决不能让残废的状态继续往下走去弄脏后面的核心分支！ 🎯 概念 一句话揭露本质：DFS 不是一门需要你脑力全开去“想象”的魔法，而是一套只需要你像无情机器一样回答“灵魂三问”的工业流水... ]]></description>
-    <pubDate>Mon, 06 Apr 2026 15:13:44 GMT</pubDate>
-  </item><item>
     <title>BFS</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/BFS</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/BFS</guid>
     <description><![CDATA[ 发现输出-1，可能 continue 写成 return 了 依赖于输入变量的东西必须写在这个变量输入后，而不是全局； 万能无参 BFS模板: #include &lt;bits/stdc++.h&gt; using namespace std; // ================= 全局变量区 ================= const int N = 505; int dist[N][N]; // 二合一账本 int n, m; int dx[4] = {-1, 1, 0, 0}; int dy[4] = {0, 0, -1, 1}; // 【核心蜕变】：办事大厅直接提拔为全局变量... ]]></description>
     <pubDate>Sun, 05 Apr 2026 15:41:01 GMT</pubDate>
-  </item><item>
-    <title>模拟算法</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</guid>
-    <description><![CDATA[ 注意事项：填空 一定 开 long long 看见求和 方案总数 无脑 全部long long(包括数组) 👁️ 第一步：倒着读题！（先看 Query / 输出格式） 你不知道目标在哪，当然会被它牵着鼻子走。 拿到题，第一眼先看最后一句问什么，以及【输出格式】。 就拿刚才那题来说，它问：“队列中有多少个元素具有可见性？”输出是“一个整数”。 你的大脑要立刻建立锚点：哦，原来不管你前面噼里啪啦一顿什么“主节点、副节点、同步”，最后只是让我数个数。既然只是求数量，那我很大可能根本不需要去存它到底添加了具体的什么内容（比如题里的 add 1、add 2，那个 1 和 2 就是彻头彻尾的干扰项）！ ... ]]></description>
-    <pubDate>Fri, 03 Apr 2026 15:23:45 GMT</pubDate>
   </item><item>
     <title>文献检索与写作-上机作业1</title>
     <link>https://quartz.jzhao.xyz/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2%E4%B8%8E%E5%86%99%E4%BD%9C-%E4%B8%8A%E6%9C%BA%E4%BD%9C%E4%B8%9A1</link>
