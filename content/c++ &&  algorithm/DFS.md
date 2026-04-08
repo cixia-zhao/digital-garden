@@ -833,7 +833,6 @@ $3+12+19=34$
 NOIP 2002 普及组第二题
 
 ```cpp
-```cpp
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
@@ -882,7 +881,7 @@ int main()
 	return 0;
 }
 ```
-```
+
 
 题目：
 
