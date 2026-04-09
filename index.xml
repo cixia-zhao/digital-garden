@@ -16,7 +16,13 @@
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Thu, 09 Apr 2026 04:42:01 GMT</pubDate>
+    <pubDate>Thu, 09 Apr 2026 06:13:09 GMT</pubDate>
+  </item><item>
+    <title>模拟算法</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</guid>
+    <description><![CDATA[ 注意事项：填空 一定 开 long long 看见求和 方案总数 无脑 全部long long(包括数组) 🎯 输入输出 + 高精度 数学函数 字符安检与变形 判断质数 bool is_prime(ll x) { if (x &lt; 2) return false; if (x == 2) return true; if (x % 2 == 0) return false; // 偶数直接秒杀 for (int i = 3; i * i &lt;= x; i += 2) { // 每次 +2，只查奇数 3, 5, 7.. ]]></description>
+    <pubDate>Thu, 09 Apr 2026 06:11:28 GMT</pubDate>
   </item><item>
     <title>sort</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/sort</link>
@@ -28,12 +34,6 @@
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95</guid>
     <description><![CDATA[ 只要题目里的业务场景属于宁可溢出浪费，也绝不能少算，向上取整： 需要次数 = (总数 + 每次容量 - 1) / 每次容量 先乘后除 （向下取整： 一有0 全玩完） 🎯 gcd( 最大公约数) ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); } \gcd(a, b) = \gcd(a, a+b)，那同理也可以换成减法：\gcd(a, b) = \gcd(a, b-a)。 lcm(最小公倍数) ll lcm(ll a,ll b) { return a / gcd(a,b) * b; } 遇到算数字和之类的 一律 long long... ]]></description>
-    <pubDate>Thu, 09 Apr 2026 04:41:05 GMT</pubDate>
-  </item><item>
-    <title>模拟算法</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</guid>
-    <description><![CDATA[ 注意事项：填空 一定 开 long long 看见求和 方案总数 无脑 全部long long(包括数组) 🎯 输入输出 + 高精度 数学函数 字符安检与变形 判断质数 bool is_prime(ll x) { if (x &lt; 2) return false; if (x == 2) return true; if (x % 2 == 0) return false; // 偶数直接秒杀 for (int i = 3; i * i &lt;= x; i += 2) { // 每次 +2，只查奇数 3, 5, 7.. ]]></description>
     <pubDate>Thu, 09 Apr 2026 04:41:05 GMT</pubDate>
   </item><item>
     <title>DFS</title>
