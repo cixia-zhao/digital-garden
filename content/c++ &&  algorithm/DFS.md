@@ -2137,12 +2137,12 @@ Python 选手可以尝试使用 PyPy3 提交本题。
 
 保证不包括 $-1, -1, -1$ 的输入行数 $T$ 满足 $1 \leq T \leq 10 ^ 5$。
 
-## 总结
-：
+## 该题总结：
+
 拦截整层（撞墙了）-> 用 return。
 ​排除某个选项在for循环里面（这个选项不合法）-> 用 continue。如果你在 for 循环里写了 return，相当于遇到一个烂萝卜，你直接把摊子砸了回家，后面的正确答案就全被你错杀了！
 
-特权(允许特定x次数多选)：一般搭配库存数组cnt[i]记录用了几次，以及允许几个超标
+特权(允许多选 y次)：一般搭配库存数组cnt[i]记录用了几次，以及允许几个超标（VIP 名额 x）
 int stcnt，为dfs状态参数
 预判剪枝：for里面
     // 只要这个萝卜被选了 y 次，不管它是不是 VIP，都已经不行
@@ -2150,17 +2150,63 @@ int stcnt，为dfs状态参数
     如果此时 stcnt == x（VIP 名额已经发完了）直接拦截！
     if (cnt[i] == 1 && stcnt == x) continue;
     cnt[i]++
-    // 🎟️ 【凭证升级
+    
     // 扣费的唯一触发时机：只有在这个数字“刚好从 1 变成 2”的那一瞬间，消耗 1 个名额！
     // 如果它从 2 变成 3（y>=3的情况），它【已经是 VIP】了，不需要再重复扣名额！
     int ne_count = stcnt + (cnt[i] == 2 ? 1 : 0);
     dfs
     cnt[i]--;
 
-
-
 ```cpp
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+const int N = 19;
+int cnt[N];
+ll n;
+ll m_gcd = -1;
+ll ans = 2e9;
 
+ll gcd(ll a,ll b) //有ll就统一用保平安 
+{
+	return b == 0 ? a : gcd(b,a%b);//本质每轮除数与被除数互换，所以b,a%b; 
+}
+
+void dfs(int x,ll v,int stcnt)//ll v ,保平安； 
+{
+	if(x > 9)//是位数，生成数的位数，造字符串的感觉 
+	{
+		ll c_gcd = gcd(v,n);
+		if(c_gcd > m_gcd)
+		{
+			m_gcd = c_gcd;
+			ans = v;// 当满足最小的最大公约数时候，记录单号为答案； 
+		}
+		
+		return ;
+	}
+	
+	for(int i = 1;i<=8;++i)
+	{
+		if(cnt[i] == 2) continue;
+		if(cnt[i] == 1 && stcnt == 1) continue;
+		cnt[i]++;
+		dfs(x+1,v*10+i,stcnt + (cnt[i] == 2 ? 1 : 0));
+		cnt[i]--;
+	}
+	
+}
+
+int main()
+{
+	if(cin >> n)
+	{
+		dfs(1,0,0) ;
+		cout << ans <<'\n';
+	}
+	
+	return 0;
+}
 ```
 
 # P2404 自然数的拆分问题

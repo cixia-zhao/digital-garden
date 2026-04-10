@@ -4,7 +4,11 @@ tags:
 related: []
 data: 2026-03-02T08:30:00
 ---
-
+[[STL-map]]
+[[数据结构 quque]]
+[[数据结构 stack]]
+[[sort]]
+[[STL-set]]
 ### 🎯 核心功能 (Purpose)
 参数：
 一般不写greater<>() 默认升序

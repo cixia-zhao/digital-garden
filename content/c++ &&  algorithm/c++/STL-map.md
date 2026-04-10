@@ -6,11 +6,17 @@ related:
 date: 2026-02-01T22:17:00
 revision time 1: 2026-02-02T13:24:00
 Revision Time: 2026-03-03T19:19:00
-"Revision Time: 2026-03-03T19:19:00": "3.22"
+"Revision Time: 2026-03-03T19:19:00": 2026-04-10T19:01:00
 ---
-
-### 🎯 核心功能 (Purpose)
+[[STL-map]]
+[[数据结构 quque]]
+[[数据结构 stack]]
+[[sort]]
+[[STL-set]]
+# 🎯 map 概念
 > map ,里面键值对两者之间有映射关系
+
+ ## 可以当数组看 前一个是下标，后一个是值 不过很智能 不拘泥于数字
 
 map<KeyType, ValueType>` 是一个存储 键(Key)-值(Value)对的关联容器。
 
@@ -35,10 +41,112 @@ for (auto const& [key, val] : my_map) {
 }
 
 
+# P5266 【深基17.例6】学籍管理
+
+## 题目描述
+
+您要设计一个学籍管理系统，最开始学籍数据是空的，然后该系统能够支持下面的操作（不超过 $10^5$ 条）：
+
+- 插入与修改，格式 `1 NAME SCORE`：在系统中插入姓名为 $\texttt{NAME}$(由字母和数字组成不超过 $20$ 个字符的字符串，区分大小写)，分数为 $\texttt{SCORE}$（$0<\texttt{SCORE}<2^{31}$） 的学生。如果已经有同名的学生则更新这名学生的成绩为 $\texttt{SCORE}$。如果成功插入或者修改则输出 `OK`。
+- 查询，格式 `2 NAME`：在系统中查询姓名为 $\texttt{NAME}$ 的学生的成绩。如果没能找到这名学生则输出 `Not found`，否则输出该生成绩。
+- 删除，格式 `3 NAME`：在系统中删除姓名为 $\texttt{NAME}$ 的学生信息。如果没能找到这名学生则输出 `Not found`，否则输出 `Deleted successfully`。
+- 汇总，格式 `4`：输出系统中学生数量。
+
+## 输入格式
+
+第一行，输入一个正整数 $Q$（$1 \le Q \le 10^5$），表示操作数量。
+
+接下来 $Q$ 行，每行先输入一个正整数 $op$（$op \in [1,4]$），表示操作种类。接着：
+- 如果 $op = 1$，则再输入一个字符串 $\texttt{NAME}$ 以及一个正整数 $\texttt{SCORE}$，含义见题目描述。
+- 如果 $op = 2$，则再输入一个字符串 $\texttt{NAME}$，含义见题目描述。
+- 如果 $op = 3$，则再输入一个字符串 $\texttt{NAME}$，含义见题目描述。
+- 如果 $op = 4$，则无需再输入其他内容。
+
+## 输出格式
+
+共输出 $Q$ 行，每行输出一个字符串或正整数，为对应操作的处理结果，具体含义见题目描述。
+
+## 输入输出样例 #1
+
+### 输入 #1
+
+```
+5
+1 lxl 10
+2 lxl
+3 lxl
+2 lxl
+4
+```
+
+### 输出 #1
+
+```
+OK
+10
+Deleted successfully
+Not found
+0
+
+```
 
 
+# ✍️ 例题
 
-### ✍️ 例题
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+map<string,ll> stu;
+int q,op;
+ll score;
+string name;
+int main()
+{
+	ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+	cin >> q;
+	for(int i = 1;i <= q;++i)
+	{
+		cin >> op;
+		if(op == 1)
+		{
+			cin >> name >> score;
+			stu[name] = score;
+			cout << "OK" <<'\n';
+		}
+		if(op == 2)
+		{
+			cin >> name;
+			if(stu.count(name))
+			{
+				cout << stu[name] <<'\n';
+			}
+			else cout << "Not found" <<'\n';
+		}
+		if(op == 3)
+		{
+			cin >> name;
+			if(stu.count(name))
+			{
+				stu.erase(name);
+				cout << "Deleted successfully" <<'\n';
+			}
+			else cout << "Not found" <<'\n';
+		}
+		
+		if(op == 4)
+		{
+			cout << stu.size() <<'\n';
+		}
+		
+	}
+	
+	
+	return 0;
+}
+```
 
 # P8722 [蓝桥杯 2020 省 AB3] 日期识别
 

@@ -5,7 +5,11 @@ related: []
 date: 2026-01-30T18:14:00
 Revision Time: 2026-03-03T21:49:00
 ---
-
+[[STL-map]]
+[[数据结构 quque]]
+[[数据结构 stack]]
+[[sort]]
+[[STL-set]]
 ### 🎯 核心功能 (Purpose)
 > vector(矢量表):一个可以扩容的数组
 > 定义：
