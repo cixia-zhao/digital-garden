@@ -6,41 +6,41 @@
       <description>Last 10 notes on Quartz 4</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>字符安检与变形</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E5%AD%97%E7%AC%A6%E5%AE%89%E6%A3%80%E4%B8%8E%E5%8F%98%E5%BD%A2</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E5%AD%97%E7%AC%A6%E5%AE%89%E6%A3%80%E4%B8%8E%E5%8F%98%E5%BD%A2</guid>
-    <description><![CDATA[ 字符安检与变形 这类函数直接传入单个字符 c，非常适合字符串模拟题。 判断类函数 isdigit(c) ：判断是否为数字（‘0’ 至 ‘9’） isalpha(c) ：判断是否为字母（‘a’ 至 ‘z’、‘A’ 至 ‘Z’） isalnum(c) ：判断是否为字母或数字 ispunct(c) ：判断是否为标点符号（除字母、数字、空格外的可见字符） isspace(c) ：判断是否为空白符（空格、换行 \n、制表符 \t） islower(c) ：判断是否为小写字母 isupper(c) ：判断是否为大写字母 转换类函数 tolower(c) ：将字符转换为小写（非字母原样返回） toupper... ]]></description>
-    <pubDate>Thu, 09 Apr 2026 10:38:00 GMT</pubDate>
-  </item><item>
     <title>for each</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Thu, 09 Apr 2026 07:33:00 GMT</pubDate>
-  </item><item>
-    <title>枚举算法</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95</guid>
-    <description><![CDATA[ 只要题目里的业务场景属于宁可溢出浪费，也绝不能少算，向上取整： 需要次数 = (总数 + 每次容量 - 1) / 每次容量 先乘后除 （向下取整： 一有0 全玩完） 🎯 gcd( 最大公约数) ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); } \gcd(a, b) = \gcd(a, a+b)，那同理也可以换成减法：\gcd(a, b) = \gcd(a, b-a)。 lcm(最小公倍数) ll lcm(ll a,ll b) { return a / gcd(a,b) * b; } 遇到算数字和之类的 一律 long long... ]]></description>
-    <pubDate>Thu, 09 Apr 2026 07:30:56 GMT</pubDate>
-  </item><item>
-    <title>模拟算法</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</guid>
-    <description><![CDATA[ 注意事项：填空 一定 开 long long 看见求和 方案总数 无脑 全部long long(包括数组) 🎯 输入输出 + 高精度 数学函数 字符安检与变形 判断质数 bool is_prime(ll x) { if (x &lt; 2) return false; if (x == 2) return true; if (x % 2 == 0) return false; // 偶数直接秒杀 for (int i = 3; i * i &lt;= x; i += 2) { // 每次 +2，只查奇数 3, 5, 7.. ]]></description>
-    <pubDate>Thu, 09 Apr 2026 06:11:28 GMT</pubDate>
-  </item><item>
-    <title>sort</title>
-    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/sort</link>
-    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/sort</guid>
-    <description><![CDATA[ 🎯 核心功能 (Purpose) 参数： 一般不写greater&lt;&gt;() 默认升序 sort (v.begin(),v.end(),greater &lt;&gt;());//这个是降序排序写法 lambda 表达式： Lambda三种核心捕获方式 捕获方式核心行为一句话总结[]无捕获：不访问外部变量，像一个纯函数。一个与外界隔离的“临时函数”。[=]值捕获：复制外部变量，默认只读。拿到一份外部数据的“只读快照”。[&amp;]引用捕获：使用外部变量的别名，可读可写。获得一个能直接操作外部世界的“遥控器”。 进阶：混合捕获 你还可以混合使用，精确控制每一个变量的捕获方式： [&a... ]]></description>
-    <pubDate>Thu, 09 Apr 2026 04:41:05 GMT</pubDate>
+    <pubDate>Fri, 10 Apr 2026 14:58:54 GMT</pubDate>
   </item><item>
     <title>DFS</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/DFS</guid>
     <description><![CDATA[ 看见求和 方案总数 无脑 全部longl long(包括数组) 在 DFS 里，没有循环，DFS 的每一次运行，就是一段独立的人生。 要达到“回到最头部重新开始”的效果，唯一的办法就是再次呼叫这个函数自身（传参进入下一层） 随后return ；销毁当前错误的自己； DFS 结构中，只要某个状态是**“不合法”、“需要跳过”、或者“已经达成目标”的，处理完（或者传给下一层后），立刻、马上接一个 return;！ 坚决不能让残废的状态继续往下走去弄脏后面的核心分支！ 🎯 概念 一句话揭露本质：DFS 不是一门需要你脑力全开去“想象”的魔法，而是一套只需要你像无情机器一样回答“灵魂三问”的工业流水... ]]></description>
-    <pubDate>Wed, 08 Apr 2026 15:27:21 GMT</pubDate>
+    <pubDate>Fri, 10 Apr 2026 14:58:07 GMT</pubDate>
+  </item><item>
+    <title>sort</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/sort</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/sort</guid>
+    <description><![CDATA[ STL-map 数据结构 quque 数据结构 stack sort STL-set 🎯 核心功能 (Purpose) 参数： 一般不写greater&lt;&gt;() 默认升序 sort (v.begin(),v.end(),greater &lt;&gt;());//这个是降序排序写法 lambda 表达式： Lambda三种核心捕获方式 捕获方式核心行为一句话总结[]无捕获：不访问外部变量，像一个纯函数。一个与外界隔离的“临时函数”。[=]值捕获：复制外部变量，默认只读。拿到一份外部数据的“只读快照”。[&amp;]引用捕获：使用外部变量的别名，可读可写。获得一个能直接操作外部世界的... ]]></description>
+    <pubDate>Fri, 10 Apr 2026 14:58:07 GMT</pubDate>
+  </item><item>
+    <title>枚举算法</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95</guid>
+    <description><![CDATA[ 只要题目里的业务场景属于宁可溢出浪费，也绝不能少算，向上取整： 需要次数 = (总数 + 每次容量 - 1) / 每次容量 时间每隔x ,向下取整 : 原数 / x * x 处理跨天/周期性问题：只要涉及到“循环往复”（如时钟、转盘、走位），(ans % n + n) % n ；能把任何负数偏移量完美修正到合法的 [0, n-1] 区间； 先乘后除 （向下取整： 一有0 全玩完） 🎯 gcd( 最大公约数) ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); } \gcd(a, b) = \gcd(a, a+b)，那同理也可以换成减... ]]></description>
+    <pubDate>Fri, 10 Apr 2026 14:58:07 GMT</pubDate>
+  </item><item>
+    <title>模拟算法</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95</guid>
+    <description><![CDATA[ 注意事项：填空 一定 开 long long 看见求和 方案总数 无脑 全部long long(包括数组) 🎯 输入输出 + 高精度 数学函数 字符安检与变形 判断质数 bool is_prime(ll x) { if (x &lt; 2) return false; if (x == 2) return true; if (x % 2 == 0) return false; // 偶数直接秒杀 for (int i = 3; i * i &lt;= x; i += 2) { // 每次 +2，只查奇数 3, 5, 7.. ]]></description>
+    <pubDate>Fri, 10 Apr 2026 14:58:07 GMT</pubDate>
+  </item><item>
+    <title>字符安检与变形</title>
+    <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E5%AD%97%E7%AC%A6%E5%AE%89%E6%A3%80%E4%B8%8E%E5%8F%98%E5%BD%A2</link>
+    <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E5%AD%97%E7%AC%A6%E5%AE%89%E6%A3%80%E4%B8%8E%E5%8F%98%E5%BD%A2</guid>
+    <description><![CDATA[ 字符安检与变形 这类函数直接传入单个字符 c，非常适合字符串模拟题。 判断类函数 isdigit(c) ：判断是否为数字（‘0’ 至 ‘9’） isalpha(c) ：判断是否为字母（‘a’ 至 ‘z’、‘A’ 至 ‘Z’） isalnum(c) ：判断是否为字母或数字 ispunct(c) ：判断是否为标点符号（除字母、数字、空格外的可见字符） isspace(c) ：判断是否为空白符（空格、换行 \n、制表符 \t） islower(c) ：判断是否为小写字母 isupper(c) ：判断是否为大写字母 转换类函数 tolower(c) ：将字符转换为小写（非字母原样返回） toupper... ]]></description>
+    <pubDate>Thu, 09 Apr 2026 10:38:00 GMT</pubDate>
   </item><item>
     <title>数学函数</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/%E6%95%B0%E5%AD%A6%E5%87%BD%E6%95%B0</link>
