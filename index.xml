@@ -10,7 +10,19 @@
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</link>
     <guid>https://quartz.jzhao.xyz/c++--and--and---algorithm/c++/for-each</guid>
     <description><![CDATA[ 🎯 核心功能 (Purpose) 专门用来遍历 ✍️ 标准语法 (Syntax) . ]]></description>
-    <pubDate>Sun, 12 Apr 2026 10:50:54 GMT</pubDate>
+    <pubDate>Mon, 13 Apr 2026 10:27:33 GMT</pubDate>
+  </item><item>
+    <title>错题</title>
+    <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%94%99%E9%A2%98</link>
+    <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%94%99%E9%A2%98</guid>
+    <description><![CDATA[ 第九章 第二节 高阶偏导 证明： 第三节 全微分 . ]]></description>
+    <pubDate>Mon, 13 Apr 2026 10:26:55 GMT</pubDate>
+  </item><item>
+    <title>高等数学-下</title>
+    <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6-%E4%B8%8B</link>
+    <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6-%E4%B8%8B</guid>
+    <description><![CDATA[ 第八章 向量及其线性运算 概念 平行有正向和反向 线性计算 （几何法） 一定要是逆时针三个轴； 线性计算 （代数法） 定理一运用 k 向量的模 方向角 投影 模 方向角与方向余弦 两种思路求方向余弦 例 在第一卦限 都是锐角 cos &gt; 0; 投影 数量积 向量积 混合积 数量积 ：结果为数量 向量积 ： 结果为向量 混合积 平面及其方程 例题 点法式求平面方程 绝对重点 通过某轴 则前面系数为0，同时D为0；平行某轴 则前面系数为0，最后留一个未知数约掉； 一般式例题 截距式 空间直线及其方程 一般式 点向式 参数式 两点式 例题 直线 可以直接求出方向向量，以及一个定点，平面可以一眼... ]]></description>
+    <pubDate>Mon, 13 Apr 2026 10:26:55 GMT</pubDate>
   </item><item>
     <title>kadane算法（连续区间极值）</title>
     <link>https://quartz.jzhao.xyz/c++--and--and---algorithm/kadane%E7%AE%97%E6%B3%95%EF%BC%88%E8%BF%9E%E7%BB%AD%E5%8C%BA%E9%97%B4%E6%9E%81%E5%80%BC%EF%BC%89</link>
@@ -30,22 +42,10 @@
     <description><![CDATA[ 定义域题型求法 关联：初等函数间断处，则为定义域不存在的地方。. ]]></description>
     <pubDate>Sun, 12 Apr 2026 10:49:50 GMT</pubDate>
   </item><item>
-    <title>错题</title>
-    <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%94%99%E9%A2%98</link>
-    <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%94%99%E9%A2%98</guid>
-    <description><![CDATA[ 第九章 第二节 高阶偏导 证明： . ]]></description>
-    <pubDate>Sun, 12 Apr 2026 10:49:50 GMT</pubDate>
-  </item><item>
     <title>高等数学-上</title>
     <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6-%E4%B8%8A</link>
     <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6-%E4%B8%8A</guid>
     <description><![CDATA[ 极限 求极限先代入判断类型，如果0-注意开方出来是负的。 碰见In 就换，抓大放小（趋近于无穷），抓小放大（趋近于0） 碰见分子分母都有变量 常见等价无穷小 重要例题 第一类间断点极限都存在（相等为可去，不等为跳跃） 只要有一个不存在就是第二类间断点（无穷震荡） 导数 基本公式 对数求导法则 看见根式 e 或者In就用 小技巧：利用对数的次方可以直接拿到前面，可以方便地处理根式 例 莱布尼茨公式 莱布尼茨公式是微积分中一个重要的高阶导数计算公式，它将函数乘积的求导法则推广到了任意 n 阶导数的情况。该公式揭示了两个函数乘积的高阶导数与这两个函数各自的高阶导数之间的关系，其形式与二项式定理高度相... ]]></description>
-    <pubDate>Sun, 12 Apr 2026 10:49:50 GMT</pubDate>
-  </item><item>
-    <title>高等数学-下</title>
-    <link>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6-%E4%B8%8B</link>
-    <guid>https://quartz.jzhao.xyz/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6-%E4%B8%8B</guid>
-    <description><![CDATA[ 第八章 向量及其线性运算 概念 平行有正向和反向 线性计算 （几何法） 一定要是逆时针三个轴； 线性计算 （代数法） 定理一运用 k 向量的模 方向角 投影 模 方向角与方向余弦 两种思路求方向余弦 例 在第一卦限 都是锐角 cos &gt; 0; 投影 数量积 向量积 混合积 数量积 ：结果为数量 向量积 ： 结果为向量 混合积 平面及其方程 例题 点法式求平面方程 绝对重点 通过某轴 则前面系数为0，同时D为0；平行某轴 则前面系数为0，最后留一个未知数约掉； 一般式例题 截距式 空间直线及其方程 一般式 点向式 参数式 两点式 例题 直线 可以直接求出方向向量，以及一个定点，平面可以一眼... ]]></description>
     <pubDate>Sun, 12 Apr 2026 10:49:50 GMT</pubDate>
   </item><item>
     <title>DFS</title>
