@@ -252,3 +252,100 @@
 本次累计预估增加 RAM 占用：约 `1~2 KB`（新增 RTC 状态缓存、驱动句柄、定时器回调状态）  
 本次累计预估增加 Flash 占用：约 `8~16 KB`（RTC/SHTC3/电池驱动逻辑、日志字符串、UI 刷新分支）  
 架构师警告：无重大新增泄漏风险；动态图片内存释放链路已补齐，但 Wi-Fi 下载与 RTC/NTP 仍建议做更系统化的错误恢复与状态抽象。
+
+# 2026-04-27《代码与指令备忘录》
+
+## 1. 📁 核心文件变更
+
+- **`main/ble_memo.c`**
+  - **NimBLE GATT Server**：新增自定义 Service/Characteristic（128-bit UUID），特征支持 `WRITE | WRITE_NO_RSP`，写入回调中把数据拷贝到 `FreeRTOS Queue`（禁止在回调里直接操作 LVGL）。
+  - **MTU**：初始化中设置 `ble_att_set_preferred_mtu(256)`。
+  - **广播修复**：为规避 31B 广播包限制，将 **Service UUID 放 ADV**，将 `"FocusCore_BLE"` **设备名放 Scan Response**（用 `ble_gap_adv_rsp_set_fields()`），修复运行时 `ble_gap_adv_set_fields failed: 4`。
+
+- **`main/ble_memo.h`**
+  - **FreeRTOS include 顺序修复**：确保 `FreeRTOS.h` 在 `queue.h` 之前包含，避免级联编译报错。
+
+- **`main/main.cpp`**
+  - **GPIO18 长按状态机**：保留 30ms 消抖短按；新增 3000ms 长按，通过 `EventGroup` 异步触发网络/对时（ISR 不做耗时操作）。
+  - **Wi-Fi + SNTP 对时闭环**：长按触发后 `wifi_manager_start()` → 等待联网 → `SyncRtcFromNtp()`（含 `TZ=CST-8`）→ `pcf85063_set_time()` → `wifi_manager_stop()`。
+  - **BLE→UI 解耦链路**：新增 `s_ble_memo_queue` + `BleMemoUiTask`：从队列取字符串，按 `|` 分割，持锁调用 `ui_home_set_todo_lines()` 刷新待办。
+
+- **`main/ui_home.c` / `main/ui_home.h`**
+  - **日期/星期/年份动态更新**：由 RTC 驱动刷新，不再静态写死。
+  - **Dirty Check 优化**：仅跨天（`tm_mday` 变化）时才更新日期/星期/年份；时分仍每秒刷新。
+  - **待办 UI 更新接口**：新增 `ui_home_set_todo_lines(line1,line2,line3)`，供 BLE UI task 调用。
+
+- **`main/pcf85063.c`**
+  - **RTC 写入增强**：`pcf85063_set_time()` 对输入 `struct tm` 做 `mktime()` 归一化 + 范围校验；写入前/读回后打日志便于对比；确保写入包含 `year/mon/mday/wday` 全字段。
+
+- **`main/CMakeLists.txt`**
+  - **依赖收敛**：`REQUIRES` 使用 `bt`（ESP-IDF v6 里 NimBLE 属于 `bt` 组件，不存在独立 `nimble` 组件）；补齐 `esp_driver_i2c/gpio/pcnt` 等。
+  - **脚本模式兼容**：`set_source_files_properties()` 包在 `if(NOT CMAKE_SCRIPT_MODE_FILE)`，避免 “not scriptable”。
+  - **编译标准**：对 `ble_memo.c` 单独指定 `-std=gnu17`。
+
+- **`components/port_bsp/CMakeLists.txt`**
+  - **传递依赖修复**：将 `esp_driver_spi`、`esp_lcd` 放入 `REQUIRES`（而非 `PRIV_REQUIRES`），解决 `display_bsp.h` 被上层包含时找不到 `spi_master.h / esp_lcd_panel_io.h` 的问题。
+
+- **`main/user_config.h`**
+  - **开发模式确认**：`DEV_MODE_NO_WIFI` 默认 `1`（断网 UI 调试模式），但长按触发网络任务不依赖“开机自启 Wi-Fi”。
+
+---
+
+## 2. 🤖 高价值 Prompt 记录
+
+- **“只看第一条真实 error”策略**
+  - NimBLE/FreeRTOS 报错经常级联（上游 include/语法失败会引爆大量“假错误”），排错必须从首个 `error:` 开始清。
+- **ESP-IDF v6 组件命名要点**
+  - NimBLE 不是独立组件，依赖写 `bt`，避免 `REQUIRES nimble` 触发 CMake 找不到组件。
+- **组件依赖传递规则**
+  - 若组件头文件（如 `port_bsp/display_bsp.h`）会被外部 include，其依赖必须放 `REQUIRES`，放 `PRIV_REQUIRES` 会导致上层编译找不到头文件。
+- **BLE→UI 架构警告落地**
+  - GATT write 回调禁止直接调 LVGL；必须 Queue/EventGroup 解耦，UI task 持锁刷新。
+- **BLE 广播包 31B 限制**
+  - 128-bit UUID + 完整设备名经常超 31B：UUID 放 ADV，Name 放 Scan Response。
+
+---
+
+## 3. ⚙️ 编译与依赖状态
+
+- **工程不是 Git 仓库**
+  - `git rev-parse --is-inside-work-tree` 返回非仓库（无法用 `git status/diff` 追溯变更，只能以文件内容为准）。
+
+- **已解决的关键构建问题**
+  - **`port_bsp` 缺传递依赖**：`esp_driver_spi`、`esp_lcd` 需在 `REQUIRES`。
+  - **FreeRTOS 头顺序**：`FreeRTOS.h` 必须在 `queue.h/task.h` 前。
+  - **NimBLE API 兼容**：`ble_svc_gap_init()` / `ble_svc_gatt_init()` 在当前版本是 `void`（不能赋值给 `ret`）。
+
+- **运行时状态（已定位/已修）**
+  - **`E (1519) BLE_MEMO: ble_gap_adv_set_fields failed: 4`**：ADV payload 超限导致 EINVAL；已改为 ADV 放 UUID + ScanRsp 放 name。
+
+- **仍存在的构建“红色/黄色提示”**
+  - **Kconfig warning**：`sdkconfig.defaults` 里存在 `LV_FONT_CUSTOM_DECLARE` 未知符号（属于 warning，不阻塞编译）。建议后续确认该配置是否写错或应改为 LVGL v9 支持的项。
+
+---
+
+## 4. ⚠️ 悬而未决的代码债
+
+- **`sdkconfig.defaults` 的未知 Kconfig 符号**
+  - `LV_FONT_CUSTOM_DECLARE` 警告未消除：长期可能导致团队误判配置是否生效。
+
+- **安全/可维护性：Wi-Fi 凭据硬编码**
+  - `main.cpp` 里通过 `#ifndef CONFIG_FOCUSCORE_WIFI_SSID/PASSWORD` 兜底了明文 SSID/密码（建议后续迁移到 `menuconfig` + NVS）。
+
+- **BLE 安全性与低功耗策略未完善**
+  - 当前为“可写入”服务，未做配对/权限控制/白名单；也未加入更深的低功耗（连接参数、广播间隔、断开策略等）。
+
+- **组件依赖维护风险**
+  - `port_bsp` 的 public header 依赖项一旦扩展，需要同步维护 `REQUIRES`，否则会再次出现“头文件找不到”的级联构建错误。
+
+---
+
+📊 嵌入式资源审计预估  
+本功能预估增加 RAM 占用：约 **3–6 KB**  
+- 主要来自：BLE memo 队列（`8 * sizeof(ble_memo_msg_t)`，每条 256B 级别）+ BLE UI task 栈（`6144B`）+ NimBLE host task（由 NimBLE 创建，栈/heap 依配置而定）。  
+
+本功能预估增加 Flash 占用：约 **30–80 KB**  
+- 主要来自：启用 `bt` + NimBLE host/services 的代码体积（取决于 menuconfig 勾选项、优化等级）。  
+
+架构师警告：**中**  
+- BLE/NimBLE 体积和 RAM 增量不可忽视；建议后续做一次 `idf.py size`/heap 运行时采样，确认在 8MB PSRAM 下是否稳定，并明确关闭不需要的 bt profile/features。
