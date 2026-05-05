@@ -5,15 +5,15 @@ related: []
 date: 2026-01-30T18:14:00
 Revision Time: 2026-03-03T21:49:00
 ---
-[[STL-map]]
-[[数据结构 quque]]
-[[数据结构 stack]]
-[[sort]]
-[[STL-set]]
+[STL-map](STL-map.md)
+[数据结构 quque](数据结构%20quque.md)
+[数据结构 stack](数据结构%20stack.md)
+[sort](sort.md)
+[STL-set](STL-set.md)
 ### 🎯 核心功能 (Purpose)
 > vector(矢量表):一个可以扩容的数组
 > 定义：
-![[Screenshot_2026-01-30-18-21-24-66_149003a2d400f6adb210d7e357a3a646.jpg]]
+![Screenshot_2026-01-30-18-21-24-66_149003a2d400f6adb210d7e357a3a646](Screenshot_2026-01-30-18-21-24-66_149003a2d400f6adb210d7e357a3a646.jpg)
 
 > 方法：
 > 1. v.push_back() 插入元素
@@ -24,12 +24,12 @@ Revision Time: 2026-03-03T21:49:00
 
 ### ✍️ 标准语法 (Syntax)
 
-![[Screenshot_2026-01-30-18-19-41-46_149003a2d400f6adb210d7e357a3a646.jpg]]
+![Screenshot_2026-01-30-18-19-41-46_149003a2d400f6adb210d7e357a3a646](Screenshot_2026-01-30-18-19-41-46_149003a2d400f6adb210d7e357a3a646.jpg)
 
 基于 for each 的另一种写法：
-![[Screenshot_2026-01-30-18-22-58-97_149003a2d400f6adb210d7e357a3a646.jpg]]
+![Screenshot_2026-01-30-18-22-58-97_149003a2d400f6adb210d7e357a3a646](Screenshot_2026-01-30-18-22-58-97_149003a2d400f6adb210d7e357a3a646.jpg)
 排序去重：
-![[Screenshot_2026-03-03-21-49-43-51_769977972775e0c6b41aa3dfaf766445.jpg]]
+![Screenshot_2026-03-03-21-49-43-51_769977972775e0c6b41aa3dfaf766445](Screenshot_2026-03-03-21-49-43-51_769977972775e0c6b41aa3dfaf766445.jpg)
 也可以 用unique 返回的地址减头指针 求出长度
 遍历的时候遍历到长度即可。
 

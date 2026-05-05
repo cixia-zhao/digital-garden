@@ -70,7 +70,7 @@ export type QuartzComponentProps = {
 }
 ```
 
-- `fileData`: Any metadata [[making plugins|plugins]] may have added to the current page.
+- `fileData`: Any metadata [plugins](making%20plugins.md) may have added to the current page.
   - `fileData.slug`: slug of the current page.
   - `fileData.frontmatter`: any frontmatter parsed.
 - `cfg`: The `configuration` field in `quartz.config.ts`.
@@ -149,7 +149,7 @@ As the names suggest, the `.beforeDOMLoaded` scripts are executed _before_ the p
 
 The `.afterDOMLoaded` script executes once the page has been completely loaded. This is a good place to setup anything that should last for the duration of a site visit (e.g. getting something saved from local storage).
 
-If you need to create an `afterDOMLoaded` script that depends on _page specific_ elements that may change when navigating to a new page, you can listen for the `"nav"` event that gets fired whenever a page loads (which may happen on navigation if [[SPA Routing]] is enabled).
+If you need to create an `afterDOMLoaded` script that depends on _page specific_ elements that may change when navigating to a new page, you can listen for the `"nav"` event that gets fired whenever a page loads (which may happen on navigation if [SPA Routing](SPA%20Routing.md) is enabled).
 
 ```ts
 document.addEventListener("nav", () => {
@@ -161,7 +161,7 @@ document.addEventListener("nav", () => {
 })
 ```
 
-You can also add the equivalent of a `beforeunload` event for [[SPA Routing]] via the `prenav` event.
+You can also add the equivalent of a `beforeunload` event for [SPA Routing](SPA%20Routing.md) via the `prenav` event.
 
 ```ts
 document.addEventListener("prenav", () => {
@@ -221,7 +221,7 @@ import YourComponent from "./YourComponent"
 export { ArticleTitle, Content, Darkmode, YourComponent }
 ```
 
-Then, you can use it like any other component in `quartz.layout.ts` via `Component.YourComponent()`. See the [[configuration#Layout|layout]] section for more details.
+Then, you can use it like any other component in `quartz.layout.ts` via `Component.YourComponent()`. See the [](configuration.md#Layout|layout) section for more details.
 
 As Quartz components are just functions that return React components, you can compositionally use them in other Quartz components.
 

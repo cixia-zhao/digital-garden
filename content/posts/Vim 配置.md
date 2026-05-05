@@ -115,7 +115,7 @@ nvim
 *   **文件位置**: `~/.termux/termux.properties`
 *   **核心内容**:
     ```properties
-    extra-keys = [['ESC','F9','F10','F11','=','HOME'],['CTRL','ALT','UP','DOWN','LEFT','RIGHT']]
+    extra-keys = ['ESC','F9','F10','F11','=','HOME']('ESC','F9','F10','F11','=','HOME')
     ```
 *   **同步方式**: 在新设备上创建该文件，并将内容复制进去，然后**彻底重启 Termux 应用**使其生效。
 

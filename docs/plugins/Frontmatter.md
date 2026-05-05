@@ -4,10 +4,10 @@ tags:
   - plugin/transformer
 ---
 
-This plugin parses the frontmatter of the page using the [gray-matter](https://github.com/jonschlinkert/gray-matter) library. See [[authoring content#Syntax]], [[Obsidian compatibility]] and [[OxHugo compatibility]] for more information.
+This plugin parses the frontmatter of the page using the [gray-matter](https://github.com/jonschlinkert/gray-matter) library. See [](authoring%20content.md#Syntax), [Obsidian compatibility](Obsidian%20compatibility.md) and [OxHugo compatibility](OxHugo%20compatibility.md) for more information.
 
 > [!note]
-> For information on how to add, remove or configure plugins, see the [[configuration#Plugins|Configuration]] page.
+> For information on how to add, remove or configure plugins, see the [](configuration.md#Plugins|Configuration) page.
 
 This plugin accepts the following configuration options:
 

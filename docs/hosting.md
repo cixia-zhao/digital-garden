@@ -7,10 +7,10 @@ Quartz effectively turns your Markdown files and other resources into a bundle o
 However, if you'd like to publish your site to the world, you need a way to host it online. This guide will detail how to deploy with common hosting providers but any service that allows you to deploy static HTML should work as well.
 
 > [!warning]
-> The rest of this guide assumes that you've already created your own GitHub repository for Quartz. If you haven't already, [[setting up your GitHub repository|make sure you do so]].
+> The rest of this guide assumes that you've already created your own GitHub repository for Quartz. If you haven't already, [make sure you do so](setting%20up%20your%20GitHub%20repository.md).
 
 > [!hint]
-> Some Quartz features (like [[RSS Feed]] and sitemap generation) require `baseUrl` to be configured properly in your [[configuration]] to work properly. Make sure you set this before deploying!
+> Some Quartz features (like [RSS Feed](RSS%20Feed.md) and sitemap generation) require `baseUrl` to be configured properly in your [configuration](configuration.md) to work properly. Make sure you set this before deploying!
 
 ## Cloudflare Pages
 
@@ -95,7 +95,7 @@ Then:
 > You can do this by going to your Settings page on your GitHub fork and going to the Environments tab and pressing the trash icon. The GitHub action will recreate the environment for you correctly the next time you sync your Quartz.
 
 > [!info]
-> Quartz generates files in the format of `file.html` instead of `file/index.html` which means the trailing slashes for _non-folder paths_ are dropped. As GitHub pages does not do this redirect, this may cause existing links to your site that use trailing slashes to break. If not breaking existing links is important to you (e.g. you are migrating from Quartz 3), consider using [[#Cloudflare Pages]].
+> Quartz generates files in the format of `file.html` instead of `file/index.html` which means the trailing slashes for _non-folder paths_ are dropped. As GitHub pages does not do this redirect, this may cause existing links to your site that use trailing slashes to break. If not breaking existing links is important to you (e.g. you are migrating from Quartz 3), consider using [#Cloudflare Pages](#Cloudflare%20Pages).
 
 ### Custom Domain
 
@@ -112,7 +112,7 @@ Here's how to add a custom domain to your GitHub pages deployment.
      - `185.199.111.153`
    - If you are using a subdomain, navigate to your DNS provider and create a `CNAME` record that points your subdomain to the default domain for your site. For example, if you want to use the subdomain `quartz.example.com` for your user site, create a `CNAME` record that points `quartz.example.com` to `<github-username>.github.io`.
 
-![[dns records.png]]_The above shows a screenshot of Google Domains configured for both `jzhao.xyz` (an apex domain) and `quartz.jzhao.xyz` (a subdomain)._
+![dns records](dns%20records.png)_The above shows a screenshot of Google Domains configured for both `jzhao.xyz` (an apex domain) and `quartz.jzhao.xyz` (a subdomain)._
 
 See the [GitHub documentation](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain) for more detail about how to setup your own custom domain with GitHub Pages.
 

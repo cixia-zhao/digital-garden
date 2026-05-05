@@ -79,4 +79,4 @@ import "katex/contrib/mhchem"
 
 ## Customization
 
-Latex parsing is a functionality of the [[plugins/Latex|Latex]] plugin. See the plugin page for customization options.
+Latex parsing is a functionality of the [Latex](plugins/Latex.md) plugin. See the plugin page for customization options.

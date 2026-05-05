@@ -4,14 +4,14 @@ tags:
 related: []
 date: 2026-02-02T13:26:00
 ---
-[[STL-map]]
-[[数据结构 quque]]
-[[数据结构 stack]]
-[[sort]]
-[[STL-set]]
+[STL-map](STL-map.md)
+[数据结构 quque](数据结构%20quque.md)
+[数据结构 stack](数据结构%20stack.md)
+[sort](sort.md)
+[STL-set](STL-set.md)
 ### 🎯 核心功能 (Purpose)
 >内容：
->![[Screenshot_2026-02-02-13-31-43-23_149003a2d400f6adb210d7e357a3a646.jpg]]
+>![Screenshot_2026-02-02-13-31-43-23_149003a2d400f6adb210d7e357a3a646](Screenshot_2026-02-02-13-31-43-23_149003a2d400f6adb210d7e357a3a646.jpg)
 
 # #✍️ 模板
 

@@ -349,3 +349,154 @@
 
 架构师警告：**中**  
 - BLE/NimBLE 体积和 RAM 增量不可忽视；建议后续做一次 `idf.py size`/heap 运行时采样，确认在 8MB PSRAM 下是否稳定，并明确关闭不需要的 bt profile/features。
+
+依据当前仓库内容整理备忘录；一级标题日期采用对话中的权威日期 **2026年05月05日**。
+
+---
+
+# 2026年05月05日
+
+## 1. 📁 核心文件变更
+
+- **`main/main.cpp`**
+  - **BLE 无感授时**：在队列消费任务 `BleMemoUiTask` 中解析以 `TIME:` 开头的 payload；先将裸数据拷入 `char buffer[32]` 并在 `buffer[len]` 补 `\0`；使用 `sscanf(buffer, "TIME:%d-%d-%d-%d-%d-%d", ...)`（与前端的 `TIME:2026-04-29-23-27-46` 格式一致）；构造 `struct tm`（`tm_year = year - 1900`，`tm_mon = month - 1`）后调用 `pcf85063_set_time()` 与 `settimeofday()`；**不在** GATT write 回调里操作 I2C/RTC。
+  - **废弃长按 Wi‑Fi NTP 省电路径**：`NetworkControlTask` 不再调用 `wifi_manager_start` / `SyncRtcFromNtp` / `wifi_manager_stop`，仅打日志提示改用 BLE 授时；`SyncRtcFromNtp()` 保留为 deprecated stub（`ESP_ERR_NOT_SUPPORTED`）。
+  - 启动流程仍包含 `pcf85063_sync_system_time()`、传感器与 BLE memo 初始化；`#if !DEV_MODE_NO_WIFI` 分支下仍可 `wifi_manager_start`（与长按对时已解耦）。
+
+- **`main/ble_memo.h` / `main/ble_memo.c`**
+  - `ble_memo_msg_t` 增加 **`uint16_t len`**，记录写入长度（payload 可无 `\0`）；GATT 回调内仍只做拷贝与 `xQueueSend`，不写 RTC。
+
+- **`main/pcf85063.c`**
+  - 仍为 RTC 读写 / OS 标志恢复 / `pcf85063_sync_system_time()` 的实现基础；BLE 授时通过既有 `pcf85063_set_time()` 写入。
+
+- **`gen_lvgl_fonts.py`（工程根目录）**
+  - **去掉**在 Python 侧拼接整段 ASCII 可打印字符的逻辑（避免 Windows `cmd.exe` 对 `&`、`>`、`<`、`|` 等截断 `--symbols`）。
+  - **`common_3500_chars.txt`** 仅经 `read_symbols_file()` 得到 **`symbols_str`**（去空白后的中文及原有附加符号）。
+  - 生成 **`main/ui_font_custom.c`** 时增加 **`--range` `0x20-0x7E`**，由 `lv_font_conv` 原生包含标准 ASCII 可打印区（含空格）。
+  - **`ui_font_date_large.c`** 仍为短 `--symbols`（如 `0123456789月日`），**不加** `--range`。
+  - 保留生成后 **`#include "lvgl.h"`** 规范化逻辑。
+
+- **`main/CMakeLists.txt`（当前）**
+  - `SRCS`：`ble_memo.c`、`shtc3.c`、`pcf85063.c`、`battery_monitor.c`、`ui_font_date_large.c`、`ui_home.c`、`ui_menu.c`、`http_downloader.c`、`wifi_manager.c`、`main.cpp`、`ui_font_custom.c`，以及 `../ui_assets/` 下 10 个图标 C 文件。
+  - `REQUIRES`：`bt`、`nvs_flash`、`esp_driver_i2c`、`esp_driver_gpio`、`esp_driver_pcnt`、`app_bsp`、`port_bsp`、`user_app`、`ui_bsp`；`PRIV_REQUIRES`：`esp_adc`、`esp_http_client`。
+  - `ble_memo.c` 单独 **`COMPILE_OPTIONS "-std=gnu17"`**（包在 `if(NOT CMAKE_SCRIPT_MODE_FILE)` 内）。
+
+- **资源与工具链相关（仓库内）**
+  - 根目录存在 **`common_3500_chars.txt`**（UTF‑8，一级字表 3500 字 + 扩展符号等，供 `--symbols`）；字体依赖本机 **`simhei.ttf`** 路径（脚本内 Windows 默认路径）。
+
+---
+
+## 2. 🤖 高价值 Prompt 记录
+
+- **BLE 与阻塞隔离（架构硬约束）**
+  - 「禁止在 BLE GATT write 回调里直接 I2C 写 RTC；必须在队列消费 Task 里完成解析、`pcf85063_set_time`、`settimeofday`。」
+
+- **无 `\0` 二进制 payload（内存安全）**
+  - 「按真实长度拷贝到 `buffer[32]`，在 `buffer[len]` 手动写 `\0`，再 `sscanf`；消息结构体要带 `len`。」
+
+- **协议格式钉死（可验收）**
+  - 「`sscanf` 格式串必须与前端一致：`TIME:%d-%d-%d-%d-%d-%d`；`struct tm` 遵守 `tm_year = y - 1900`、`tm_mon = m - 1`。」
+
+- **省电与路径裁剪**
+  - 「长按 GPIO 不再拉起 Wi‑Fi/NTP；授时改走 BLE，避免常驻射频耗电。」
+
+- **Windows 命令行与字库生成**
+  - 「不要把含 `&`、`>`、`<`、`|` 的长 ASCII 塞进 `--symbols`；改用 `lv_font_conv` 的 **`--range 0x20-0x7E`**，与中文 `--symbols` 分离。」
+
+---
+
+## 3. ⚙️ 编译与依赖状态
+
+- **组件**：`main` 已注册上述全部源文件与 UI 资源；NimBLE 通过 **`bt`** 组件链接；`ble_memo.c` 使用 **GNU17**。
+- **外设与逻辑**：I2C（SHTC3 + PCF85063）、ADC 电量、`ui_home` / `ui_menu`、BLE memo 队列与 UI 任务并存。
+- **`user_config.h`**：`DEV_MODE_NO_WIFI` 默认 **`1`**（关闭开机 Wi‑Fi 与相关 UI 分支）；改为 `0` 时仍会走 `wifi_manager_start`，但与「长按 NTP 对时」已切断。
+- **字体流水线**：`python gen_lvgl_fonts.py` 需 **`lv_font_conv` 在 PATH**；本机 **`simhei.ttf`** 路径必须有效；`ui_font_custom.c` / `ui_font_date_large.c` 为生成产物，改脚本后需重新生成再编译。
+- **构建环境说明**：当前会话未在本机成功执行 `idf.py build`（环境未暴露 `idf.py`）；本地请以 ESP-IDF 环境验证一次全量编译。
+
+---
+
+## 4. ⚠️ 悬而未决的代码债
+
+- **`main/main.cpp`**：`CONFIG_FOCUSCORE_WIFI_SSID/PASSWORD` 兜底仍为明文；`WifiStatusTimerCb` 内测试下载 URL（`DEV_MODE_NO_WIFI=0` 时）仍为硬编码；开机 `wifi_manager_start` 与 BLE 授时策略的产品级矩阵（何时联网、何时停射频）未文档化。
+- **`SyncRtcFromNtp` stub**：保留仅为防误调用；若团队不再需要可考虑删除并清理相关 include/符号，减少误导。
+- **BLE**：未强化配对/加密/写入权限；广播与连接参数、功耗策略仍可优化。
+- **RTC 可信源**：BLE 授时依赖前端时钟质量；无 NTP 闭环时无「高可信」交叉校验。
+- **`common_3500_chars.txt`**：汉字集基于《通用规范汉字表》一级 3500 字来源；若业务要求严格对齐 1988《现代汉语常用字表》，需自行替换字表正文。
+- **`lv_font_conv` 兼容性**：若所用版本 **`--range` 语法或语义与 `0x20-0x7E` 不一致**，需对照 `--help` 调整（必要时改为 `32-126` 等）。
+- **仓库/Git**：工程未必纳入 Git，变更追溯依赖 IDE/备份；建议恢复版本管理以便评审。
+
+---
+
+以上为截至扫描时的工程快照；若你本地还有未保存或未同步到该路径的修改，以你工作区为准再补一节差异即可。
+
+依据当前仓库中的 `main/` 与 `main/CMakeLists.txt` 扫描结果，整理如下备忘录（一级标题日期按会话惯例记为 **2026年05月05日**；若你以自然日归档，可改为当天日期）。
+
+---
+
+# 2026年05月05日下午
+
+## 1. 📁 核心文件变更
+
+- **`main/CMakeLists.txt`**
+  - `SRCS`：`ble_memo.c`、`shtc3.c`、`pcf85063.c`、`battery_monitor.c`、`ui_font_date_large.c`、`ui_home.c`、`ui_menu.c`、`http_downloader.c`、`wifi_manager.c`、`main.cpp`、`ui_font_custom.c`，以及 `../ui_assets/` 下 10 个图标（5 normal + 5 large）。
+  - `REQUIRES`：`bt`、`nvs_flash`、`esp_driver_i2c`、`esp_driver_gpio`、`esp_driver_pcnt`、`app_bsp`、`port_bsp`、`user_app`、`ui_bsp`；`PRIV_REQUIRES`：`esp_adc`、`esp_http_client`。
+  - `ble_memo.c` 在非 script 模式下单独 **`COMPILE_OPTIONS "-std=gnu17"`**。
+
+- **`main/main.cpp`**
+  - 已移除 Wi‑Fi NTP 对时路径；**`TIME:`** 在 **`BleMemoUiTask`** 中解析并写 RTC + `settimeofday`。
+  - **长按 GPIO18**：`ble_memo_start_adv()`、状态栏 **`[BLE]`**、**60s** FreeRTOS 单次定时器；超时 **`ble_memo_stop_adv()`** + UI「蓝牙连接超时」；收到 **时间或待办** 后停表、停广播、隐藏 **`[BLE]`**。
+  - 待办：通过 **`ble_memo_split_todo_payload`** 最多 **6** 行，**`static_assert(BLE_MEMO_MAX_TODO_LINES == UI_HOME_TODO_LINE_COUNT)`**。
+  - Wi‑Fi：仍受 **`DEV_MODE_NO_WIFI`** 与 **`CONFIG_FOCUSCORE_WIFI_*`** / 测试下载宏 **`FOCUSCORE_WIFI_TEST_DOWNLOAD_URL`** 控制。
+
+- **`main/ble_memo.c` / `main/ble_memo.h`**
+  - NimBLE GATT 写队列；**`ble_memo_start_adv` / `ble_memo_stop_adv`**（结合 **`ble_hs_synced`、`ble_gap_adv_active`、`ble_gap_conn_active`** 与 **`s_adv_wanted`**，避免无效重复 start/stop）；**开机不同步自动广播**（由 **`OnSync`** 仅打日志）。
+  - **`ble_memo_split_todo_payload`**：`| ` 分隔最多 **6** 行。
+
+- **`main/ui_home.c` / `main/ui_home.h`**
+  - 首页 400×300：**状态栏**（温度、`[BLE]` 默隐、电量）、时钟/日历、**To Do List**（**6** 行，`[ ]` / `[x]` 删除线）、头像区。
+  - 待办容器：**绝对对齐** `TOP_LEFT (0, 140)`，**`lv_obj_set_size(..., todo_w, 160)`**（140+160=300 触底），**无边框**、**背景透明**；内部 Flex **`pad_row=0`**，标题 **Montserrat 20**「To Do List」。
+  - 时钟大字：**`LV_ALIGN_TOP_MID`** + 顶部内偏 **12px**，为下方腾空间。
+  - **RTC 失败**：时钟/星期/年份占位；**日期**在错误分支临时切 **`ui_font_custom`** 显示 **`  月  日`**，成功更新日历时切回 **`ui_font_date_large`**。
+  - 对外：**`ui_home_set_todo_lines`**、**`ui_home_ble_indicator_set_visible`**、**`ui_home_todo_set_first_line_plain`**。
+
+- **`main/pcf85063.c` / `main/pcf85063.h`**
+  - **OS / I2C 失败**不静默写假时间；**`pcf85063_sync_system_time`** 不再用编译时间回填 RTC。
+
+- **`main/user_config.h`**
+  - **`DEV_MODE_NO_WIFI`** 默认 **`1`**（关开机 Wi‑Fi 等；与长按 BLE 会话可并存，以当前代码为准）。
+
+- **`sdkconfig.defaults`**
+  - **`CONFIG_LV_FONT_MONTSERRAT_20/24/48=y`**；**`CONFIG_LV_FONT_CUSTOM_DECLARE`** 已 **注释**（自定义字体在源码中 **`LV_FONT_DECLARE(ui_font_custom)`** 等声明）。
+
+---
+
+## 2. 🤖 高价值 Prompt 记录
+
+- **嵌入式字库缺口**：「`ui_font_date_large` 缺空格/减号且不重生字库时，错误分支临时 **`lv_obj_set_style_text_font(..., &ui_font_custom)`**，成功分支写回 **`&ui_font_date_large`。」**
+- **BLE 与 UI 隔离**：「GATT 回调只入队；**`BleMemoUiTask`** 里解析 **`TIME:`**、写 **`pcf85063_set_time`** / **`settimeofday`**，并统一处理待办与「会话结束」。」
+- **NimBLE 广播安全调用**：「**`ble_memo_start_adv` / `stop_adv`** 前看 **`ble_hs_synced`、`ble_gap_adv_active`、`ble_gap_conn_active`**；**`s_adv_wanted`** 控制 **DISCONNECT / ADV_COMPLETE** 是否自动重开广播。」
+- **布局与可读性**：「待办区用 **绝对坐标 + 固定高度触底** 换垂直空间；时钟用 **TOP_MID + 小 y 偏移** 避免与大号待办区重叠。」
+
+---
+
+## 3. ⚙️ 编译与依赖状态
+
+- **目标**：`sdkconfig.defaults` 中 **`CONFIG_IDF_TARGET="esp32s3"`**，16MB Flash、PSRAM Oct 80M 等（文件头标注为 IDF **5.5.1** 风格 defconfig；实际工具链以本机 **`idf.py --version` / 构建日志** 为准）。
+- **LVGL**：Managed **v9**；启用 **Montserrat 20/24/48**；**`ui_font_custom.c` / `ui_font_date_large.c`** 为工程内生成/维护的裁剪字库。
+- **蓝牙**：NimBLE 通过 ESP-IDF **`bt`** 组件链接；**`ble_memo.c`** 使用 **GNU17**。
+- **外设**：I2C（SHTC3 + PCF85063）、ADC 电量、**RLCD 400×300**、编码器 **PCNT**、GPIO18 按键/长按。
+- **建议**：在目标环境中执行一次干净 **`idf.py fullclean && idf.py build`**，确认 **`bt` + `gnu17` + LVGL 字体** 与当前 `sdkconfig` 一致。
+
+---
+
+## 4. ⚠️ 悬而未决的代码债
+
+- **`main/main.cpp`**：`CONFIG_FOCUSCORE_WIFI_SSID/PASSWORD` 仍可有 **menuconfig 外兜底明文**；**`NetworkControlTask` + EventGroup** 长按已不再置位，任务可能 **长期空等**（可删或改作其它用途）。
+- **BLE 产品化**：未强调 **配对/加密/写入鉴权**；广播/连接参数与功耗仍可调；**BLE 授时**依赖前端时钟质量。
+- **`main/ui_home.c`**：待办 **(0,140)+160** 与左侧时钟卡仍可能 **视觉叠层**（z-order）；若仍重叠需再调 **Y/高度** 或时钟卡高度。
+- **字库**：**`ui_font_date_large`** 字符集仍有限；日期占位已靠 **`ui_font_custom`** 缓解，其它控件若混用大字库需同样策略。
+- **仓库**：工程未必在 Git 下，变更需靠 IDE/备份；**`sdkconfig.defaults` 与真实 `sdkconfig`** 可能不同步，合并时注意 **LVGL / BT** 选项。
+
+---
+
+📊 **资源与风险（简要）**：启用 **`bt` + NimBLE** 与多任务/队列后，建议定期 **`idf.py size`** 与运行时 **heap** 观察；长按 **60s** 广播窗口与 **UI 定时器** 需与产品「是否允许未同步时重复长按」需求对齐。

@@ -23,9 +23,9 @@ These correspond to following parts of the page:
 
 | Layout                          | Preview                             |
 | ------------------------------- | ----------------------------------- |
-| Desktop (width > 1200px)        | ![[quartz-layout-desktop.png\|800]] |
-| Tablet (800px < width < 1200px) | ![[quartz-layout-tablet.png\|800]]  |
-| Mobile (width < 800px)          | ![[quartz-layout-mobile.png\|800]]  |
+| Desktop (width > 1200px)        | ![800](quartz-layout-desktop.png%5C) |
+| Tablet (800px < width < 1200px) | ![800](quartz-layout-tablet.png%5C)  |
+| Mobile (width < 800px)          | ![800](quartz-layout-mobile.png%5C)  |
 
 > [!note]
 > There are two additional layout fields that are _not_ shown in the above diagram.
@@ -35,9 +35,9 @@ These correspond to following parts of the page:
 
 Quartz **components**, like plugins, can take in additional properties as configuration options. If you're familiar with React terminology, you can think of them as Higher-order Components.
 
-See [a list of all the components](component.md) for all available components along with their configuration options. Additionally, Quartz provides several built-in higher-order components for layout composition - see [[layout-components]] for more details.
+See [a list of all the components](component.md) for all available components along with their configuration options. Additionally, Quartz provides several built-in higher-order components for layout composition - see [layout-components](layout-components.md) for more details.
 
-You can also checkout the guide on [[creating components]] if you're interested in further customizing the behaviour of Quartz.
+You can also checkout the guide on [creating components](creating%20components.md) if you're interested in further customizing the behaviour of Quartz.
 
 ### Layout breakpoints
 
@@ -58,7 +58,7 @@ $breakpoints: (
 
 ### Style
 
-Most meaningful style changes like colour scheme and font can be done simply through the [[configuration#General Configuration|general configuration]] options. However, if you'd like to make more involved style changes, you can do this by writing your own styles. Quartz 4, like Quartz 3, uses [Sass](https://sass-lang.com/guide/) for styling.
+Most meaningful style changes like colour scheme and font can be done simply through the [](configuration.md#General%20Configuration|general%20configuration) options. However, if you'd like to make more involved style changes, you can do this by writing your own styles. Quartz 4, like Quartz 3, uses [Sass](https://sass-lang.com/guide/) for styling.
 
 You can see the base style sheet in `quartz/styles/base.scss` and write your own in `quartz/styles/custom.scss`.
 
