@@ -140,4 +140,4 @@ const [name, setName] = useState('Taylor');
 
 ## Customization
 
-Syntax highlighting is a functionality of the [[SyntaxHighlighting]] plugin. See the plugin page for customization options.
+Syntax highlighting is a functionality of the [SyntaxHighlighting](SyntaxHighlighting.md) plugin. See the plugin page for customization options.

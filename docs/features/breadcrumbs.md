@@ -25,7 +25,7 @@ Component.Breadcrumbs({
 
 When passing in your own options, you can omit any or all of these fields if you'd like to keep the default value for that field.
 
-You can also adjust where the breadcrumbs will be displayed by adjusting the [[layout]] (moving `Component.Breadcrumbs()` up or down)
+You can also adjust where the breadcrumbs will be displayed by adjusting the [layout](layout.md) (moving `Component.Breadcrumbs()` up or down)
 
 Want to customize it even more?
 

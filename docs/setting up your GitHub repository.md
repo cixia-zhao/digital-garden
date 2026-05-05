@@ -2,15 +2,15 @@
 title: Setting up your GitHub repository
 ---
 
-First, make sure you have Quartz [[index#🪴 Get Started|cloned and setup locally]].
+First, make sure you have Quartz [](index.md#🪴%20Get%20Started|cloned%20and%20setup%20locally).
 
 Then, create a new repository on GitHub.com. Do **not** initialize the new repository with `README`, license, or `gitignore` files.
 
-![[github-init-repo-options.png]]
+![github-init-repo-options](github-init-repo-options.png)
 
 At the top of your repository on GitHub.com's Quick Setup page, click the clipboard to copy the remote repository URL.
 
-![[github-quick-setup.png]]
+![github-quick-setup](github-quick-setup.png)
 
 In your terminal of choice, navigate to the root of your Quartz folder. Then, run the following commands, replacing `REMOTE-URL` with the URL you just copied from the previous step.
 

@@ -2,7 +2,7 @@
 title: "Building your Quartz"
 ---
 
-Once you've [[index#🪴 Get Started|initialized]] Quartz, let's see what it looks like locally:
+Once you've [](index.md#🪴%20Get%20Started|initialized) Quartz, let's see what it looks like locally:
 
 ```bash
 npx quartz build --serve
@@ -24,4 +24,4 @@ This will start a local web server to run your Quartz on your computer. Open a w
 
 > [!warning] Not to be used for production
 > Serve mode is intended for local previews only.
-> For production workloads, see the page on [[hosting]].
+> For production workloads, see the page on [hosting](hosting.md).

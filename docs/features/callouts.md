@@ -19,11 +19,11 @@ This includes
 See [documentation on supported types and syntax here](https://help.obsidian.md/Editing+and+formatting/Callouts).
 
 > [!warning]
-> Wondering why callouts may not be showing up even if you have them enabled? You may need to reorder your plugins so that [[ObsidianFlavoredMarkdown]] is _after_ [[SyntaxHighlighting]].
+> Wondering why callouts may not be showing up even if you have them enabled? You may need to reorder your plugins so that [ObsidianFlavoredMarkdown](ObsidianFlavoredMarkdown.md) is _after_ [SyntaxHighlighting](SyntaxHighlighting.md).
 
 ## Customization
 
-The callouts are a functionality of the [[ObsidianFlavoredMarkdown]] plugin. See the plugin page for how to enable or disable them.
+The callouts are a functionality of the [ObsidianFlavoredMarkdown](ObsidianFlavoredMarkdown.md) plugin. See the plugin page for how to enable or disable them.
 
 You can edit the icons by customizing `quartz/styles/callouts.scss`.
 
