@@ -15,16 +15,16 @@ revision time 1: 2026-01-26T22:37:00
 **补充**：
 static和类是同时诞生的，它修饰的东西属于类本身。
 
-![Screenshot_2026-01-26-22-44-09-57_149003a2d400f6adb210d7e357a3a646](Screenshot_2026-01-26-22-44-09-57_149003a2d400f6adb210d7e357a3a646.jpg)
+![Screenshot_2026-01-26-22-44-09-57_149003a2d400f6adb210d7e357a3a646](../../_assets/Screenshot_2026-01-26-22-44-09-57_149003a2d400f6adb210d7e357a3a646.jpg)
 
 对它修饰的东西进行赋值很困难，只能在全局对它进行定义
 
-![Screenshot_2026-01-26-22-44-46-51_149003a2d400f6adb210d7e357a3a646](Screenshot_2026-01-26-22-44-46-51_149003a2d400f6adb210d7e357a3a646.jpg)
+![Screenshot_2026-01-26-22-44-46-51_149003a2d400f6adb210d7e357a3a646](../../_assets/Screenshot_2026-01-26-22-44-46-51_149003a2d400f6adb210d7e357a3a646.jpg)
 Static修饰的函数只能调用Static的属性和方法。
-![Screenshot_2026-01-26-22-47-28-74_149003a2d400f6adb210d7e357a3a646](Screenshot_2026-01-26-22-47-28-74_149003a2d400f6adb210d7e357a3a646.jpg)
+![Screenshot_2026-01-26-22-47-28-74_149003a2d400f6adb210d7e357a3a646](../../_assets/Screenshot_2026-01-26-22-47-28-74_149003a2d400f6adb210d7e357a3a646.jpg)
 
 Static修饰的方法是可以被对象所调用
-![Screenshot_2026-01-26-22-52-46-04_149003a2d400f6adb210d7e357a3a646](Screenshot_2026-01-26-22-52-46-04_149003a2d400f6adb210d7e357a3a646.jpg)
+![Screenshot_2026-01-26-22-52-46-04_149003a2d400f6adb210d7e357a3a646](../../_assets/Screenshot_2026-01-26-22-52-46-04_149003a2d400f6adb210d7e357a3a646.jpg)
 
 
 ### ✍️ 标准语法 (Syntax)

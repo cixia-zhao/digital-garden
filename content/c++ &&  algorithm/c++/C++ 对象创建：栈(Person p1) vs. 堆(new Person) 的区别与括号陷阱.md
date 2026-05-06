@@ -81,5 +81,5 @@ int main() {
 <<<<<<< HEAD
 ![Pasted image 20260413224042](../../_assets/Pasted%20image%2020260413224042.png)
 =======
-![Pasted image 20260413224042](../../_assets/_assets/Pasted%20image%2020260413224042.png)
+![Pasted image 20260413224042](../../_assets/Pasted%20image%2020260413224042.png)
 >>>>>>> 94e29555c762ba67a1dc6c5ff63b79e30bf2b6ac

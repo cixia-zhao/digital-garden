@@ -14,12 +14,12 @@ data: 2026-03-02T08:30:00
 一般不写greater<>() 默认升序
 sort (v.begin(),v.end(),greater <>());//这个是降序排序写法
 
-![Screenshot_2026-03-02-08-32-26-83_769977972775e0c6b41aa3dfaf766445](Screenshot_2026-03-02-08-32-26-83_769977972775e0c6b41aa3dfaf766445.jpg)
+![Screenshot_2026-03-02-08-32-26-83_769977972775e0c6b41aa3dfaf766445](../../_assets/Screenshot_2026-03-02-08-32-26-83_769977972775e0c6b41aa3dfaf766445.jpg)
 
-![Screenshot_2026-03-02-08-29-52-38_769977972775e0c6b41aa3dfaf766445](Screenshot_2026-03-02-08-29-52-38_769977972775e0c6b41aa3dfaf766445.jpg)
+![Screenshot_2026-03-02-08-29-52-38_769977972775e0c6b41aa3dfaf766445](../../_assets/Screenshot_2026-03-02-08-29-52-38_769977972775e0c6b41aa3dfaf766445.jpg)
 
 lambda 表达式：
-![Screenshot_2026-03-02-08-38-04-48_769977972775e0c6b41aa3dfaf766445](Screenshot_2026-03-02-08-38-04-48_769977972775e0c6b41aa3dfaf766445.jpg)
+![Screenshot_2026-03-02-08-38-04-48_769977972775e0c6b41aa3dfaf766445](../../_assets/Screenshot_2026-03-02-08-38-04-48_769977972775e0c6b41aa3dfaf766445.jpg)
 
 Lambda三种核心捕获方式
 
@@ -42,10 +42,10 @@ Lambda三种核心捕获方式
     > “把所有东西都复印一份给我，但`y`的遥控器你得给我。”
 
 结构体比较排序：
-![Screenshot_2026-03-02-08-52-27-37_769977972775e0c6b41aa3dfaf766445](Screenshot_2026-03-02-08-52-27-37_769977972775e0c6b41aa3dfaf766445.jpg)
+![Screenshot_2026-03-02-08-52-27-37_769977972775e0c6b41aa3dfaf766445](../../_assets/Screenshot_2026-03-02-08-52-27-37_769977972775e0c6b41aa3dfaf766445.jpg)
 
 技巧：
-![Screenshot_2026-03-02-09-11-25-30_f07dc9ddb5aa08d10f4ee8732a6eb1cf](Screenshot_2026-03-02-09-11-25-30_f07dc9ddb5aa08d10f4ee8732a6eb1cf.jpg)
+![Screenshot_2026-03-02-09-11-25-30_f07dc9ddb5aa08d10f4ee8732a6eb1cf](../../_assets/Screenshot_2026-03-02-09-11-25-30_f07dc9ddb5aa08d10f4ee8732a6eb1cf.jpg)
 
 
 
