@@ -1180,3 +1180,255 @@ python -m http.server 8080
 1. **下位机底座拓展**：既然 UI 和蓝牙通信已经极度稳定，明日核心任务转向 **SPI 总线与 SD 卡底层驱动预研**，为后续接收并解析图片/错题 `.bin` 文件打通硬件存储层。
 
 2. **文件系统挂载**：准备引入 FatFS 虚拟文件系统，实现在代码中对 SD 卡进行标准的 `fopen` / `fread` 操作。
+
+# 2026年05月07日
+
+## 1. 🎯 核心里程碑
+
+* **硬件大动脉彻底贯通**：成功废弃原本的 SPI 驱动，切换至原生 SDMMC 1-线模式，完美挂载 16GB（14861MB）微雪 TF 卡至 `/sdcard`，并实现与 SHTC3（温湿度）、电池 ADC 及 NimBLE 蓝牙服务的全链路共存无冲突。
+
+* **攻克 OOM 内存爆炸危机**：彻底废除此前易致崩溃的 Wi-Fi/HTTP 下载链路。利用 ESP-IDF 标准 C 库 `fopen/fread` 结合 `heap_caps_malloc(..., MALLOC_CAP_SPIRAM)`，成功将高达 2.9MB（约 400x7360 像素）的无损长图从 SD 卡一次性安全载入 8MB 外挂 PSRAM。
+
+* **全场景 UI 路由（Screen Router）落地**：成功从粗放的硬编码按键，重构为基于 4 级屏幕（`s_home_screen` -> `s_menu_screen` -> `s_file_browser_screen` -> `s_digital_garden_screen`）的智能状态机路由器，并实现了精准的物理滚轮焦点接管。
+
+
+
+## 2. 🧰 关键工具链与素材管线
+
+* **IDE 与 AI 辅助**：VS Code + ESP-IDF v6.0 插件 + Claude Code (ds) Agentic 辅助编程（强调：使用 `Ask before edits` 模式防御代码破坏，并掌握 `Reload Window` 处理假死）。
+
+* **错题本 (digital-garden/Note) 自动化渲染管线**：
+
+    * *上游源头*：Obsidian 笔记（含复杂 $\LaTeX$ 公式）。
+
+    * *转换脚本*：使用 Python + Playwright 自动化无损截图。
+
+    * *终端产物*：剥离文件头的裸像素格式（格式：`LV_COLOR_FORMAT_L8`，1-bit 灰度/高对比度，固定宽度 400px，高度可达 7000+ px，`.bin` 后缀）。
+
+* **LVGL 零拷贝渲染机制**：通过跳过前 12 字节自定义头（`img_dsc->data = g_img_bin_data + 12`），手动构造 `lv_image_dsc_t` 直接将 PSRAM 内存喂给引擎，榨干最后一点算力。
+
+
+
+## 3. 🕳️ 踩坑复盘与物理底层
+
+* **协议层：SD_HOST 1-line 物理限制**：微雪官方板卡的 D1/D2 引脚物理悬空（画 X）。强制使用 SDMMC 1-线模式解决 `0x107 Timeout` 问题。关键映射：`width = 1`, `clk = 38`, `cmd = 21`, `d0 = 39`，并开启 `SDMMC_SLOT_FLAG_INTERNAL_PULLUP`。
+
+* **逻辑层：“读后即焚”的指针释放 Bug**：在渲染 2.9MB 图片时，原 `RuntimeImageRenderLocked` 开头的 `RuntimeImageReleaseLocked()` 错误释放了刚加载的 `g_img_bin_data` 且将 `g_img_bin_size` 清零，导致后续 `0 - 12 = 0xFFFFFFF4` 无符号下溢出而静默退出。*修复*：剥离数据销毁逻辑，仅 inline 释放 LVGL 渲染对象（`img_obj`/`img_dsc`）。
+
+* **交互层：按键“性急”单身汉 Bug (Eager Single-Click)**：单击立即响应导致双击判定被吞。*修复*：引入 250ms 超时等待窗口判定单双击；保留长按 3000ms 触发蓝牙原有逻辑不变。
+
+* **语法层：失控的预编译宏**：AI 重构时遗漏了 `#endif`，导致 `#if !DEV_MODE_NO_WIFI` (值为 1 时条件为 false) 将后续数百行代码直接被编译器吞噬，引发 `unterminated #if` 致命错误与函数 `unused` 伪警告。
+
+* **日志层：TAG 缺失报错**：ESP-IDF 打印日志时未定义 `TAG` 导致 `'TAG' was not declared in this scope`。*修复*：全局声明 `static const char *TAG = "...";`。
+
+
+
+## 4. 💻 终端指令与环境
+
+* **环境变量唤醒**：在新终端遇到 `Python binary path not found` 时，使用 PowerShell 指令 `. C:\Espressif\frameworks\esp-idf-v6.0\export.ps1` 注入环境，或使用 `Ctrl+Shift+P` 呼出 `ESP-IDF: Open ESP-IDF Terminal`。
+
+* **快捷编译烧录**：弃用繁琐的 `idf.py build flash monitor` 键盘输入，转用 VS Code 底部状态栏一键式图标（🗑️ 清理 -> ⚡ 编译烧录）。
+
+* **Markdown MD047 规范修复**：Claude Code 在文档末尾执行 Bash 命令 `echo "" >> "ds_memo_log.md"` 补充强制空行，触发高危操作授权阻断（选 `1 Yes` 放行）。
+
+
+
+## 5. 🧠 架构师新知与明日 TODO
+
+* **架构师心法：AI Context Window（上下文管理）**：当 Claude Code 提示 `23% of context remaining` 时，代表会话 Token 快要耗尽，AI 将执行 `auto-compact` 清理无用历史记录以恢复智商。
+
+* **物理卷轴防脱轨算法**：错题图滚动必须施加边界限制。高度定义 `max_scroll = img_h - 300`，使 `s_img_y_offset` 锁定在 `[-max_scroll, 0]` 域内。结合旋转编码器双倍加速步长（`+= 60 * direction`），实现丝滑推流。
+
+* **明日 TODO**：告别硬编码的 `/sdcard/test.bin`。预研基于 C 标准库的目录遍历逻辑，在 "Note File Browser..." 占位屏幕中引入 `lv_list` 或类似控件，读取并渲染 SD 卡根目录下的动态文件列表，实现按需选课（选文件）功能。
+
+# 2026年05月09日
+
+
+
+## 1. 🎯 核心里程碑
+
+
+
+* **Agentic 工作流底座确立**：将 `ai_rules.md` 重命名为 `CLAUDE.md`，利用 Claude Code 原生的底层逻辑实现“免 Token 消耗”的静默背景规则加载，并确立了对 AI 执行 `bash` / `sed` 操作的盲审放行策略（按 `1` + `Enter`）。
+
+* **极致续航与内存治理**：通过清理 `main.cpp` 中的僵尸任务 `NetworkControlTask` 及其 `EventGroup`，释放了 2KB-4KB 的宝贵 RAM。拔除了 `SyncRtcFromNtp` 无头函数，并将主页时钟的 LVGL 定时器刷新频率从 1s 拉长至 10s，彻底干掉冒号闪烁，显著降低了 18650 电池的静态功耗。
+
+* **上位机渲染流水线 2.0 (Pipeline Upgrade)**：`md_to_bin_pipeline.py` 实现了从“单兵作战”到“工业流水线”的跨越。引入超长图自动分页机制（物理限制 `MAX_HEIGHT = 8000`），并增加了增量转换机制与 `index.json` 自动生成，同时兼容了标准 Markdown 图片语法。
+
+* **全屏沉浸式 File Browser 落地**：在 ESP32 端彻底告别硬编码占位符。通过引入 `<dirent.h>` 完成目录动态遍历，实现了 400x300 屏幕下完美贴边吸附（Edge-Snap Scrolling）的经典按键手机交互，并彻底修复了看门狗崩溃与中文乱码。
+
+
+
+## 2. 🧰 关键工具链与素材管线
+
+
+
+* **AI 协作管线**：
+
+* `CLAUDE.md`：核心系统提示词载体，约束 16MB Flash / 8MB PSRAM / C 标准库优先。
+
+* 原生 Claude Code 插件：安全机制受限，不支持全局 Auto-Approve，需人工审核命令以防止 Windows 下换行符与编码破坏。
+
+
+
+
+
+* **Python 图像处理管线 (`md_to_bin_pipeline.py`)**：
+
+* **核心模块**：`Playwright` (无头浏览器) + `Pillow` (图像处理) + `urllib.parse.unquote` (URL 解码)。
+
+* **物理参数规范**：输出强制锁定 `TARGET_WIDTH = 400`。
+
+* **内存保护阀值**：`MAX_HEIGHT = 8000`（控制单张 `.bin` 文件在 3.2MB 以内，防 PSRAM OOM）。
+
+* **格式规范**：`LV_COLOR_FORMAT_L8` (0x06)，带 12 字节 LVGL v9 头部（Magic `0x19`）。
+
+
+
+
+
+* **Markdown 解析支持**：从 Obsidian 独有语法 `![[ ]]` 回归标准语法 `![alt](../../_assets/img.png)`，通过正则 `r"!\[(.*?)\]\((.*?)\)"` 配合本地绝对路径解析。
+
+
+
+## 3. 🕳️ 踩坑复盘与物理底层
+
+
+
+* **坑 1：Python 脚本 `[Errno 2] FileNotFoundError**`
+
+* **物理真相**：首次执行增量转换时，目标输出目录尚未创建便尝试写入 `temp.html`。
+
+* **架构解法**：在脚本头部调用 `output_dir.mkdir(parents=True, exist_ok=True)` 提前构建目录树。
+
+
+
+
+
+* **坑 2：FATFS 文件名压缩乱码 (`1C9A~1.BIN`)**
+
+* **物理真相**：ESP-IDF 默认使用美国英语字符集 (Code Page 437)，遇到 SD 卡内 Windows 写入的中文 UTF-8 编码时，强制回退为 DOS 时代的 8.3 短文件名。
+
+* **架构解法**：修改 `menuconfig`，将 API character encoding 设为 `UTF-8`，并将 OEM Code Page 设为 `Simplified Chinese (DBCS) (CP936)` 提供底层翻译跨度。
+
+
+
+
+
+* **坑 3：“半截按钮”与 LVGL 老虎机式滚动**
+
+* **物理真相**：原布局受顶部标题挤压（剩余 260px），且错误使用了 `LV_SCROLL_SNAP_START` 导致焦点强行吸附顶部。
+
+* **架构解法**：移除标题，容器全屏 `lv_obj_set_size(list_container, 400, 300)`。将行间距设为 0，每个按钮高度钉死为 `50` (300/50 = 6)，实现完美平铺。改用 `lv_obj_scroll_to_view(btn, LV_ANIM_OFF)` 实现经典越界滚动。
+
+
+
+
+
+* **坑 4：Task Watchdog Timer (WDT) 触发内核恐慌 (Panic)**
+
+* **物理真相**：编码器扭动导致 `s_file_browser_idx` 发生无符号整数下溢 (`0 - 1 = 4294967295`)，`lv_obj_get_child` 陷入死循环。伴随 C++ 局部变量遮蔽（Shadowing）导致全局 `s_file_list_container` 为 `NULL`。
+
+* **架构解法**：将索引改为 `int32_t` 并严格钳位边界。消除局部变量遮蔽，并将所有 LVGL API 调用包裹在互斥锁中。
+
+
+
+
+
+* **坑 5：选中黑框隐身**
+
+* **物理真相**：LVGL 按钮背景默认透明 (`LV_OPA_TRANSP` 即 0)。设置了黑色但未调整不透明度，导致黑色不可见。
+
+* **架构解法**：显式调用 `lv_obj_set_style_bg_opa(child, LV_OPA_COVER, 0)` 将不透明度拉满至 100%。
+
+
+
+
+
+* **坑 6：Digital Garden 滚动位置“幽灵继承”**
+
+* **物理真相**：退出图片回到文件列表时，全局偏移量未清零。
+
+* **架构解法**：在加载新文件入口强制重置 `s_img_y_offset = 0`。同时在 UI 层使用 `strrchr` 将文件名末尾的 `.` 替换为 `\0`，隐藏冗余后缀。
+
+
+
+
+
+
+
+## 4. 💻 终端指令与环境
+
+
+
+* **AI 规则双端同步 (Linux/Mac 预留)**：
+
+```bash
+
+ln -s CLAUDE.md .cursorrules
+
+
+
+```
+
+
+
+
+
+* **上位机脚本跨目录执行**：
+
+```cmd
+
+python md_to_bin_pipeline.py "D:\code\digital-garden\content\数学\高等数学"
+
+
+
+```
+
+
+
+
+
+* **FATFS 字符集底层配置 (`menuconfig` 路径)**：
+
+`Component config` -> `FAT Filesystem support` -> `API character encoding` (选择 UTF-8) -> `OEM Code Page` (选择 CP936)。
+
+* **底层配置变更后的清灰连招 (必须执行)**：
+
+```bash
+
+idf.py fullclean
+
+idf.py build flash
+
+
+
+```
+
+
+
+
+
+* **VS Code 原生 Claude Code 终端快速放行**：遇到 Bash 弹窗时，盲按 `1` + `Enter`。
+
+
+
+## 5. 🧠 架构师新知与明日 TODO
+
+
+
+* **架构师新知 1：Agentic AI 的底层行为模式**
+
+AI 在执行代码删除时，倾向于使用 `bash` 结合 `sed` 命令（例如 `sed -i '/lv_obj_set_scroll_snap_y/d' ...`）。这是为了规避 File Edit 工具带来的高额 Input/Output Token 消耗。在 Windows 环境下需警惕该行为导致换行符或编码损坏。
+
+* **架构师新知 2：物理切割的致命性**
+
+单纯依赖像素高度 (`MAX_HEIGHT = 8000`) 进行暴力分页，极大概率会造成数学公式（如 LaTeX 渲染块）或连续段落被物理拦腰斩断，破坏阅读连贯性。
+
+* **明日 TODO**：
+
+1. **上位机降维升级（Semantic Slicing）**：重构 `md_to_bin_pipeline.py`。废弃物理高度切割，引入 Markdown 语义分析。按 H1 (`#`) 和 H2 (`##`) 标签作为分割锚点，将独立的知识块单独送入 Playwright 渲染。
+
+2. **树形索引生成（Tree Navigation）**：在电脑端生成嵌套型 `index.json`（如 `一级目录 -> 二级标题 -> Hash.bin`），剥离文本内渲染出的重复标题。
+
+3. **下位机多级视图重构**：将当前的 File Browser 升级为支持“层级漫游”的树形目录浏览器，实现通过按键深入子文件夹并返回上一级，最终选取最小语义单元的 `.bin` 图块进行精准加载。

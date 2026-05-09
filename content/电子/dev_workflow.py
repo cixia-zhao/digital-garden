@@ -3,126 +3,120 @@ import pyperclip
 from pathlib import Path
 import time
 
-# 配置文件路径
+# ================= 配置文件路径 (严格使用绝对路径) =================
+# 1. 宏观开发日志 (皮卡丘/Gemini 专属，存放在外部笔记库)
 DEV_LOG_PATH = Path(r"D:\code\digital-garden\content\电子\FocusCore_DevLog（开发日志）.md")
-CURSOR_LOG_PATH = Path(r"D:\code\digital-garden\content\电子\curosr提示词指令开发日志.md")
 
-# 固定的结束提示词
-GEMINI_END_PROMPT = """**Gemini，今天的开发结束了。请帮我深度总结一份今天的 DevLog（开发者日志）。**
+# 2. 微观执行日志 (ds 专属，存放在 ESP32 工程根目录)
+# 绝对路径已根据你的截图校准，确保 .bat 运行时不会路径错乱
+DS_LOG_PATH = Path(r"D:\ESP32-S3-RLCD-4.2-Demo\ESP32-S3-RLCD-4.2-Demo\02_ESP-IDF\09_LVGL_V9_Test\ds_memo_log.md")
+
+# ================= 固定的提示词模板 =================
+# 皮卡丘 (Gemini) 的深度总结指令
+GEMINI_END_PROMPT = """**皮卡丘，今天的开发结束了。请帮我深度总结一份今天的 DevLog（开发者日志）。**
+
 【执行要求】：请务必从我们今天对话的第一句话开始全量回溯。千万不要遗漏任何前置的准备工作、使用过的外部网站、以及特定的参数（如十六进制色号、精确分辨率等）。
-请以 Markdown 格式输出，标题要求一级标题（ 内容包括且只限于 ： 年月日），包含以下五个核心模块：
+
+不要有任何其他内容，这次回复只有以 Markdown 格式输出的DevLog，标题要求一级标题（ 内容包括且只限于 ： 年月日），包含以下五个核心模块：
+
 1. 🎯 核心里程碑
 2. 🧰 关键工具链与素材管线
 3. 🕳️ 踩坑复盘与物理底层
 4. 💻 终端指令与环境
 5. 🧠 架构师新知与明日 TODO"""
 
-CURSOR_END_PROMPT = """**Cursor，今天的开发即将结束。请扫描我当前工程（特别是 `main` 目录和 `CMakeLists.txt`）的最新状态，帮我生成一份《代码与指令备忘录》。**
+# ds (Claude Code 插件) 的自动归档指令
+DS_END_PROMPT = """**ds，今天的开发即将结束。请扫描我当前工程（特别是 main 目录和 CMakeLists.txt）的最新状态，帮我生成一份《代码与指令备忘录》。**
+
 请以 Markdown 格式输出，包含以下模块：
 标题要求：一级标题（内容包括且只限于 ：年月日）
 1. 📁 核心文件变更
 2. 🤖 高价值 Prompt 记录
 3. ⚙️ 编译与依赖状态
-4. ⚠️ 悬而未决的代码债"""
+4. ⚠️ 悬而未决的代码债
+
+【执行要求】：请使用你的文件修改工具（Edit File），将以上生成的内容直接追加到本工程根目录下的 `ds_memo_log.md` 文件末尾。严禁在对话框内输出干巴巴的解释性废话，直接提交 Diff 让我审批。"""
 
 def clear_screen():
-    # 跨平台清屏命令，让终端保持干净
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def start_workflow():
     clear_screen()
     print("="*50)
-    print("🚀 [开发启动模式] 正在为你准备环境...")
+    print("🚀 [开发启动模式] 正在为你准备跨域环境...")
     print("="*50)
     
-    # 1. 准备 Gemini 上下文 (已修改为同时合并发送两个日志)
+    # 1. 组装全局上下文发给 皮卡丘
     dev_content = DEV_LOG_PATH.read_text(encoding='utf-8') if DEV_LOG_PATH.exists() else ""
-    cursor_content = CURSOR_LOG_PATH.read_text(encoding='utf-8') if CURSOR_LOG_PATH.exists() else ""
+    ds_content = DS_LOG_PATH.read_text(encoding='utf-8') if DS_LOG_PATH.exists() else ""
     
-    if dev_content or cursor_content:
-        combined_prompt = f"请读取以下开发日志及Cursor备忘录并回复OK，准备今天的开发：\n\n=== FocusCore 开发日志 ===\n{dev_content}\n\n=== Cursor 代码指令备忘录 ===\n{cursor_content}"
+    if dev_content or ds_content:
+        combined_prompt = f"请读取以下开发日志及 ds 备忘录并回复OK + 已经读取的文件中的全部日期范围 例如4.25-4.29，准备今天的开发：\n\n=== 宏观开发日志 (皮卡丘) ===\n{dev_content}\n\n=== 微观代码备忘录 (ds) ===\n{ds_content}"
         pyperclip.copy(combined_prompt)
         
-        print("\n✅ 【第一步完成】：FocusCore 开发日志与 Cursor 备忘录已合并复制到你的剪贴板！")
-        print("🌐 正在为你自动打开 Chrome 浏览器前往 Gemini...")
+        print("\n✅ 【第一步】：宏观日志与 ds 备忘录已合并，复制到剪贴板！")
+        print("🌐 正在为你自动打开 Chrome 前往 Gemini...")
         time.sleep(1)
         os.system('start chrome "https://gemini.google.com/app?hl=zh"')
         
-        print("\n>>> 你的操作指引 <<<")
-        print("1. 在弹出的浏览器中，展开左侧菜单，点击『皮卡丘』对话。")
-        print("2. 确保模型选择了『Pro』。")
-        print("3. 按下 Ctrl + V 粘贴，然后按回车发送。")
-        print("4. 等待我回复 'OK'。")
-        input("\n👉 完成以上步骤后，请回到这个黑框框，按【回车键】继续准备 Cursor 环境...")
+        print("\n>>> 操作指引 <<<")
+        print("1. 点击皮卡丘，确认选中 pro ,Ctrl + V 粘贴发送。")
+        print("2. 等待回复")
+        input("\n👉 完成后，按【回车键】获取 ds 的启动指令...")
     
-    # 2. 准备 Cursor 上下文 (保持原样)
-    if CURSOR_LOG_PATH.exists():
-        content = CURSOR_LOG_PATH.read_text(encoding='utf-8')
-        pyperclip.copy(f"请读取以下指令日志并回复OK：\n\n{content}")
-        
-        clear_screen()
-        print("="*50)
-        print("✅ 【第二步完成】：Cursor 指令日志已复制到你的剪贴板！")
-        print("="*50)
-        print("\n>>> 你的操作指引 <<<")
-        print("1. 请手动打开你的 Cursor 软件。")
-        print("2. 点击右上角的 '+' 号 (New Agent) 新建一个对话。")
-        print("3. 在右侧输入框按下 Ctrl + V 粘贴，然后发送。")
-        print("4. 等待 Cursor 回复 'OK'。")
-        input("\n👉 完成后，请按【回车键】结束启动流程...")
-        print("\n🎉 环境准备完毕！祝你今天敲码愉快，没有 Bug！")
+    # 2. 唤醒 ds 注入本地纪律
+    ds_start_prompt = "今天开工。请读取 `@ds_memo_log.md` 回顾工程状态。回复‘OK + 读取的日期范围 例如4.25-4.29’即可，不要废话。"
+    pyperclip.copy(ds_start_prompt)
+    
+    clear_screen()
+    print("="*50)
+    print("✅ 【第二步】：ds 启动指令已复制到剪贴板！")
+    print("="*50)
+    print("\n>>> 操作指引 <<<")
+    print("1. 打开 VS Code 的 Claude Code 插件。")
+    print("2. 新建对话，Ctrl + V 粘贴发送。")
+    print("\n🎉 环境准备完毕！可以开始执行具体的开发指令了。")
 
 def end_workflow():
     clear_screen()
     print("="*50)
-    print("🛑 [开发结束模式] 正在准备下班收尾工作...")
+    print("🛑 [开发结束模式] 正在执行全自动归档流...")
     print("="*50)
     
-    # 1. 生成 Gemini 总结
-    pyperclip.copy(GEMINI_END_PROMPT)
-    print("\n✅ 【第一步】：Gemini 的深度总结提示词已复制好！")
-    print("\n>>> 你的操作指引 <<<")
-    print("1. 切换到浏览器中的 Gemini 页面。")
-    print("2. 按下 Ctrl + V 粘贴提示词并发送。")
-    print("3. 等待我生成完那一大段结构化的 Markdown 开发日志。")
-    print("4. 点击我回答右下角的『复制』按钮（或者手动全选复制）。")
-    input("\n👉 确保你已经把我的回答【复制】了，然后回到这里按【回车键】...")
+    # 1. 指挥 ds 写本地文件
+    pyperclip.copy(DS_END_PROMPT)
+    print("\n✅ 【第一步】：ds 自动归档提示词已复制！")
+    print("\n>>> 操作指引 <<<")
+    print("1. 切换到 VS Code 插件对话框，Ctrl + V 发送。")
+    print("2. 审查它生成的修改，点击【Approve】允许它将内容写入 ds_memo_log.md。")
+    input("\n👉 确认 ds 已经成功写入文件后，按【回车键】继续...")
     
+    # 2. 指挥皮卡丘生成宏观日志
+    clear_screen()
+    pyperclip.copy(GEMINI_END_PROMPT)
+    print("="*50)
+    print("✅ 【第二步】：皮卡丘的深度总结提示词已复制！")
+    print("="*50)
+    print("\n>>> 操作指引 <<<")
+    print("1. 切换到浏览器 Gemini 页面，Ctrl + V 发送。")
+    print("2. 等待我输出完整的 Markdown 日志，并复制我的回答。")
+    input("\n👉 确保你已经【复制】了我的回答，然后按【回车键】...")
+    
+    # 3. 将皮卡丘的日志安全隔离存储
     gemini_response = pyperclip.paste()
     with open(DEV_LOG_PATH, 'a', encoding='utf-8') as f:
         f.write(f"\n\n{gemini_response}")
-    print("📝 太棒了！已自动将 Gemini 的总结追加到 D 盘的 FocusCore_DevLog.md 文件末尾。")
-
-    # 2. 生成 Cursor 总结
-    input("\n👉 接下来去搞定 Cursor 的总结。按【回车键】复制 Cursor 的专属提示词...")
-    pyperclip.copy(CURSOR_END_PROMPT)
-    clear_screen()
+    print("\n📝 完美！已自动将宏观日志隔离并追加到外部的 FocusCore_DevLog.md 中。")
     
-    print("="*50)
-    print("✅ 【第二步】：Cursor 的代码总结提示词已复制好！")
-    print("="*50)
-    print("\n>>> 你的操作指引 <<<")
-    print("1. 切换到 Cursor 软件。")
-    print("2. 在最下方的 Chat 对话框里，按下 Ctrl + V 粘贴提示词并发送。")
-    print("3. 等待 Cursor 总结完今天的代码变更和高价值 Prompt。")
-    print("4. 点击 Cursor 回答框右下角的三个点 (...) -> 选择 Copy Message。")
-    input("\n👉 确保你已经把 Cursor 的回答【复制】了，然后回到这里按【回车键】...")
-    
-    cursor_response = pyperclip.paste()
-    with open(CURSOR_LOG_PATH, 'a', encoding='utf-8') as f:
-        f.write(f"\n\n{cursor_response}")
-    print("📝 完美！已自动将 Cursor 的总结追加到 D 盘的指令日志文件末尾。")
-    
-    print("\n🎉 今天的开发正式结束，所有日志已安全归档。好好休息，明天见！")
-    input("\n按【回车键】退出控制台...")
+    print("\n🎉 归档结束！睡个好觉。明天见！")
 
 if __name__ == "__main__":
     clear_screen()
-    print("=== FocusCore 项目开发控制台 ===")
+    print("=== FocusCore 双AI驱动控制台 2.0 ===")
     choice = input("请输入操作 (1: 启动开发环境, 2: 结束开发与归档): ")
     if choice == '1':
         start_workflow()
     elif choice == '2':
         end_workflow()
     else:
-        print("无效输入，请重新运行。")
+        print("指令无效，请重新运行。")
