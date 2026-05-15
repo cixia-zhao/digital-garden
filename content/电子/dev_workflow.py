@@ -65,7 +65,7 @@ def start_workflow():
         input("\n👉 完成后，按【回车键】获取 ds 的启动指令...")
     
     # 2. 唤醒 ds 注入本地纪律
-    ds_start_prompt = "今天开工。请读取 `@ds_memo_log.md` 回顾工程状态。回复‘OK + 读取的日期范围 例如4.25-4.29’即可，不要废话。"
+    ds_start_prompt = "今天开工。作为我的专属副驾 ds，请读取 `@ds_memo_log.md` 回顾工程状态。全局架构铁律已通过你的底层环境（.cursorrules/CLAUDE.md）静默注入，请严格遵守。回复‘OK + 读取的日期范围 例如4.25-4.29’即可，不要废话。"
     pyperclip.copy(ds_start_prompt)
     
     clear_screen()
@@ -73,8 +73,8 @@ def start_workflow():
     print("✅ 【第二步】：ds 启动指令已复制到剪贴板！")
     print("="*50)
     print("\n>>> 操作指引 <<<")
-    print("1. 打开 VS Code 的 Claude Code 插件。")
-    print("2. 新建对话，Ctrl + V 粘贴发送。")
+    print("1. 打开你今天想用的 IDE (Cursor 的 Chat 框 或 VS Code 的 Claude Code 终端)。")
+    print("2. 新建会话，Ctrl + V 粘贴发送。")
     print("\n🎉 环境准备完毕！可以开始执行具体的开发指令了。")
 
 def end_workflow():
@@ -87,8 +87,8 @@ def end_workflow():
     pyperclip.copy(DS_END_PROMPT)
     print("\n✅ 【第一步】：ds 自动归档提示词已复制！")
     print("\n>>> 操作指引 <<<")
-    print("1. 切换到 VS Code 插件对话框，Ctrl + V 发送。")
-    print("2. 审查它生成的修改，点击【Approve】允许它将内容写入 ds_memo_log.md。")
+    print("1. 切换到你当前正在使用的 IDE (Cursor 或 Claude Code)，Ctrl + V 发送。")
+    print("2. 审查生成的修改：如果是 Cursor，点击 Apply ；如果是 Claude Code，敲击回车 Approve 写入。")
     input("\n👉 确认 ds 已经成功写入文件后，按【回车键】继续...")
     
     # 2. 指挥皮卡丘生成宏观日志
