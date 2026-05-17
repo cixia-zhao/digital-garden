@@ -7,40 +7,151 @@ date: 2026-02-01T22:17:00
 revision time 1: 2026-02-02T13:24:00
 Revision Time: 2026-03-03T19:19:00
 "Revision Time: 2026-03-03T19:19:00": 2026-04-10T19:01:00
+time12: 2026-05-16T20:01:00
 ---
 [STL-map](STL-map.md)
 [数据结构 quque](数据结构%20quque.md)
 [数据结构 stack](数据结构%20stack.md)
 [sort](sort.md)
 [STL-set](STL-set.md)
-# 🎯 map 概念
-> map ,里面键值对两者之间有映射关系
 
- ## 可以当数组看 前一个是下标，后一个是值 不过很智能 不拘泥于数字
+---
 
-map<KeyType, ValueType>` 是一个存储 键(Key)-值(Value)对的关联容器。
+## 🎯 核心概念 (Core Concepts)
 
-*   **KeyType**：键的类型（下标），用于唯一标识和查找。  
-*   **ValueType**：值的类型，是与键相关联的数据。
+**定义**：`map<KeyType, ValueType>` 是一个存储 **键 (Key) - 值 (Value)** 对的关联容器。里面键和值之间有一一映射的关系。
 
-    *   当 `ValueType` 是一个普通类型（如 `int`）时，它表现为**一对一**映射。  
-    *   当 `ValueType` 是一个容器类型（如 `vector`）时，它表现为**一对多**映射。
+- **直观理解**：可以把 `map` 当作一个**极其智能的数组**。在这个“数组”里，前面的 `Key` 就像是下标，后面的 `Value` 就是存的值。不同的是，这个“下标”不仅限于数字，还可以是字符串 (`string`) 等其他类型。这种数据形式非常符合人类的逻辑思维，类似 JSON 数据的键值对形式。
+    
+- **KeyType (键类型)**：用于唯一标识和查找元素。
+    
+- **ValueType (值类型)**：与键相关联的具体数据。
+    
+    - 当 `ValueType` 是普通类型（如 `int`）时，表现为 **一对一** 映射。
+        
+    - 当 `ValueType` 是容器类型（如 `vector`）时，表现为 **一对多** 映射。
+        
 
-> ![Screenshot_2026-02-01-22-16-58-26_149003a2d400f6adb210d7e357a3a646](../../_assets/Screenshot_2026-02-01-22-16-58-26_149003a2d400f6adb210d7e357a3a646.jpg)
+## 📊 常用操作速查表 (Operations & Time Complexity)
 
-键值对 插入方法：
-![Screenshot_2026-02-01-22-23-59-08_149003a2d400f6adb210d7e357a3a646](../../_assets/Screenshot_2026-02-01-22-23-59-08_149003a2d400f6adb210d7e357a3a646.jpg)
+> 💡 **实用技巧**：`count(key)` 函数经常被用来**判断某个 key 是否存在**。如果存在返回 1，不存在返回 0。
 
-补充：
-![Screenshot_2026-03-04-12-55-12-25_769977972775e0c6b41aa3dfaf766445](../../_assets/Screenshot_2026-03-04-12-55-12-25_769977972775e0c6b41aa3dfaf766445.jpg)
-map 使用示例：
-![Screenshot_2026-03-04-13-01-12-27_769977972775e0c6b41aa3dfaf766445](../../_assets/Screenshot_2026-03-04-13-01-12-27_769977972775e0c6b41aa3dfaf766445.jpg)
-最新的遍历方法：
-for (auto const& [key, val] : my_map) {
-    // 直接使用 key 和 val
+|**函数名**|**功能说明**|**时间复杂度**|
+|---|---|---|
+|`insert(k, v)`|插入元素对|$O(\log n)$|
+|`erase(key)`|删除指定键的元素|$O(\log n)$|
+|`find(key)`|查找元素（返回迭代器）|$O(\log n)$|
+|`count(key)`|统计键的个数（**常用于判断键是否存在**）|$O(\log n)$|
+|`size()`|返回容器内元素的个数|$O(1)$|
+|`begin()`|返回指向容器起始位置的迭代器|$O(1)$|
+|`end()`|返回指向容器末尾位置的迭代器|$O(1)$|
+|`clear()`|清空容器内所有元素|$O(n)$|
+|`empty()`|判断容器是否为空|$O(1)$|
+|`lower_bound`|返回指向**第一个不小于**指定键的元素迭代器|$O(\log n)$|
+|`upper_bound`|返回指向**第一个大于**指定键的元素迭代器|$O(\log n)$|
+
+## 💻 标准语法与代码示例 (Syntax & Examples)
+
+### 1. 基础定义与插入数据
+
+可以通过类似数组下标的方式，或者使用 `make_pair` 结合 `insert` 方法来插入数据。
+
+
+
+```C++
+#include <iostream>
+#include <map>
+#include <string>
+
+using namespace std;
+
+int main() {
+    // 定义一个键是 string，值是 int 的 map
+    map<string, int> m; 
+    
+    // 方法一：像数组一样直接使用下标操作 (极其方便)
+    m["哈哈"] = 50; 
+    cout << m["哈哈"] << endl; // 输出: 50
+    
+    // 方法二：使用 insert 和 make_pair 插入键值对
+    m.insert(make_pair("嘻嘻", 20));
+
+    return 0;
 }
+```
+
+### 2. 综合操作演示 (增删改查)
+
+演示如何初始化、访问、删除以及清空 `map`。
 
 
+
+```C++
+#include <iostream>
+#include <map>
+#include <string>
+
+using namespace std;
+
+int main() {
+    // 1. 创建并初始化 map
+    map<int, string> myMap = {
+        {1, "Apple"}, 
+        {2, "Banana"}, 
+        {3, "Orange"}
+    };
+
+    // 2. 插入元素
+    myMap.insert(make_pair(4, "Grapes"));
+
+    // 3. 查找和访问元素
+    cout << "Value at key 2: " << myMap[2] << endl;
+
+    // 4. 删除元素 (按 Key 删除)
+    myMap.erase(3);
+
+    // 5. 判断元素是否存在 (使用 count)
+    if (myMap.count(3) == 0) {
+        cout << "Key 3 not found." << endl;
+    }
+
+    // 6. 判空与清空
+    if (!myMap.empty()) {
+        myMap.clear(); // 清空 map
+        cout << "Map is cleared." << endl;
+    }
+
+    return 0;
+}
+```
+
+## 🔄 遍历方式 (Iteration)
+
+遍历 `map` 里的所有键值对，通常有两种主流写法：
+
+### 传统迭代器写法 (C++11 及以上)
+
+使用 `auto` 配合范围 `for` 循环，通过 `.first` 访问键，`.second` 访问值。
+
+
+
+```C++
+for (const auto& pair : myMap) {
+    cout << "Key: " << pair.first << ", Value: " << pair.second << endl;
+}
+```
+
+### 最新解构写法 (推荐，C++17 及以上)
+
+使用结构化绑定，代码更易读，直接提取出 `key` 和 `val`。
+
+
+
+```C++
+for (const auto& [key, val] : myMap) {
+    cout << "Key: " << key << ", Value: " << val << endl;
+}
+```
 # P5266 【深基17.例6】学籍管理
 
 ## 题目描述

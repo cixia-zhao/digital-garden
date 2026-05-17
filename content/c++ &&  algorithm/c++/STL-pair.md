@@ -38,9 +38,100 @@ cout << p2.second; // 打印出 Lanqiao
  * 带“前世记忆”的排序（就像刚做的那道题）：pair<排序特征, 原始肉身下标>。特征放左边当老大，用来排序；肉身放右边当小弟，排完序后还能认得出是谁。
  * 时间线/区间覆盖题：pair<开始时间, 结束时间>。
 
-补充：
+没问题，针对这几张关于 `std::pair` 的补充笔记，我帮你去掉了繁杂的连线和涂鸦，用更结构化、循序渐进的方式重新梳理一遍。把“红线”表达的逻辑直接变成了清晰的代码注释。
 
-![Screenshot_2026-02-02-13-23-37-42_149003a2d400f6adb210d7e357a3a646](../../_assets/Screenshot_2026-02-02-13-23-37-42_149003a2d400f6adb210d7e357a3a646.jpg)
-![Screenshot_2026-03-03-19-17-31-39_769977972775e0c6b41aa3dfaf766445](../../_assets/Screenshot_2026-03-03-19-17-31-39_769977972775e0c6b41aa3dfaf766445.jpg)
+---
 
-![Screenshot_2026-03-03-19-23-16-66_769977972775e0c6b41aa3dfaf766445](../../_assets/Screenshot_2026-03-03-19-23-16-66_769977972775e0c6b41aa3dfaf766445.jpg)
+## 🤝 补充：`std::pair` 核心用法与嵌套结构
+
+**概念**：`pair` 是 C++ 标准库 `<utility>` 中的一个模板类，它的作用非常纯粹——**将两个任意类型的数据组合成一个整体**。它也是我们前面学过的 `map` 容器底层存储键值对的基本单元。
+
+### 📊 `pair` 常用形式速查表
+
+|**代码形式**|**功能解释**|
+|---|---|
+|`pair<T1, T2> p1;`|创建一个空的 `pair` 对象，两个元素分别采用 `T1` 和 `T2` 类型的默认值初始化。|
+|`pair<T1, T2> p1(v1, v2);`|创建并初始化对象。`first` 成员初始化为 `v1`，`second` 成员初始化为 `v2`。|
+|`make_pair(v1, v2);`|**极力推荐的快捷方式**：直接根据传入的 `v1` 和 `v2` 自动推导类型并创建一个新的 `pair`。|
+|`p1 < p2;`|大小比较（遵循字典序）：先比较 `.first`，如果相等，再比较 `.second`。|
+|`p1 == p2;`|相等比较：只有当两个对象的 `first` 和 `second` 都分别相等时才返回 true。|
+|`p1.first`|访问并返回 `pair` 中的**第一个**数据成员。|
+|`p1.second`|访问并返回 `pair` 中的**第二个**数据成员。|
+
+---
+
+### 💻 1. 基础使用示例
+
+最常见的用法是把两个不同类型的值绑定在一起，然后通过 `.first` 和 `.second` 提取它们。
+
+
+
+```C++
+#include <iostream>
+#include <utility> // pair 需要引入此头文件
+#include <string>
+
+using namespace std;
+
+int main() {
+    // 显式指定类型来创建 pair
+    pair<int, double> p1(1, 3.14);
+    pair<char, string> p2('a', "hello");
+
+    // 访问内部数据
+    cout << p1.first << ", " << p1.second << endl; // 输出: 1, 3.14
+    cout << p2.first << ", " << p2.second << endl; // 输出: a, hello
+
+    return 0;
+}
+```
+
+---
+
+### 🪆 2. 进阶：`pair` 的嵌套 (Nesting)
+
+**核心思想**：`pair` 的本质是装两个数据的容器，那么它的 `first` 或 `second` 完全**可以装另一个 `pair`**。
+
+通过这种“套娃”的方式，我们可以非常方便地组合 3 个、4 个甚至更多的数据，形成复杂的数据结构（比如三维坐标）。
+
+
+
+```C++
+#include <iostream>
+#include <utility>
+
+using namespace std;
+
+int main() {
+    // 【层级 1】：普通的两个值组合
+    pair<int, int> p1(1, 2); 
+    
+    // 【层级 2】：三维坐标点 (x, y, z) 
+    // 第1个维度是 int，第2、3个维度由内部嵌套的 pair 提供
+    pair<int, pair<int, int>> p2(3, make_pair(4, 5));
+
+    // 【层级 3】：四个值的组合 (两两嵌套)
+    pair<pair<int, int>, pair<int, int>> p3(make_pair(6, 7), make_pair(8, 9));
+
+    // ==========================================
+    // 如何访问嵌套的数据？（就像剥洋葱一样一层层剥开）
+    // ==========================================
+
+    cout << "--- 访问 p2 (三个值) ---" << endl;
+    cout << p2.first << endl;                 // 获取最外层的 first: 3
+    cout << p2.second.first << endl;          // 深入 second 获取它的 first: 4
+    cout << p2.second.second << endl;         // 深入 second 获取它的 second: 5
+
+    cout << "--- 访问 p3 (四个值) ---" << endl;
+    cout << p3.first.first << endl;           // 获取左边 pair 的 first: 6
+    cout << p3.first.second << endl;          // 获取左边 pair 的 second: 7
+    cout << p3.second.first << endl;          // 获取右边 pair 的 first: 8
+    cout << p3.second.second << endl;         // 获取右边 pair 的 second: 9
+
+    return 0;
+}
+```
+
+**💡 优化建议总结**：
+
+手写复杂的嵌套 `pair<int, pair<int, int>>` 会让代码变得很长。在实际工程中，如果数据超过两个，通常会更倾向于使用 `struct` (结构体) 或者 C++11 的 `std::tuple` (元组)，这样代码的可读性会更高。但掌握 `pair` 嵌套对理解底层逻辑（尤其是在做算法题时）非常有帮助。

@@ -10,30 +10,153 @@ Revision Time: 2026-03-04T11:51:00
 [数据结构 stack](数据结构%20stack.md)
 [sort](sort.md)
 [STL-set](STL-set.md)
-### 🎯 核心功能 (Purpose)
-> 特点：自动去重 正序排序
+## `set` 容器核心功能 (Purpose)
 
-其他：
-find(数据)找这个数据的迭代器，找不到则返回end的迭代器
-empty() 判空
-count() 记元素出现的次数 它才是查找一个元素是否存在的方法。
+**两大核心特点**：
+
+1. **自动去重**：容器内不会有重复的元素。
+    
+2. **默认正序排序**：插入的元素会自动按照从小到大（升序）排列。
+    
+
+---
+
+## 📊 常用操作与方法速查 (Operations)
+
+### 1. 查找与基础判断
+
+- `find(value)`：查找指定的元素。如果找到，返回指向该元素的**迭代器**；如果找不到，返回 **`end()` 的头迭代器**。
+    
+- `empty()`：判断容器是否为空。
+    
+- `count(value)`：统计元素出现的次数。
+    
+    > 💡 **技巧**：因为 `set` 自动去重，所以返回值只能是 `0` 或 `1`。它常被用来**查找一个元素是否存在**。
+    
+
+### 2. 边界查找 (Bound)
+
+- `lower_bound(key)`：返回一个迭代器，指向**第一个 $\ge$ key** 的元素。
+    
+- `upper_bound(key)`：返回一个迭代器，指向**第一个 $>$ key** 的元素。
+    
+
+> ⚠️ **注意区分**：
+> 
+> 图片笔记中提到的 `*lower_bound(arr, arr+7, 3)` 属于 `<algorithm>` 库中对**普通数组**使用的泛型算法格式。
+> 
+> 如果是对 `set` 容器本身使用，应该直接调用其成员方法，且底层自带排序，格式为：`mySet.lower_bound(3);`
+
+### 3. 删除操作 (Erase)
+
+|**函数形式**|**功能说明**|
+|---|---|
+|`erase(iterator)`|删除**指定迭代器指向位置**的元素。（注意：`set` 迭代器不支持 `+` 偏移量直接相加）|
+|`erase(value)`|直接删除**给定数据值**的那个元素。|
+|`erase(iterator A, iterator B)`|删除 `[A, B)` 这个**左闭右开**区间内对应位置的元素。|
+
+---
+
+## ⚙️ 修改排序规则与变体
+
+默认的 `set` 是从小到大排的，如果需要改变这种行为，可以在定义时做文章：
 
 
-![Screenshot_2026-02-01-22-10-52-10_149003a2d400f6adb210d7e357a3a646](../../_assets/Screenshot_2026-02-01-22-10-52-10_149003a2d400f6adb210d7e357a3a646.jpg)
-lower-bound()使用前必须有序，它们返回的是一个内存地址（下标）。格式：
-![Screenshot_2026-02-07-16-47-45-61_149003a2d400f6adb210d7e357a3a646](../../_assets/Screenshot_2026-02-07-16-47-45-61_149003a2d400f6adb210d7e357a3a646.jpg)
-修改排序 为降序
 
-![Screenshot_2026-02-01-22-12-30-97_149003a2d400f6adb210d7e357a3a646](../../_assets/Screenshot_2026-02-01-22-12-30-97_149003a2d400f6adb210d7e357a3a646.jpg)
-示例
-![Screenshot_2026-03-04-11-57-35-49_769977972775e0c6b41aa3dfaf766445](../../_assets/Screenshot_2026-03-04-11-57-35-49_769977972775e0c6b41aa3dfaf766445.jpg)
+```C++
+// 1. 修改为降序 (从大到小)
+set<int, greater<int>> s; 
+
+// 2. 使用不排序的 set 集合 (底层是哈希表，查找速度更快)
+unordered_set<int> s1; 
+```
+
+---
+
+## 💻 `set` 完整代码示例
+
+```C++
+#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main() {
+    set<int> mySet;
+
+    // 1. 插入元素 (测试自动排序和去重)
+    mySet.insert(5);
+    mySet.insert(2);
+    mySet.insert(8);
+    mySet.insert(2); // 尝试插入重复元素
+
+    // 此时内部元素顺序自动变为: {2, 5, 8}
+    cout << "Set elements: ";
+    for (const auto& elem : mySet) {
+        cout << elem << " "; 
+    }
+    cout << endl;
+
+    // 2. 查找元素
+    int searchValue = 5;
+    auto it = mySet.find(searchValue); // 返回迭代器
+    if (it != mySet.end()) {
+        cout << searchValue << " found in the set." << endl;
+    } else {
+        cout << searchValue << " not found in the set." << endl;
+    }
+
+    // 3. 移除元素 (按值移除)
+    int removeValue = 2;
+    mySet.erase(removeValue);
+
+    // 再次遍历，此时元素为: {5, 8}
+    cout << "Set elements after removal: ";
+    for (const auto& elem : mySet) {
+        cout << elem << " ";
+    }
+    cout << endl;
+
+    // 4. 清空与判空
+    mySet.clear(); // 清空集合
+    if (mySet.empty()) {
+        cout << "Set is empty." << endl;
+    } else {
+        cout << "Set is not empty." << endl;
+    }
+
+    return 0;
+}
+```
+
+---
+
+## 🧬 拓展：`multiset` 容器
+
+`multiset` 是一种与 `set` 极度相似的容器，用法几乎一模一样。
+
+- **唯一的不同之处**：`multiset` **允许存储重复的元素**。
+    
+
+**它的底层定义结构如下：**
 
 
-multiset
 
-![Screenshot_2026-03-04-11-50-29-98_769977972775e0c6b41aa3dfaf766445](../../_assets/Screenshot_2026-03-04-11-50-29-98_769977972775e0c6b41aa3dfaf766445.jpg)
+```C++
+template <class Key, class Compare = less<Key>, class Allocator = allocator<Key>> 
+class multiset;
+```
 
-# 例题：
+- **Key**: 表示存储在 `multiset` 中的元素类型。
+    
+- **Compare**: 表示元素之间的比较函数对象类型。默认为 `less`（即按照元素的值从小到大进行比较）。
+    
+- **Allocator**: 表示用于分配内存的分配器类型，默认为 `allocator`。
+    
+
+**底层原理**：
+
+无论是 `set` 还是 `multiset`，它们的内部实现通常都使用了**红黑树 (Red-Black Tree)** 这种平衡二叉搜索树来存储元素。这也就是为什么它们能够在插入元素的同时，自动保持元素的有序性。# 例题：
 
 # P5250 【深基17.例5】木材仓库
 
