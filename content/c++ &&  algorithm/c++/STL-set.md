@@ -10,7 +10,7 @@ Revision Time: 2026-03-04T11:51:00
 [数据结构 stack](数据结构%20stack.md)
 [sort](sort.md)
 [STL-set](STL-set.md)
-## `set` 容器核心功能 (Purpose)
+## `set` 容器核心功能 (Purpose) 存储的是键（key）
 
 **两大核心特点**：
 
@@ -23,7 +23,7 @@ Revision Time: 2026-03-04T11:51:00
 
 ## 📊 常用操作与方法速查 (Operations)
 
-### 1. 查找与基础判断
+### 1. 查找与基础判断 value其实是key
 
 - `find(value)`：查找指定的元素。如果找到，返回指向该元素的**迭代器**；如果找不到，返回 **`end()` 的头迭代器**。
     
