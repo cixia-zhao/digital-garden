@@ -1,0 +1,9 @@
+- [x] 新增执行段数据模型、设置结构与后端聚合辅助逻辑
+- [x] 新增执行页接口、时间段增删改查与提交同步逻辑
+- [x] 新增执行台页面与今天页入口联动
+- [x] 新增单日复盘任务执行看板
+- [x] 新增设置页标签配置
+- [x] 补充 API / UI / 设置回归测试
+- [x] 运行 `python -m pytest -q`
+- [x] 运行 `python -m compileall app tests`
+- [x] 运行 `node --check app/static/app.js`

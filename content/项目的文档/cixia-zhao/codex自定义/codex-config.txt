@@ -1,0 +1,133 @@
+notify = [ "C:\\Users\\cixia\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\1b23c930bdf84ed6\\bin\\node_modules\\@oai\\sky\\bin\\windows\\codex-computer-use.exe", "turn-ended" ]
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+service_tier = "default"
+[windows]
+sandbox = "unelevated"
+
+[projects."c:\\users\\cixia\\desktop\\kong"]
+trust_level = "trusted"
+
+[projects."c:\\users\\cixia\\.gemini\\antigravity-ide"]
+trust_level = "trusted"
+
+[projects.'c:\users\cixia\documents\codex\2026-06-20\codex-remote-codex-standalone-codex-remote']
+trust_level = "trusted"
+
+[projects.'c:\users\cixia\desktop\daily plan']
+trust_level = "trusted"
+
+[projects.'c:\users\cixia\documents\codex\2026-06-27\s']
+trust_level = "trusted"
+
+[projects.'c:\users\cixia\documents\codex\2026-07-01\codex-logs-2-sqlite-trace-sqlite']
+trust_level = "trusted"
+
+[projects.'c:\users\cixia\documents\codex\2026-07-02\w-s']
+trust_level = "trusted"
+
+[marketplaces.openai-bundled]
+last_updated = "2026-07-03T13:54:19Z"
+source_type = "local"
+source = '\\?\C:\Users\cixia\.codex\.tmp\bundled-marketplaces\openai-bundled'
+
+[marketplaces.openai-primary-runtime]
+last_updated = "2026-07-01T10:08:57Z"
+source_type = "local"
+source = '\\?\C:\Users\cixia\.cache\codex-runtimes\codex-primary-runtime\plugins\openai-primary-runtime'
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."chrome@openai-bundled"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[features]
+js_repl = false
+memories = true
+remote_connections = true
+network_proxy = true
+
+[mcp_servers.node_repl]
+args = []
+command = 'C:\Users\cixia\AppData\Local\OpenAI\Codex\runtimes\cua_node\1b23c930bdf84ed6\bin\node_repl.exe'
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = 'C:\Users\cixia\AppData\Local\OpenAI\Codex\runtimes\cua_node\1b23c930bdf84ed6\bin\node_modules'
+NODE_REPL_NODE_PATH = 'C:\Users\cixia\AppData\Local\OpenAI\Codex\runtimes\cua_node\1b23c930bdf84ed6\bin\node.exe'
+NODE_REPL_TRUSTED_CODE_PATHS = 'C:\Users\cixia\.codex'
+CODEX_HOME = 'C:\Users\cixia\.codex'
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "566be6ef352eb3de899adc56a9cd7b5e46c8f65b00e56b5630dd7a580e10cbea,60e4902788f207f88fd09344dfeafe07769488bdb2924bbb12b322c3b9d2b999"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.623.101652"
+SKY_CUA_NATIVE_PIPE = "1"
+SKY_CUA_NATIVE_PIPE_DIRECTORY = '\\.\pipe\codex-computer-use-760865f7-9056-4426-8b16-1c1e1acdb53d'
+CODEX_CLI_PATH = 'C:\Users\cixia\AppData\Local\OpenAI\Codex\bin\ea1c60319a1dcb19\codex.exe'
+
+[desktop]
+conversationDetailMode = "STEPS_COMMANDS"
+ambient-suggestions-enabled = true
+show-context-window-usage = true
+hotkey-window-projectless-default-enabled = true
+appearanceLightCodeThemeId = "one"
+appearanceTheme = "dark"
+selected-avatar-id = "fireball"
+followUpQueueMode = "steer"
+appearanceDarkCodeThemeId = "ayu"
+defaultTerminalLocation = "right"
+
+[desktop.open-in-target-preferences]
+global = "vscode"
+
+[desktop.open-in-target-preferences.perPath]
+'\\?\C:\Users\cixia\.gemini\antigravity-ide' = "vscode"
+
+[desktop.appearanceLightChromeTheme]
+accent = "#526fff"
+contrast = 45
+ink = "#383a42"
+opaqueWindows = false
+surface = "#fafafa"
+
+[desktop.appearanceLightChromeTheme.fonts]
+[desktop.appearanceLightChromeTheme.semanticColors]
+diffAdded = "#3bba54"
+diffRemoved = "#e45649"
+skill = "#526fff"
+
+[desktop.appearanceDarkChromeTheme]
+accent = "#e6b450"
+contrast = 60
+ink = "#bfbdb6"
+opaqueWindows = false
+surface = "#10141c"
+
+[desktop.appearanceDarkChromeTheme.fonts]
+
+[desktop.appearanceDarkChromeTheme.semanticColors]
+diffAdded = "#70bf56"
+diffRemoved = "#f26d78"
+skill = "#d0a1ff"
