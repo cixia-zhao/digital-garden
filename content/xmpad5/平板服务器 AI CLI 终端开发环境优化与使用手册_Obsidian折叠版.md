@@ -512,6 +512,11 @@ bind -r J resize-pane -D 3
 bind -r K resize-pane -U 3
 bind -r L resize-pane -R 5
 
+# 临时工具浮窗：从当前项目目录打开，退出后回到原来的Codex画面
+bind-key T display-popup -h 85% -w 80% -E "sesh picker"
+bind-key y display-popup -d "#{pane_current_path}" -h 90% -w 90% -E "yazi"
+bind-key g display-popup -d "#{pane_current_path}" -h 90% -w 90% -E "glow -t ."
+
 # TPM与插件
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
@@ -747,13 +752,19 @@ preview_command = "eza -lah --git --color=always /srv/workspaces/xitong"
 
 这里不让sesh自动启动Codex，避免误开多个AI进程。
 
-### tmux中加入sesh选择器
+### tmux中加入项目、文件和文档入口
 
 在 `~/.tmux.conf` 的TPM配置之前加入：
 
 ```tmux
 # 在tmux中按 Prefix + T 打开项目/session选择器
 bind-key T display-popup -h 85% -w 80% -E "sesh picker"
+
+# 在当前项目目录临时打开Yazi文件浏览器
+bind-key y display-popup -d "#{pane_current_path}" -h 90% -w 90% -E "yazi"
+
+# 在当前项目目录临时打开Glow Markdown文档库
+bind-key g display-popup -d "#{pane_current_path}" -h 90% -w 90% -E "glow -t ."
 ```
 
 重新加载：
@@ -761,6 +772,96 @@ bind-key T display-popup -h 85% -w 80% -E "sesh picker"
 ```bash
 tmux source-file ~/.tmux.conf
 ```
+
+说明：
+
+- `Prefix + T`：sesh项目/session选择器，适合已配置项目时使用。
+- `Prefix + y`：Yazi浮窗，适合临时浏览和预览文件；它不会改变原来pane的工作目录。
+- `Prefix + g`：Glow浮窗，适合浏览当前项目中的Markdown文档；按 `q`退出。
+
+### 登录后选择已有tmux会话：`ts`
+
+`ts`只处理**已经在运行的tmux会话**，不列目录、不自动创建项目。它用tmux提供会话和预览，用fzf提供搜索界面；适合“刚SSH登录，不记得上次在哪个会话”。
+
+创建脚本：
+
+```bash
+cat > ~/.local/bin/tmux-session-picker <<'EOF'
+#!/usr/bin/env bash
+set -u
+
+list_sessions() {
+  tmux list-sessions -F $'#{session_name}\t#{session_windows}\t#{?session_attached,已连接,未连接}\t#{window_name}\t#{t:session_activity}\t#{session_activity}' 2>/dev/null \
+    | sort -t $'\t' -k6,6nr \
+    | awk -F $'\t' '{ printf "%s\t%s  · 当前窗口：%s · %s 个窗口 · %s · 最近 %s\n", $1, $1, $4, $2, $3, $5 }'
+}
+
+preview_session() {
+  local session_name="$1"
+  printf '会话：%s\n\n最近的屏幕输出：\n' "$session_name"
+  tmux capture-pane -p -t "=${session_name}:" -S -80 2>/dev/null \
+    || printf '\n（该会话已结束，或暂时无法读取预览。）\n'
+}
+
+delete_session() {
+  local session_name="$1" answer
+  if ! tmux has-session -t "=${session_name}" 2>/dev/null; then
+    printf '\n会话“%s”已经不存在了。\n' "$session_name" >/dev/tty
+    return 0
+  fi
+  printf '\n删除会话“%s”吗？其中正在运行的 Codex、Shell 和任务都会停止。输入 y 确认： ' "$session_name" >/dev/tty
+  IFS= read -r answer </dev/tty || return 0
+  case "$answer" in
+    y|Y|yes|YES) tmux kill-session -t "=${session_name}"; printf '已删除会话“%s”。\n' "$session_name" >/dev/tty ;;
+    *) printf '已取消删除。\n' >/dev/tty ;;
+  esac
+}
+
+choose_session() {
+  local selected session_name
+  if ! tmux has-session 2>/dev/null; then
+    printf '当前没有正在运行的 tmux 会话。\n' >&2
+    return 0
+  fi
+  selected="$({ list_sessions; } | fzf \
+    --no-multi --no-sort --delimiter=$'\t' --with-nth=2.. \
+    --prompt='会话 › ' --border-label=' tmux 会话 ' \
+    --header='直接输入名称搜索 · Enter 进入 · Ctrl-d 删除（会确认）· Esc 取消' \
+    --preview="$0 --preview {1}" --preview-window='down:45%:wrap' \
+    --bind="ctrl-d:execute($0 --delete {1})+reload($0 --list)+clear-query")" || return 0
+  session_name="${selected%%$'\t'*}"
+  [ -n "$session_name" ] || return 0
+  if [ -n "${TMUX:-}" ]; then tmux switch-client -t "=${session_name}"; else tmux attach-session -t "=${session_name}"; fi
+}
+
+case "${1:-}" in
+  --list) list_sessions ;;
+  --preview) preview_session "${2:?缺少会话名}" ;;
+  --delete) delete_session "${2:?缺少会话名}" ;;
+  "") choose_session ;;
+  *) printf '用法：%s\n' "$(basename "$0")" >&2; exit 2 ;;
+esac
+EOF
+chmod 755 ~/.local/bin/tmux-session-picker
+```
+
+在 `~/.bashrc` 中加入：
+
+```bash
+# 登录后用 ts 搜索并进入已有 tmux 会话；目录切换仍使用 y（Yazi）。
+ts() {
+  command tmux-session-picker "$@"
+}
+```
+
+加载和验证：
+
+```bash
+source ~/.bashrc
+ts
+```
+
+`ts` 中直接输入部分会话名筛选，`Enter`进入，`Esc`或 `Ctrl-c`取消；`Ctrl-d`删除选中的整个会话，且必须输入 `y` 才确认。tmux外运行时它附着到目标会话，tmux内运行时它切换当前客户端，不会嵌套tmux。
 
 ---
 
@@ -1323,9 +1424,9 @@ pkg install termux-api
 
 ## 推荐学习顺序
 
-1. Termux、SSH、tmux；
+1. Termux、SSH、tmux和 `ts` 会话选择器；
 2. Codex CLI；
-3. Yazi、bat、Glow、eza、fd；
+3. Glow、Yazi、bat、eza、fd；
 4. lazygit和delta；
 5. zoxide、sesh、fzf；
 6. Atuin；
@@ -1506,6 +1607,20 @@ pkg install termux-api
 >
 > Termux快捷栏中的 `TMUX` 已经等于 `Ctrl-b`。
 >
+> ## 先学这条会话工作流
+>
+> 不要在刚登录后直接输入裸命令 `tmux`。它会创建新的数字会话，久而久之会出现 `1`、`2`、`7` 这类难懂的工作区。
+>
+> 刚SSH登录、还不在tmux中时，先输入：
+>
+> ```bash
+> ts
+> ```
+>
+> `ts`显示所有**正在运行**的tmux会话，并按最近活动排序。直接输入 `bui` 之类的片段筛选，`Enter`进入；下半屏会显示选中会话的最近输出。`Esc`取消；`Ctrl-d`删除整个选中会话，必须输入 `y` 确认。
+>
+> 这解决“我不记得上次在哪个项目”的问题。目录切换是另一件事：进入一个普通Shell后使用 `y`（Yazi），不要让会话选择器混入目录。
+>
 > ## 每天最常用
 >
 > ### 创建或连接session
@@ -1549,6 +1664,18 @@ pkg install termux-api
 > Prefix + w
 > ```
 >
+> 这是tmux原生的会话树，不只是窗口列表。进入后**不要再按Prefix**：
+>
+> | 按键 | 作用 |
+> |---|---|
+> | `↑` / `↓` | 移动选择 |
+> | `Ctrl-s` | 按名称搜索会话、窗口或pane |
+> | `Enter` | 进入选中项目 |
+> | `x` | 删除选中的会话、窗口或pane；随后按 `y` 确认 |
+> | `q` | 退出会话树 |
+>
+> 选中会话的顶层行时，`x`删除整个会话；选中它下面的窗口行时，只删除该窗口。删除会话会终止其中的Codex、Shell和任务。
+>
 > ### 新建window
 >
 > ```text
@@ -1560,6 +1687,16 @@ pkg install termux-api
 > ```text
 > Prefix + ,
 > ```
+>
+> ### 关闭当前window
+>
+> 最自然的方法是在其中的普通Shell输入：
+>
+> ```bash
+> exit
+> ```
+>
+> 若当前运行Codex，先在Codex中 `/exit` 或按 `Ctrl-c`，再 `exit`。也可以使用 `Prefix + &`，tmux会询问确认并关闭整个当前window。
 >
 > ### 切换window
 >
@@ -1683,6 +1820,15 @@ pkg install termux-api
 > ```text
 > Prefix + r
 > ```
+>
+> ### 当前项目的文档和文件浮窗
+>
+> ```text
+> Prefix + g    打开Glow Markdown文档库
+> Prefix + y    打开Yazi文件浏览器
+> ```
+>
+> 两者都从当前pane所在项目目录打开；在浮窗中按 `q`退出，立刻回到Codex。它们用于临时查看，不会替换当前Codex，也不会改变原pane的目录。
 >
 > ## session命令
 >
@@ -1851,6 +1997,10 @@ pkg install termux-api
 >
 > 而不是直接 `yazi`。因为 `y`包装函数会让你退出后停留在Yazi最后所在目录。
 >
+> 这里的“普通Shell”是看到 `codexdev@服务器名:路径$` 的命令提示符，不是Codex对话输入框，也不是 `Prefix + y` 浮窗。实用流程是：在普通Shell输入 `y`，进入目标项目目录后按 `q`，当前Shell就已经位于该目录；随后在这里运行 `codex`。
+>
+> `Prefix + y` 与直接输入 `y` 的区别：前者是临时浏览浮窗，退出后不改变原pane目录；后者运行在当前Shell内，退出后会自动 `cd` 到Yazi最后所在目录。
+>
 > ## 每天最常用
 >
 > | 按键 | 作用 |
@@ -1946,6 +2096,19 @@ pkg install termux-api
 >
 > - `-w 80`限制显示宽度，适合平板。
 > - Glow中通常按 `q`退出，按 `?`看帮助。
+>
+> 已在tmux中时，优先使用：
+>
+> ```text
+> Prefix + g
+> ```
+>
+> 它在当前项目目录启动Glow的Markdown文档库。已知文件名时也可在普通Shell中直接阅读：
+>
+> ```bash
+> glow -p README.md
+> glow -p HANDOFF.md
+> ```
 >
 > ## eza
 >
@@ -2072,6 +2235,13 @@ pkg install termux-api
 ### 快捷进入优化
 > [!abstract]- 7. zoxide、sesh和fzf：快速进入项目和tmux会话
 >
+> ## 先分清三者的职责
+>
+> - `ts`：只找回**正在运行**的tmux会话。刚SSH登录、不知道上次在哪时优先用它。
+> - `y`（Yazi）：在当前普通Shell中浏览目录；退出后把这个Shell带到选中的目录。
+> - `sesh`：管理已登记项目、常用目录和tmux会话的较高层工具；它可用，但不是日常找回旧会话的必经入口。
+> - `fzf`：只是一种“输入几字过滤、回车选择”的界面；`ts`正是用它来搜索tmux会话。
+>
 > ## zoxide
 >
 > 它会根据使用频率记住目录。
@@ -2114,7 +2284,7 @@ pkg install termux-api
 >
 > ## sesh
 >
-> sesh把目录和tmux session结合起来。
+> sesh把目录、已配置项目和tmux session结合起来。它更适合“我想从项目目录新开或连接工作区”；若只是恢复正在运行的会话，优先使用 `ts`，列表更干净，也不会把目录混进来。
 >
 > ### 查看项目与session
 >
@@ -2438,32 +2608,33 @@ pkg install termux-api
 
 # 第四部分：日常最短工作流
 
-## 点击桌面Widget进入服务器
+## 进入服务器并找回工作现场
 
 ```text
 服务器工作台
 ```
 
-自动连接：
+登录服务器后，先在普通Shell输入：
 
-```text
-SSH
-→ tablet-dev tmux
+```bash
+ts
 ```
 
-## 选择项目
+输入会话名的一部分筛选，回车进入上次留下的tmux工作现场。只有明确知道目标时，才直接使用 `tmux attach -t 会话名`。
+
+## 临时查看文档或文件
 
 在tmux中：
 
 ```text
-Prefix + T
+Prefix + g    查看当前项目的Markdown文档
+Prefix + y    临时浏览当前项目文件
 ```
 
-选择：
+若要让普通Shell真正进入某个目录，再直接输入：
 
-```text
-daily-plan
-xitong
+```bash
+y
 ```
 
 ## 启动Codex
@@ -2572,6 +2743,29 @@ ls
 
 Yazi不是系统依赖，删除 `~/.local/bin/yazi` 和 `ya`即可卸载。
 
+## `ts` 会话选择器异常
+
+重新加载Bash后再试：
+
+```bash
+source ~/.bashrc
+ts
+```
+
+若提示没有会话，先检查：
+
+```bash
+tmux list-sessions
+```
+
+`ts`只是选择和附着层；原生回退方式始终可用：
+
+```bash
+tmux attach -t 会话名
+```
+
+若脚本本身被删，可按第二部分“登录后选择已有tmux会话：`ts`”重建 `~/.local/bin/tmux-session-picker`，然后执行 `chmod 755 ~/.local/bin/tmux-session-picker`。
+
 ## sesh异常
 
 仍然可以使用原生：
@@ -2597,6 +2791,7 @@ sesh只是辅助管理层。
 ~/.config/starship.toml
 ~/.config/atuin/
 ~/.local/share/atuin/
+~/.local/bin/tmux-session-picker
 ~/.config/ntfy/
 ~/.termux/termux.properties
 ~/.shortcuts/
